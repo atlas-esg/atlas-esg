@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas ESG — Upload. Estruture. Entenda.</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -156,15 +156,6 @@
   }
   .doc-chip.active { background: rgba(44,180,226,0.07); border-color: rgba(44,180,226,0.3); color: var(--ocean-deep); }
 
-  /* TRUST BAR */
-  .trust-bar {
-    background: var(--dark); padding: 1.2rem 5rem;
-    display: flex; align-items: center; gap: 3rem; overflow: hidden;
-  }
-  .trust-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); white-space: nowrap; }
-  .trust-logos { display: flex; gap: 3rem; align-items: center; flex: 1; flex-wrap: wrap; }
-  .trust-logo-item { font-family: 'DM Serif Display', serif; color: rgba(255,255,255,0.4); font-size: 0.88rem; white-space: nowrap; }
-
   /* SECTION BASE */
   .section-eyebrow {
     font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
@@ -178,35 +169,136 @@
     letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
   }
 
-  /* BEFORE / AFTER */
+  /* ── FLOW DIAGRAM (replaces trust bar) ── */
+  .flow-section {
+    background: var(--dark); padding: 5rem 5rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .flow-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(44,180,226,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.055) 1px, transparent 1px);
+    background-size: 60px 60px; pointer-events: none;
+  }
+  .flow-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .flow-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(44,180,226,0.55); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+  .flow-eyebrow::before { content:''; display:inline-block; width:14px; height:2px; background: rgba(44,180,226,0.4); border-radius:2px; }
+  .flow-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,2.5vw,2.2rem); color: white; margin-bottom: 3rem; letter-spacing: -0.02em; }
+  .flow-title em { color: var(--ocean); font-style: italic; }
+
+  .flow-diagram {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 0; align-items: center;
+  }
+  .flow-node {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    animation: fadeUp 0.6s ease both;
+  }
+  .flow-node:hover { background: rgba(255,255,255,0.09); border-color: rgba(44,180,226,0.3); transform: translateY(-3px); }
+  .flow-node.magic {
+    background: linear-gradient(135deg, rgba(44,180,226,0.15), rgba(44,180,226,0.05));
+    border-color: rgba(44,180,226,0.3);
+  }
+  .flow-node.output {
+    background: linear-gradient(135deg, rgba(184,206,103,0.12), rgba(184,206,103,0.04));
+    border-color: rgba(184,206,103,0.25);
+  }
+  .flow-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
+  .flow-label { font-size: 0.78rem; font-weight: 700; color: white; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .flow-sub { font-size: 0.68rem; color: rgba(255,255,255,0.38); line-height: 1.5; }
+
+  .flow-docs { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.8rem; }
+  .flow-doc-pill {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 0.25rem 0.6rem;
+    font-size: 0.62rem; color: rgba(255,255,255,0.5); text-align: left;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+
+  .flow-arrow {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    padding: 0 0.5rem;
+  }
+  .flow-arrow-line {
+    width: 40px; height: 2px;
+    background: linear-gradient(90deg, rgba(44,180,226,0.3), rgba(44,180,226,0.6));
+    position: relative;
+  }
+  .flow-arrow-line::after {
+    content: ''; position: absolute; right: -1px; top: -4px;
+    width: 0; height: 0;
+    border-left: 7px solid rgba(44,180,226,0.6);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+  .flow-arrow-label { font-size: 0.58rem; color: rgba(44,180,226,0.5); white-space: nowrap; font-weight: 600; letter-spacing: 0.05em; }
+
+  .magic-badge {
+    display: inline-block; background: rgba(44,180,226,0.2); border: 1px solid rgba(44,180,226,0.3);
+    color: var(--ocean); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem;
+  }
+
+  .output-badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; justify-content: center; }
+  .output-badge {
+    background: rgba(184,206,103,0.12); border: 1px solid rgba(184,206,103,0.2);
+    color: var(--ygreen); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
+    padding: 0.22rem 0.5rem; border-radius: 4px;
+  }
+
+  /* ANTES / DEPOIS TABLE */
   .transform-section { padding: 8rem 5rem; background: var(--white); }
-  .transform-inner { max-width: 1100px; margin: 0 auto; }
-  .transform-grid {
-    display: grid; grid-template-columns: 1fr 60px 1fr;
-    gap: 0; align-items: start; margin-top: 4rem;
+  .transform-inner { max-width: 900px; margin: 0 auto; }
+
+  .antes-depois-table {
+    width: 100%; border-collapse: collapse; margin-top: 3.5rem;
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 4px 30px rgba(28,43,58,0.07);
   }
-  .transform-col {
-    background: var(--sand); border-radius: 10px; padding: 2.2rem;
-    border: 1px solid var(--gray-light);
+  .antes-depois-table thead tr {
+    background: var(--dark);
   }
-  .transform-col.before { border-top: 3px solid rgba(180,80,60,0.25); }
-  .transform-col.after  { border-top: 3px solid var(--ocean); background: var(--white); }
-  .tcol-label {
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.5rem;
+  .antes-depois-table thead th {
+    padding: 1rem 1.4rem;
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
   }
-  .transform-col.before .tcol-label { color: rgba(140,50,30,0.6); }
-  .transform-col.after  .tcol-label { color: var(--ocean-deep); }
-  .t-item {
-    display: flex; align-items: flex-start; gap: 0.8rem;
-    margin-bottom: 1.1rem; padding-bottom: 1.1rem;
+  .antes-depois-table thead th:first-child { color: rgba(255,255,255,0.3); }
+  .antes-depois-table thead th.col-sem { color: rgba(220,100,80,0.75); }
+  .antes-depois-table thead th.col-com { color: rgba(44,180,226,0.8); }
+
+  .antes-depois-table tbody tr:nth-child(odd) { background: var(--sand); }
+  .antes-depois-table tbody tr:nth-child(even) { background: var(--white); }
+  .antes-depois-table tbody tr:hover { background: rgba(44,180,226,0.04); }
+
+  .antes-depois-table td {
+    padding: 1.1rem 1.4rem;
+    font-size: 0.86rem;
+    color: var(--dark);
     border-bottom: 1px solid var(--gray-light);
+    vertical-align: top;
   }
-  .t-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-  .t-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
-  .t-text h4 { font-size: 0.88rem; font-weight: 600; color: var(--dark); margin-bottom: 0.2rem; }
-  .t-text p  { font-size: 0.8rem; color: var(--gray); line-height: 1.55; }
-  .transform-arrow { display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--ocean); opacity: 0.4; padding-top: 2rem; }
+  .antes-depois-table tbody tr:last-child td { border-bottom: none; }
+  .antes-depois-table td.situation {
+    font-weight: 700; font-size: 0.82rem;
+    color: var(--dark); white-space: nowrap;
+    width: 130px;
+  }
+  .antes-depois-table td.sem-col {
+    color: #8c3820; font-size: 0.83rem; line-height: 1.55;
+  }
+  .antes-depois-table td.com-col {
+    color: var(--ocean-deep); font-size: 0.83rem; line-height: 1.55;
+  }
 
   /* HOW IT WORKS */
   .how-section { background: var(--dark); padding: 8rem 5rem; position: relative; overflow: hidden; }
@@ -237,51 +329,168 @@
   .step-tag.cu-tag { background: rgba(184,115,51,0.1); border-color: rgba(184,115,51,0.18); color: var(--copper-light); }
   .step-tag.yg-tag { background: rgba(184,206,103,0.1); border-color: rgba(184,206,103,0.18); color: var(--ygreen); }
 
-  /* ATLAS GRID */
-  .atlas-section { padding: 8rem 5rem; background: var(--sand); }
-  .atlas-inner { max-width: 1100px; margin: 0 auto; }
-  .atlas-grid {
+  /* ── ESG COMPACT SECTION ── */
+  .esg-compact-section { padding: 6rem 5rem; background: var(--white); }
+  .esg-compact-inner { max-width: 1100px; margin: 0 auto; }
+  .esg-compact-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: var(--gray-light); border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--gray-light); margin-top: 3.5rem;
+    gap: 0; margin-top: 3rem;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--gray-light);
+    box-shadow: 0 4px 30px rgba(28,43,58,0.06);
   }
-  .atlas-item { background: var(--white); padding: 2rem; transition: background 0.2s; }
-  .atlas-item:hover { background: rgba(44,180,226,0.03); }
-  .atlas-item-icon { font-size: 1.4rem; margin-bottom: 0.7rem; }
-  .atlas-item h3 { font-family: 'DM Serif Display', serif; font-size: 0.98rem; color: var(--dark); margin-bottom: 0.4rem; }
-  .atlas-item p { font-size: 0.81rem; color: var(--gray); line-height: 1.6; }
-  .atlas-item-tag { display: inline-block; margin-top: 0.8rem; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocean-deep); }
+  .esg-col {
+    padding: 2rem 1.8rem; position: relative;
+    border-right: 1px solid var(--gray-light);
+  }
+  .esg-col:last-child { border-right: none; }
+  .esg-col-e { background: #f8fdf5; }
+  .esg-col-s { background: #f5fafd; }
+  .esg-col-g { background: #fdf8f3; }
 
-  /* POSITIONING STRIP */
-  .position-strip { background: var(--ocean); padding: 4rem 5rem; }
-  .position-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 3rem; align-items: start; }
-  .position-item { text-align: center; }
-  .position-divider { background: rgba(255,255,255,0.2); }
-  .position-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.7rem; }
-  .position-text { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: white; line-height: 1.4; }
+  .esg-col-letter {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem; line-height: 1; font-weight: 400;
+    margin-bottom: 0.2rem; letter-spacing: -0.03em;
+  }
+  .esg-col-e .esg-col-letter { color: #5a9e4a; opacity: 0.25; }
+  .esg-col-s .esg-col-letter { color: var(--ocean); opacity: 0.25; }
+  .esg-col-g .esg-col-letter { color: var(--copper); opacity: 0.3; }
 
-  /* PRICING */
+  .esg-col-label {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .esg-col-e .esg-col-label { color: #5a9e4a; }
+  .esg-col-s .esg-col-label { color: var(--ocean-deep); }
+  .esg-col-g .esg-col-label { color: var(--copper); }
+
+  .esg-topic { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--gray-light); }
+  .esg-topic:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .esg-topic-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .esg-topic-icon { font-size: 1rem; }
+  .esg-topic-title { font-weight: 700; font-size: 0.85rem; color: var(--dark); }
+  .esg-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+  .esg-chip {
+    font-size: 0.63rem; font-weight: 500; padding: 0.18rem 0.55rem;
+    border-radius: 4px; border: 1px solid;
+  }
+  .esg-col-e .esg-chip { background: rgba(90,158,74,0.08); border-color: rgba(90,158,74,0.2); color: #3d7a33; }
+  .esg-col-s .esg-chip { background: rgba(44,180,226,0.08); border-color: rgba(44,180,226,0.2); color: var(--ocean-deep); }
+  .esg-col-g .esg-chip { background: rgba(184,115,51,0.08); border-color: rgba(184,115,51,0.2); color: var(--copper); }
+
+  .esg-sources-mini { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.5rem; }
+  .esg-src { font-size: 0.72rem; color: var(--gray); display: flex; align-items: baseline; gap: 0.3rem; }
+  .esg-src::before { content: '↳'; color: var(--gray-light); flex-shrink: 0; font-size: 0.65rem; }
+
+  .esg-gri-tag {
+    display: inline-block; margin-top: 1.2rem;
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.18rem 0.5rem; border-radius: 3px;
+  }
+  .esg-col-e .esg-gri-tag { background: rgba(90,158,74,0.1); color: #3d7a33; }
+  .esg-col-s .esg-gri-tag { background: rgba(44,180,226,0.1); color: var(--ocean-deep); }
+  .esg-col-g .esg-gri-tag { background: rgba(184,115,51,0.1); color: var(--copper); }
+
+  /* POSITIONING STRIP — upgraded */
+  .position-section { background: var(--dark); padding: 6rem 5rem; position: relative; overflow: hidden; }
+  .position-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(44,180,226,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.04) 1px, transparent 1px);
+    background-size: 60px 60px; pointer-events: none;
+  }
+  .position-inner-new { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .position-top { text-align: center; margin-bottom: 3rem; }
+  .position-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(44,180,226,0.5); margin-bottom: 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .position-eyebrow::before, .position-eyebrow::after { content:''; display:inline-block; width:20px; height:1px; background: rgba(44,180,226,0.3); }
+  .position-top h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem,2.5vw,2.4rem); color: white; letter-spacing: -0.02em; margin-bottom: 0.8rem; }
+  .position-top p { font-size: 0.9rem; color: rgba(255,255,255,0.35); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+  .position-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .pos-card {
+    border-radius: 12px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.25s;
+  }
+  .pos-card:hover { transform: translateY(-3px); }
+  .pos-card.missao { background: linear-gradient(135deg, rgba(44,180,226,0.12), rgba(44,180,226,0.04)); border: 1px solid rgba(44,180,226,0.2); }
+  .pos-card.visao { background: linear-gradient(135deg, rgba(184,206,103,0.1), rgba(184,206,103,0.03)); border: 1px solid rgba(184,206,103,0.18); }
+  .pos-card.valores { background: linear-gradient(135deg, rgba(184,115,51,0.1), rgba(184,115,51,0.03)); border: 1px solid rgba(184,115,51,0.18); }
+  .pos-card-label {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .pos-card.missao .pos-card-label { color: rgba(44,180,226,0.7); }
+  .pos-card.visao .pos-card-label { color: rgba(184,206,103,0.7); }
+  .pos-card.valores .pos-card-label { color: rgba(184,115,51,0.75); }
+  .pos-card-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .pos-card-text { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .pos-card-text strong { color: rgba(255,255,255,0.9); }
+  .valores-list { list-style: none; padding: 0; margin-top: 0.6rem; display: flex; flex-direction: column; gap: 0.55rem; }
+  .valores-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .valores-list li::before { content: '—'; color: rgba(184,115,51,0.5); font-size: 0.7rem; flex-shrink: 0; }
+
+  /* PRICING TABLE */
   .pricing-section { padding: 8rem 5rem; background: var(--white); }
   .pricing-inner { max-width: 1000px; margin: 0 auto; }
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-  .price-card { border: 1px solid var(--gray-light); border-radius: 10px; padding: 2.2rem; transition: box-shadow 0.2s; }
-  .price-card:hover { box-shadow: 0 8px 30px rgba(28,43,58,0.07); }
-  .price-card.featured { border-color: var(--ocean); box-shadow: 0 0 0 2px rgba(44,180,226,0.12); }
-  .price-plan { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.8rem; }
-  .price-card.featured .price-plan { color: var(--ocean-deep); }
-  .price-amount { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--dark); line-height: 1; margin-bottom: 0.3rem; }
-  .price-per { font-size: 0.77rem; color: var(--gray); margin-bottom: 1.8rem; }
-  .price-feature { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--dark); margin-bottom: 0.75rem; }
-  .check { color: var(--ocean); flex-shrink: 0; margin-top: 1px; }
-  .price-btn {
-    display: block; width: 100%; background: var(--sand); color: var(--dark);
-    font-weight: 600; font-size: 0.88rem; padding: 0.85rem; border-radius: 6px;
-    text-decoration: none; text-align: center; margin-top: 1.8rem;
-    border: 1px solid var(--gray-light); transition: all 0.2s;
+
+  .pricing-table-wrap { margin-top: 3.5rem; overflow: hidden; border-radius: 12px; border: 1px solid var(--gray-light); box-shadow: 0 4px 30px rgba(28,43,58,0.06); }
+  .pricing-table { width: 100%; border-collapse: collapse; }
+
+  .pricing-table thead tr { background: var(--dark); }
+  .pricing-table thead th {
+    padding: 1.2rem 1.5rem; text-align: left;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
   }
-  .price-btn:hover { background: var(--dark); color: white; border-color: var(--dark); }
-  .price-card.featured .price-btn { background: var(--ocean); color: white; border-color: var(--ocean); }
-  .price-card.featured .price-btn:hover { background: var(--ocean-deep); }
+  .pricing-table thead th.plan-col { color: rgba(255,255,255,0.7); }
+  .pricing-table thead th.price-col { color: var(--ocean); }
+
+  .pricing-table tbody tr:nth-child(odd) { background: var(--sand); }
+  .pricing-table tbody tr:nth-child(even) { background: var(--white); }
+  .pricing-table tbody tr.featured-row { background: rgba(44,180,226,0.05); }
+  .pricing-table tbody tr:hover { background: rgba(44,180,226,0.06); }
+  .pricing-table td { padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--gray-light); vertical-align: top; font-size: 0.85rem; }
+  .pricing-table tbody tr:last-child td { border-bottom: none; }
+
+  .plan-name { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.3rem; }
+  .plan-desc { font-size: 0.77rem; color: var(--gray); line-height: 1.5; max-width: 220px; }
+  .plan-badge { display: inline-block; margin-top: 0.5rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(44,180,226,0.1); color: var(--ocean-deep); }
+
+  .price-amount-cell { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--dark); white-space: nowrap; }
+  .price-per-cell { font-size: 0.72rem; color: var(--gray); margin-top: 0.2rem; }
+
+  .features-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .feat-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--dark); }
+  .feat-check { color: var(--ocean); flex-shrink: 0; font-size: 0.75rem; margin-top: 2px; }
+  .feat-note { font-size: 0.72rem; color: var(--gray); margin-top: 0.5rem; font-style: italic; }
+  .feat-limit { font-size: 0.72rem; color: var(--copper); margin-top: 0.3rem; display: flex; align-items: center; gap: 0.4rem; }
+
+  .cta-cell { white-space: nowrap; }
+  .plan-cta {
+    display: inline-block; padding: 0.7rem 1.4rem; border-radius: 6px;
+    font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: all 0.2s;
+    border: 1.5px solid var(--gray-light); color: var(--dark); background: var(--white);
+  }
+  .plan-cta:hover { background: var(--dark); color: white; border-color: var(--dark); }
+  .plan-cta.featured-cta { background: var(--ocean); color: white; border-color: var(--ocean); }
+  .plan-cta.featured-cta:hover { background: var(--ocean-deep); }
+
+  .feat-row-label {
+    font-size: 0.82rem; font-weight: 600; color: var(--dark);
+    padding: 0.9rem 1.5rem; vertical-align: middle;
+  }
+  .feat-cell {
+    text-align: center; font-size: 0.82rem; color: var(--dark);
+    padding: 0.9rem 1rem; vertical-align: middle; line-height: 1.45;
+  }
+  .feat-cell.featured-col {
+    background: rgba(44,180,226,0.04);
+    border-left: 2px solid rgba(44,180,226,0.2);
+    border-right: 2px solid rgba(44,180,226,0.2);
+  }
+  .feat-yes { color: var(--ocean-deep); font-weight: 700; font-size: 1rem; }
+  .feat-no { color: var(--gray-light); font-size: 1rem; }
 
   /* CTA */
   .cta-section { background: var(--dark); padding: 8rem 5rem; text-align: center; position: relative; overflow: hidden; }
@@ -311,15 +520,18 @@
     nav { padding: 1rem 1.5rem; }
     .nav-right .nav-link { display: none; }
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
-    .transform-section, .how-section, .atlas-section, .pricing-section, .cta-section { padding: 5rem 1.5rem; }
-    .steps-row, .pricing-grid { grid-template-columns: 1fr; }
-    .atlas-grid { grid-template-columns: 1fr 1fr; }
-    .transform-grid { grid-template-columns: 1fr; }
-    .transform-arrow { display: none; }
-    .position-inner { grid-template-columns: 1fr; }
-    .position-divider { display: none; }
-    .trust-bar { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .transform-section, .how-section, .esg-section, .pricing-section, .cta-section, .flow-section, .position-section { padding: 5rem 1.5rem; }
+    .steps-row { grid-template-columns: 1fr; }
+    .esg-cards { grid-template-columns: 1fr; }
+    .position-cards { grid-template-columns: 1fr; }
+    .esg-compact-grid { grid-template-columns: 1fr; }
+    .esg-col { border-right: none; border-bottom: 1px solid var(--gray-light); }
+    .esg-col:last-child { border-bottom: none; }
+    .flow-diagram { grid-template-columns: 1fr; }
+    .flow-arrow { display: none; }
     footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .pricing-table thead th:nth-child(3) { display: none; }
+    .pricing-table td:nth-child(3) { display: none; }
   }
 </style>
 </head>
@@ -328,7 +540,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 80 80" fill="none"><defs><radialGradient id="ng" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#2cb4e2" stop-opacity="0.15"/><stop offset="100%" stop-color="#2cb4e2" stop-opacity="0.02"/></radialGradient></defs><circle cx="40" cy="40" r="36" fill="url(#ng)"/><circle cx="40" cy="40" r="36" stroke="#1c2b3a" stroke-width="2" fill="none"/><ellipse cx="40" cy="40" rx="36" ry="12" stroke="#1c2b3a" stroke-width="1.1" fill="none" opacity="0.5"/><ellipse cx="40" cy="26" rx="26" ry="8" stroke="#1c2b3a" stroke-width="0.65" fill="none" opacity="0.3"/><ellipse cx="40" cy="54" rx="26" ry="8" stroke="#1c2b3a" stroke-width="0.65" fill="none" opacity="0.3"/><ellipse cx="40" cy="40" rx="13" ry="36" stroke="#1c2b3a" stroke-width="0.9" fill="none" opacity="0.45"/><line x1="40" y1="4" x2="40" y2="76" stroke="#1c2b3a" stroke-width="0.65" opacity="0.28"/><circle cx="33" cy="50" r="5.5" fill="#e3c267"/><circle cx="33" cy="50" r="2.4" fill="#1c2b3a"/><circle cx="55" cy="32" r="3.5" fill="#e3c267" opacity="0.82"/><circle cx="55" cy="32" r="1.5" fill="#1c2b3a"/><circle cx="22" cy="36" r="2.8" fill="#e3c267" opacity="0.58"/><circle cx="22" cy="36" r="1.2" fill="#1c2b3a"/><line x1="33" y1="50" x2="55" y2="32" stroke="#e3c267" stroke-width="1.3" stroke-dasharray="3 2.5" opacity="0.72"/><line x1="33" y1="50" x2="22" y2="36" stroke="#e3c267" stroke-width="1" stroke-dasharray="2.5 2" opacity="0.48"/></svg>
+    <img src="logo.png" alt="Atlas ESG" width="34" height="34" style="object-fit:contain;">
     <span class="nav-wordmark">Atlas<em>ESG</em></span>
   </a>
   <div class="nav-right">
@@ -339,13 +551,13 @@
 </nav>
 
 
-<!-- ═════════════════ HERO -->
+<!-- HERO -->
 <section class="hero">
   <div>
     <div class="hero-eyebrow">Inteligência de dados ESG</div>
     <h1>Dados dispersos.<br><em>Mapa claro.</em></h1>
     <p class="hero-sub">
-      Você já tem os dados. Eles estão espalhados em planilhas, contas, relatórios e documentos. O Atlas organiza tudo automaticamente em um atlas estruturado de indicadores ESG.
+      Você já tem os dados. Eles estão espalhados em planilhas, contas, e documentos. O Atlas organiza tudo automaticamente em um relatório estruturado de indicadores ESG.
     </p>
     <div class="upload-hint">
       <div class="upload-tag">📄 Contas de energia</div>
@@ -410,193 +622,372 @@
 </section>
 
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-label">Empresas que estruturaram seus dados</div>
-  <div class="trust-logos">
-    <span class="trust-logo-item">Construtora Ômega</span>
-    <span class="trust-logo-item">TechFarm Agro</span>
-    <span class="trust-logo-item">Grupo Atlantis</span>
-    <span class="trust-logo-item">Retail Sul</span>
-    <span class="trust-logo-item">Bravex Logística</span>
+<!-- ══════════ FLOW DIAGRAM (replaces trust bar) -->
+<section class="flow-section" id="como-funciona-flow">
+  <div class="flow-inner">
+    <div class="flow-eyebrow">Como funciona</div>
+    <h2 class="flow-title">Dos seus documentos<br>a um relatório <em>pronto para o mundo.</em></h2>
+
+    <div class="flow-diagram">
+
+      <!-- Node 1: Upload -->
+      <div class="flow-node" style="animation-delay:0.05s">
+        <div class="flow-icon">📂</div>
+        <div class="flow-label">Seus Documentos</div>
+        <div class="flow-sub">Qualquer formato, qualquer fonte</div>
+        <div class="flow-docs">
+          <div class="flow-doc-pill">📄 conta_energia.pdf</div>
+          <div class="flow-doc-pill">📊 rh_planilha.xlsx</div>
+          <div class="flow-doc-pill">📁 relatorio_ambiental.pdf</div>
+          <div class="flow-doc-pill">💧 fatura_agua.pdf</div>
+          <div class="flow-doc-pill">⚖️ codigo_conduta.docx</div>
+        </div>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div class="flow-arrow">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-label">UPLOAD</div>
+      </div>
+
+      <!-- Node 2: Magic -->
+      <div class="flow-node magic" style="animation-delay:0.15s">
+        <div class="magic-badge">✦ Atlas Engine</div>
+        <div class="flow-icon">🧠</div>
+        <div class="flow-label">Processamento Inteligente</div>
+        <div class="flow-sub">IA extrai, classifica e mapeia cada dado ao framework ESG correto</div>
+        <div class="flow-docs" style="margin-top:1rem;">
+          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">⚡ Extração automática</div>
+          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">🗺️ Mapeamento GRI</div>
+          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">🔍 Análise de gaps</div>
+        </div>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div class="flow-arrow">
+        <div class="flow-arrow-line" style="background: linear-gradient(90deg, rgba(44,180,226,0.5), rgba(184,206,103,0.6));"></div>
+        <div class="flow-arrow-label" style="color:rgba(184,206,103,0.6);">GERAÇÃO</div>
+      </div>
+
+      <!-- Node 3: Output -->
+      <div class="flow-node output" style="animation-delay:0.25s">
+        <div class="flow-icon">📋</div>
+        <div class="flow-label">Relatório ESG Completo</div>
+        <div class="flow-sub">Estruturado, auditável e pronto para stakeholders</div>
+        <div class="output-badges">
+          <span class="output-badge">GRI Alinhado</span>
+          <span class="output-badge">PDF Branded</span>
+          <span class="output-badge">CSV Export</span>
+          <span class="output-badge">Word Editável</span>
+          <span class="output-badge">Análise E·S·G</span>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
 
 
-<!-- ═════════════════ BEFORE / AFTER -->
+<!-- ══════════ ANTES / DEPOIS TABLE -->
 <section class="transform-section">
   <div class="transform-inner">
     <div class="section-eyebrow">O problema que resolvemos</div>
     <h2 class="section-title">Seus dados existem.<br>Só estão espalhados.</h2>
-    <p style="font-size:0.98rem; color:var(--gray); line-height:1.75; max-width:480px;">
+    <p style="font-size:0.95rem; color:var(--gray); line-height:1.75; max-width:500px;">
       Toda empresa já produz dados de sustentabilidade. O problema é que estão em pastas diferentes, formatos distintos, sem estrutura. O Atlas muda isso.
     </p>
 
-    <div class="transform-grid">
-      <div class="transform-col before">
-        <div class="tcol-label">✗ Antes do Atlas</div>
-        <div class="t-item">
-          <div class="t-icon">🗂️</div>
-          <div class="t-text"><h4>Caçar dados</h4><p>Conta de energia no financeiro, planilha de RH no Drive, relatório ambiental no e-mail de 2022.</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-icon">📋</div>
-          <div class="t-text"><h4>Organizar manualmente</h4><p>Semanas tentando entender quais indicadores são relevantes e como preencher cada campo.</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-icon">😵</div>
-          <div class="t-text"><h4>Montar relatório do zero</h4><p>Sem template, sem estrutura, sem contexto. Resultado: relatório raso, feito às pressas.</p></div>
-        </div>
-      </div>
-
-      <div class="transform-arrow">→</div>
-
-      <div class="transform-col after">
-        <div class="tcol-label">✓ Com o Atlas</div>
-        <div class="t-item">
-          <div class="t-icon">⬆️</div>
-          <div class="t-text"><h4>Upload do que você já tem</h4><p>Arraste os arquivos que existem. Planilhas, PDFs, relatórios — qualquer formato. O sistema lê tudo.</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-icon">🗺️</div>
-          <div class="t-text"><h4>Atlas estruturado automaticamente</h4><p>Cada documento vira um indicador. Cada indicador, um ponto no mapa ESG da sua empresa.</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-icon">🎯</div>
-          <div class="t-text"><h4>Inteligência para decisões</h4><p>Entenda seus impactos reais. Identifique lacunas. Tome decisões com clareza, não com suposição.</p></div>
-        </div>
-      </div>
-    </div>
+    <table class="antes-depois-table">
+      <thead>
+        <tr>
+          <th>Situação</th>
+          <th class="col-sem">✗ Sem o Atlas</th>
+          <th class="col-com">✓ Com o Atlas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="situation">🔍 Busca de dados</td>
+          <td class="sem-col">Planilhas no Drive, faturas, e-mails e relatórios antigos espalhados por toda a empresa</td>
+          <td class="com-col">Upload direto de qualquer documento — PDF, Excel, Word, CSV. O sistema lê e organiza tudo automaticamente</td>
+        </tr>
+        <tr>
+          <td class="situation">🗂️ Organização</td>
+          <td class="sem-col">Consolidação manual, semanas tentando entender quais indicadores são relevantes e como preencher cada campo</td>
+          <td class="com-col">Atlas automático: indicadores estruturados com fonte e contexto, mapeados para os frameworks GRI corretos</td>
+        </tr>
+        <tr>
+          <td class="situation">📋 Relatórios</td>
+          <td class="sem-col">Feitos às pressas, superficiais, sem contexto estratégico — resultado pobre para stakeholders exigentes</td>
+          <td class="com-col">Relatórios automáticos e estratégicos, baseados em dados reais, com branding da empresa e prontos para uso externo</td>
+        </tr>
+        <tr>
+          <td class="situation">⏱️ Tempo gasto</td>
+          <td class="sem-col">Semanas ou meses para consolidar dados, estruturar e redigir um relatório completo</td>
+          <td class="com-col">Resultado disponível em até 24 horas após o upload dos documentos</td>
+        </tr>
+        <tr>
+          <td class="situation">📐 Frameworks</td>
+          <td class="sem-col">Sem alinhamento claro com GRI, ESRS, ISSB — difícil saber o que está faltando</td>
+          <td class="com-col">Mapeamento automático para GRI, estimativa de cobertura de indicadores e identificação de lacunas</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 
-<!-- ═════════════════ HOW IT WORKS -->
-<section class="how-section" id="como-funciona">
-  <div class="how-inner">
-    <div class="section-eyebrow">Como funciona</div>
-    <h2 class="section-title">Upload. Estruture. Entenda.</h2>
-    <p style="color:rgba(255,255,255,0.38); font-size:0.95rem; line-height:1.75; max-width:460px; margin-top:0.8rem;">
-      Três etapas. Nenhuma consultoria. Nenhum conhecimento técnico necessário.
-    </p>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <div class="step-icon">⬆️</div>
-        <h3>Faça upload do que você tem</h3>
-        <p>Suba os documentos que já existem na sua empresa. Não precisa organizar antes — o Atlas aceita qualquer formato e extrai o que importa.</p>
-        <div class="step-tags">
-          <span class="step-tag">PDF</span><span class="step-tag">Excel</span><span class="step-tag">Word</span><span class="step-tag">CSV</span>
-          <span class="step-tag cu-tag">Site da empresa</span><span class="step-tag cu-tag">LinkedIn</span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <div class="step-icon">🗺️</div>
-        <h3>O sistema estrutura e mapeia</h3>
-        <p>A IA lê cada documento, extrai os dados relevantes e organiza tudo em um atlas de indicadores ESG com fonte e contexto para cada ponto.</p>
-        <div class="step-tags">
-          <span class="step-tag">Ambiental</span><span class="step-tag">Social</span><span class="step-tag">Governança</span>
-          <span class="step-tag yg-tag">Automático</span>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <div class="step-icon">✓</div>
-        <h3>Revise, confirme e exporte</h3>
-        <p>Você revisa os dados mapeados ponto a ponto, confirma ou ajusta, e exporta o relatório completo com o branding da sua empresa.</p>
-        <div class="step-tags">
-          <span class="step-tag cu-tag">PDF com branding</span><span class="step-tag">CSV</span><span class="step-tag">Word editável</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- ═════════════════ ATLAS GRID -->
-<section class="atlas-section">
-  <div class="atlas-inner">
+<!-- ══════════ ESG COMPACT -->
+<section class="esg-compact-section" id="esg-mapa">
+  <div class="esg-compact-inner">
     <div class="section-eyebrow">O que o Atlas organiza</div>
-    <h2 class="section-title">Seu mapa de sustentabilidade,<br>indicador por indicador.</h2>
-    <div class="atlas-grid">
-      <div class="atlas-item"><div class="atlas-item-icon">⚡</div><h3>Energia & Emissões</h3><p>Consumo total, matriz energética, emissões por escopo. Extraído das suas contas e relatórios automaticamente.</p><div class="atlas-item-tag">GRI 302 · 305</div></div>
-      <div class="atlas-item"><div class="atlas-item-icon">💧</div><h3>Água & Resíduos</h3><p>Consumo hídrico, destinação de resíduos, índice de reciclagem. Estruturado a partir de documentos operacionais.</p><div class="atlas-item-tag">GRI 303 · 306</div></div>
-      <div class="atlas-item"><div class="atlas-item-icon">👥</div><h3>Pessoas & Trabalho</h3><p>Headcount, rotatividade, diversidade, saúde e segurança. Alimentado pelas suas planilhas de RH.</p><div class="atlas-item-tag">GRI 401 · 403</div></div>
-      <div class="atlas-item"><div class="atlas-item-icon">⚖️</div><h3>Governança & Ética</h3><p>Estrutura do conselho, código de conduta, canal de denúncias. Mapeado a partir de políticas internas.</p><div class="atlas-item-tag">GRI 2 · 205</div></div>
-      <div class="atlas-item"><div class="atlas-item-icon">🌐</div><h3>Cadeia de Valor</h3><p>Fornecedores avaliados, compra responsável, impactos indiretos. Contexto para o Escopo 3.</p><div class="atlas-item-tag">GRI 204 · 308</div></div>
-      <div class="atlas-item"><div class="atlas-item-icon">🎯</div><h3>Metas & Evolução</h3><p>Histórico de indicadores, progresso em relação às metas, gaps identificados para os próximos ciclos.</p><div class="atlas-item-tag">Agenda 2030 · ODS</div></div>
+    <h2 class="section-title">Seu mapa E · S · G,<br>indicador por indicador.</h2>
+
+    <div class="esg-compact-grid">
+
+      <!-- E -->
+      <div class="esg-col esg-col-e">
+        <div class="esg-col-letter">E</div>
+        <div class="esg-col-label">Ambiental</div>
+
+        <div class="esg-topic">
+          <div class="esg-topic-header">
+            <span class="esg-topic-icon">⚡</span>
+            <span class="esg-topic-title">Energia &amp; Emissões</span>
+          </div>
+          <div class="esg-chips">
+            <span class="esg-chip">Consumo total</span>
+            <span class="esg-chip">Matriz energética</span>
+            <span class="esg-chip">Escopo 1, 2, 3</span>
+          </div>
+          <div class="esg-sources-mini">
+            <span class="esg-src">Faturas de energia elétrica</span>
+            <span class="esg-src">Consumo de diesel / combustíveis</span>
+          </div>
+        </div>
+
+        <div class="esg-topic">
+          <div class="esg-topic-header">
+            <span class="esg-topic-icon">💧</span>
+            <span class="esg-topic-title">Água &amp; Resíduos</span>
+          </div>
+          <div class="esg-chips">
+            <span class="esg-chip">Consumo hídrico</span>
+            <span class="esg-chip">Destinação de resíduos</span>
+            <span class="esg-chip">Reciclagem</span>
+          </div>
+          <div class="esg-sources-mini">
+            <span class="esg-src">Faturas de água por unidade</span>
+            <span class="esg-src">Relatórios de resíduos, MTR</span>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">GRI 302 · 303 · 305 · 306</span>
+      </div>
+
+      <!-- S -->
+      <div class="esg-col esg-col-s">
+        <div class="esg-col-letter">S</div>
+        <div class="esg-col-label">Social</div>
+
+        <div class="esg-topic">
+          <div class="esg-topic-header">
+            <span class="esg-topic-icon">👥</span>
+            <span class="esg-topic-title">Pessoas &amp; Trabalho</span>
+          </div>
+          <div class="esg-chips">
+            <span class="esg-chip">Headcount</span>
+            <span class="esg-chip">Rotatividade</span>
+            <span class="esg-chip">Diversidade</span>
+            <span class="esg-chip">Saúde &amp; segurança</span>
+          </div>
+          <div class="esg-sources-mini">
+            <span class="esg-src">Planilhas de RH / ERP</span>
+            <span class="esg-src">Registros de acidentes e treinamentos</span>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">GRI 401 · 403</span>
+      </div>
+
+      <!-- G -->
+      <div class="esg-col esg-col-g">
+        <div class="esg-col-letter">G</div>
+        <div class="esg-col-label">Governança</div>
+
+        <div class="esg-topic">
+          <div class="esg-topic-header">
+            <span class="esg-topic-icon">⚖️</span>
+            <span class="esg-topic-title">Governança &amp; Ética</span>
+          </div>
+          <div class="esg-chips">
+            <span class="esg-chip">Estrutura do conselho</span>
+            <span class="esg-chip">Código de conduta</span>
+            <span class="esg-chip">Canal de denúncias</span>
+          </div>
+          <div class="esg-sources-mini">
+            <span class="esg-src">Políticas internas e atas</span>
+            <span class="esg-src">Código de conduta e treinamentos</span>
+          </div>
+        </div>
+
+        <div class="esg-topic">
+          <div class="esg-topic-header">
+            <span class="esg-topic-icon">🌐</span>
+            <span class="esg-topic-title">Cadeia de Valor</span>
+          </div>
+          <div class="esg-chips">
+            <span class="esg-chip">Fornecedores avaliados</span>
+            <span class="esg-chip">Compras responsáveis</span>
+            <span class="esg-chip">Escopo 3</span>
+          </div>
+          <div class="esg-sources-mini">
+            <span class="esg-src">Questionários de fornecedores</span>
+            <span class="esg-src">Dados de compras e logística</span>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">GRI 2 · 204 · 205 · 308</span>
+      </div>
+
     </div>
   </div>
 </section>
 
 
-<!-- ═════════════════ POSITIONING -->
-<div class="position-strip">
-  <div class="position-inner">
-    <div class="position-item">
-      <div class="position-label">Propósito</div>
-      <div class="position-text">Tornar dados de sustentabilidade simples, organizados e úteis.</div>
+<!-- ══════════ MISSÃO / VISÃO / VALORES -->
+<section class="position-section">
+  <div class="position-inner-new">
+    <div class="position-top">
+      <div class="position-eyebrow">Quem somos</div>
     </div>
-    <div class="position-divider"></div>
-    <div class="position-item">
-      <div class="position-label">Missão</div>
-      <div class="position-text">Transformar documentos dispersos em inteligência clara para decisões sustentáveis.</div>
-    </div>
-    <div class="position-divider"></div>
-    <div class="position-item">
-      <div class="position-label">Posicionamento</div>
-      <div class="position-text">ESG sem burocracia. Organização automática, inteligência de dados, clareza operacional.</div>
+
+    <div class="position-cards">
+      <div class="pos-card missao">
+        <div class="pos-card-icon">🎯</div>
+        <div class="pos-card-label">Missão</div>
+        <p class="pos-card-text">Transformamos arquivos diversos em <strong>dados ESG mapeados</strong> para decisões estratégicas e posicionamento sustentável.</p>
+      </div>
+
+      <div class="pos-card visao">
+        <div class="pos-card-icon">🔭</div>
+        <div class="pos-card-label">Visão</div>
+        <p class="pos-card-text">Tornar a sustentabilidade um <strong>ativo estratégico</strong> para todas as empresas, com decisões mais rápidas, precisas e embasadas.</p>
+      </div>
+
+      <div class="pos-card valores">
+        <div class="pos-card-icon">⬡</div>
+        <div class="pos-card-label">Valores</div>
+        <ul class="valores-list">
+          <li>Transparência e confiabilidade</li>
+          <li>Produtividade e eficiência</li>
+          <li>Estratégia sustentável baseada em dados</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 
-<!-- ═════════════════ PRICING -->
+<!-- ══════════ PRICING TABLE -->
 <section class="pricing-section" id="precos">
   <div class="pricing-inner">
     <div class="section-eyebrow">Planos</div>
-    <h2 class="section-title" style="margin-bottom:0.5rem;">Simples. Transparente.</h2>
+    <h2 class="section-title" style="margin-bottom:0.4rem;">Simples. Transparente.</h2>
     <p style="color:var(--gray); font-size:0.93rem;">Sem taxas ocultas. Sem assinatura forçada. Pague por relatório.</p>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-plan">Essencial</div>
-        <div class="price-amount">R$ 490</div>
-        <div class="price-per">por relatório · pagamento único</div>
-        <div class="price-feature"><span class="check">✓</span> Atlas de indicadores completo</div>
-        <div class="price-feature"><span class="check">✓</span> PDF com branding da empresa</div>
-        <div class="price-feature"><span class="check">✓</span> CSV + Word incluídos</div>
-        <div class="price-feature"><span class="check">✓</span> Revisão ponto a ponto</div>
-        <div class="price-feature"><span class="check">✓</span> Suporte por e-mail</div>
-        <a href="comecar.html" class="price-btn">Começar</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-plan">Pro · Mais usado</div>
-        <div class="price-amount">R$ 990</div>
-        <div class="price-per">por relatório · pagamento único</div>
-        <div class="price-feature"><span class="check">✓</span> Tudo do Essencial</div>
-        <div class="price-feature"><span class="check">✓</span> Alinhamento ao framework GRI</div>
-        <div class="price-feature"><span class="check">✓</span> Integração LinkedIn + redes</div>
-        <div class="price-feature"><span class="check">✓</span> Análise de gaps e recomendações</div>
-        <div class="price-feature"><span class="check">✓</span> Suporte prioritário via WhatsApp</div>
-        <a href="comecar.html" class="price-btn">Escolher Pro</a>
-      </div>
-      <div class="price-card">
-        <div class="price-plan">Consultoria</div>
-        <div class="price-amount">Sob consulta</div>
-        <div class="price-per">ESRS · ISSB · frameworks complexos</div>
-        <div class="price-feature"><span class="check">✓</span> Tudo do Pro</div>
-        <div class="price-feature"><span class="check">✓</span> Especialista dedicado</div>
-        <div class="price-feature"><span class="check">✓</span> Auditoria por parceiro certificado</div>
-        <div class="price-feature"><span class="check">✓</span> Gerente de conta</div>
-        <a href="comecar.html" class="price-btn">Falar com o time</a>
-      </div>
+
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th style="width:32%"></th>
+            <th class="plan-col" style="width:22%; text-align:center;">Básico</th>
+            <th class="plan-col featured-head" style="width:22%; text-align:center;">Padrão</th>
+            <th class="plan-col" style="width:24%; text-align:center;">Atlas</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- Price row -->
+          <tr style="background: var(--dark);">
+            <td style="padding:1.2rem 1.5rem;">
+              <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3);">Ideal para</div>
+            </td>
+            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top;">
+              <div style="font-family:'DM Serif Display',serif; font-size:1.7rem; color:white; line-height:1;">R$&nbsp;490</div>
+              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">por relatório</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Análise rápida e objetiva</div>
+            </td>
+            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top; background:rgba(44,180,226,0.08); border-left:2px solid rgba(44,180,226,0.3); border-right:2px solid rgba(44,180,226,0.3);">
+              <div style="font-size:0.58rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ocean); margin-bottom:0.35rem;">✦ Mais usado</div>
+              <div style="font-family:'DM Serif Display',serif; font-size:1.7rem; color:white; line-height:1;">R$&nbsp;990</div>
+              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">por relatório</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Reporte para stakeholders &amp; posicionamento</div>
+            </td>
+            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top;">
+              <div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:white; line-height:1; padding-top:0.2rem;">Sob consulta</div>
+              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">GRI · GHG · ESRS</div>
+              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Estruturação completa da estratégia ESG</div>
+            </td>
+          </tr>
+
+          <!-- Uploads -->
+          <tr>
+            <td class="feat-row-label">Uploads de fontes</td>
+            <td class="feat-cell">Até 10 fontes</td>
+            <td class="feat-cell featured-col">Até 50 fontes</td>
+            <td class="feat-cell">100+ fontes</td>
+          </tr>
+
+          <!-- Tipo relatório -->
+          <tr>
+            <td class="feat-row-label">Tipo de relatório</td>
+            <td class="feat-cell">Customizado com base nos documentos enviados</td>
+            <td class="feat-cell featured-col">Customizado com % de automação GRI — saiba quanto falta completar</td>
+            <td class="feat-cell">Customizado % GRI, GHG e outros frameworks</td>
+          </tr>
+
+          <!-- Personalização -->
+          <tr>
+            <td class="feat-row-label">Personalização (logo &amp; cores)</td>
+            <td class="feat-cell feat-no">—</td>
+            <td class="feat-cell featured-col feat-yes">✓</td>
+            <td class="feat-cell feat-yes">✓</td>
+          </tr>
+
+          <!-- Diagnóstico de lacunas -->
+          <tr>
+            <td class="feat-row-label">Diagnóstico de lacunas</td>
+            <td class="feat-cell feat-no">—</td>
+            <td class="feat-cell featured-col feat-no">—</td>
+            <td class="feat-cell feat-yes">✓</td>
+          </tr>
+
+          <!-- Suporte -->
+          <tr>
+            <td class="feat-row-label">Suporte</td>
+            <td class="feat-cell" style="color:var(--gray); font-size:0.81rem;">E-mail</td>
+            <td class="feat-cell featured-col" style="font-size:0.81rem;">Prioritário via WhatsApp</td>
+            <td class="feat-cell" style="font-size:0.81rem;">Consultor ESG dedicado — comunicação rápida e contínua</td>
+          </tr>
+
+          <!-- CTA -->
+          <tr style="background:var(--sand);">
+            <td style="padding:1.2rem 1.5rem;"></td>
+            <td style="text-align:center; padding:1.2rem 1rem;"><a href="comecar.html" class="plan-cta">Começar</a></td>
+            <td style="text-align:center; padding:1.2rem 1rem; background:rgba(44,180,226,0.05); border-left:2px solid rgba(44,180,226,0.2); border-right:2px solid rgba(44,180,226,0.2);"><a href="comecar.html" class="plan-cta featured-cta">Escolher Padrão</a></td>
+            <td style="text-align:center; padding:1.2rem 1rem;"><a href="comecar.html" class="plan-cta">Falar com o time</a></td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
 
-<!-- ═════════════════ CTA -->
+<!-- ══════════ CTA -->
 <section class="cta-section" id="comecar">
   <div class="cta-inner">
     <div class="cta-eyebrow">Comece agora</div>
@@ -611,7 +1002,7 @@
 <!-- FOOTER -->
 <footer>
   <a href="esg-landing.html" class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="36" fill="rgba(44,180,226,0.1)"/><circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"/><ellipse cx="40" cy="40" rx="36" ry="12" stroke="rgba(255,255,255,0.3)" stroke-width="1.1" fill="none"/><ellipse cx="40" cy="40" rx="13" ry="36" stroke="rgba(255,255,255,0.25)" stroke-width="0.9" fill="none"/><circle cx="33" cy="50" r="5" fill="#e3c267"/><circle cx="33" cy="50" r="2.2" fill="#1c2b3a"/><circle cx="55" cy="32" r="3" fill="#e3c267" opacity="0.75"/><line x1="33" y1="50" x2="55" y2="32" stroke="#e3c267" stroke-width="1.2" stroke-dasharray="3 2.5" opacity="0.65"/></svg>
+    <img src="logo.png" alt="Atlas ESG" width="28" height="28" style="object-fit:contain; opacity:0.7;">
     <span style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:rgba(255,255,255,0.5); letter-spacing:-0.02em;">Atlas<span style="color:rgba(44,180,226,0.6);">ESG</span></span>
   </a>
   <div class="footer-links">
@@ -621,13 +1012,14 @@
 </footer>
 
 <script>
-  const cards = document.querySelectorAll('.step-card');
+  const cards = document.querySelectorAll('.step-card, .flow-node');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 130);
     });
   }, { threshold: 0.15 });
   cards.forEach(c => obs.observe(c));
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
