@@ -9,19 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ocean:        #2cb4e2;
-    --ocean-deep:   #1a7fa8;
-    --sand:         #f5f0e8;
-    --sand-mid:     #ece5d8;
-    --copper:       #b87333;
-    --copper-light: #d4956a;
-    --ygreen:       #b8ce67;
-    --dark:         #1c2b3a;
-    --gray:         #7a8fa0;
-    --gray-light:   #dde7ed;
-    --white:        #ffffff;
+    --teal:        #5baca4;
+    --teal-light:  #7dccc4;
+    --teal-deep:   #3d8880;
+    --sage:        #849c7c;
+    --sage-light:  #cbd495;
+    --cream:       #f4fbdd;
+    --amber:       #d4956a;
+    --amber-light: #f0c89a;
+    --sand:        #f5f2ec;
+    --dark:        #1e2d26;
+    --gray:        #6b8070;
+    --gray-light:  #d4ddd8;
+    --white:       #ffffff;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; background: var(--sand); color: var(--dark); overflow-x: hidden; }
@@ -31,481 +32,276 @@
     position: fixed; top: 0; width: 100%; z-index: 100;
     padding: 1.2rem 5rem;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(245,240,232,0.95); backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(28,43,58,0.07);
+    background: rgba(245,242,236,0.96); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(30,45,38,0.07);
   }
   .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
   .nav-wordmark { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--dark); letter-spacing: -0.02em; }
-  .nav-wordmark em { font-style: normal; color: var(--ocean); }
+  .nav-wordmark em { font-style: normal; color: var(--teal); }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-link { font-size: 0.85rem; color: var(--gray); text-decoration: none; font-weight: 500; transition: color 0.2s; }
   .nav-link:hover { color: var(--dark); }
-  .nav-cta {
-    background: var(--dark); color: var(--sand);
-    font-size: 0.85rem; font-weight: 600;
-    padding: 0.6rem 1.4rem; border-radius: 6px;
-    text-decoration: none; transition: all 0.2s;
-  }
-  .nav-cta:hover { background: var(--ocean); transform: translateY(-1px); }
+  .nav-cta { background: var(--dark); color: var(--cream); font-size: 0.85rem; font-weight: 600; padding: 0.6rem 1.4rem; border-radius: 6px; text-decoration: none; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--teal); transform: translateY(-1px); }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 55% 45%;
+    min-height: 100vh; display: grid; grid-template-columns: 55% 45%;
     align-items: center; padding: 9rem 5rem 6rem; gap: 5rem;
     position: relative; overflow: hidden;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(44,180,226,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(44,180,226,0.045) 1px, transparent 1px);
-    background-size: 52px 52px; pointer-events: none;
+    background-image: linear-gradient(rgba(91,172,164,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(91,172,164,0.055) 1px, transparent 1px);
+    background-size: 52px 52px; pointer-events: none; z-index: 0;
   }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--ocean-deep); margin-bottom: 1.6rem;
+  /* Earth/globe organic accent */
+  .hero::after {
+    content: ''; position: absolute; right: -100px; top: 50%; transform: translateY(-50%);
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 42%, rgba(91,172,164,0.1) 0%, rgba(203,212,149,0.07) 40%, rgba(212,149,106,0.04) 70%, transparent 100%);
+    pointer-events: none; z-index: 0;
   }
-  .hero-eyebrow::before { content: ''; display: inline-block; width: 18px; height: 2px; background: var(--ocean); border-radius: 2px; }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.8rem, 4vw, 4rem); line-height: 1.05;
-    letter-spacing: -0.02em; color: var(--dark); margin-bottom: 1.6rem;
-    animation: fadeUp 0.7s ease both;
-  }
-  .hero h1 em { font-style: italic; color: var(--ocean); }
-  .hero-sub {
-    font-size: 1.05rem; font-weight: 300; color: var(--gray);
-    line-height: 1.8; max-width: 460px; margin-bottom: 2rem;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-  .upload-hint {
-    display: flex; flex-wrap: wrap; gap: 0.45rem;
-    margin-bottom: 2.6rem; animation: fadeUp 0.7s 0.2s ease both;
-  }
-  .upload-tag {
-    display: flex; align-items: center; gap: 0.35rem;
-    background: var(--white); border: 1px solid var(--gray-light);
-    color: var(--dark); font-size: 0.78rem; font-weight: 500;
-    padding: 0.35rem 0.85rem; border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(28,43,58,0.04);
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; align-items: center;
-    animation: fadeUp 0.7s 0.3s ease both;
-  }
-  .btn-primary {
-    background: var(--ocean); color: white;
-    font-weight: 600; font-size: 0.95rem;
-    padding: 0.95rem 2.2rem; border-radius: 6px;
-    text-decoration: none; transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(44,180,226,0.3);
-  }
-  .btn-primary:hover { background: var(--ocean-deep); transform: translateY(-2px); }
-  .btn-ghost {
-    color: var(--dark); font-size: 0.9rem; font-weight: 500;
-    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-    opacity: 0.55; transition: opacity 0.2s, gap 0.2s;
-  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 1.6rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 18px; height: 2px; background: var(--teal); border-radius: 2px; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 4vw, 4rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 1.6rem; animation: fadeUp 0.7s ease both; }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--gray); line-height: 1.8; max-width: 480px; margin-bottom: 2rem; animation: fadeUp 0.7s 0.1s ease both; }
+  .upload-hint { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.6rem; animation: fadeUp 0.7s 0.2s ease both; }
+  .upload-tag { display: flex; align-items: center; gap: 0.35rem; background: var(--white); border: 1px solid var(--gray-light); color: var(--dark); font-size: 0.78rem; font-weight: 500; padding: 0.35rem 0.85rem; border-radius: 4px; box-shadow: 0 1px 4px rgba(30,45,38,0.05); }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; animation: fadeUp 0.7s 0.3s ease both; }
+  .btn-primary { background: var(--teal); color: white; font-weight: 600; font-size: 0.95rem; padding: 0.95rem 2.2rem; border-radius: 6px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px rgba(91,172,164,0.35); }
+  .btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); }
+  .btn-ghost { color: var(--dark); font-size: 0.9rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; opacity: 0.5; transition: opacity 0.2s, gap 0.2s; }
   .btn-ghost:hover { opacity: 1; gap: 0.65rem; }
 
-  /* HERO VISUAL */
-  .hero-visual { animation: fadeUp 0.7s 0.15s ease both; position: relative; }
-  .data-map {
-    background: var(--white); border-radius: 12px;
-    box-shadow: 0 20px 70px rgba(28,43,58,0.11), 0 4px 16px rgba(28,43,58,0.05);
-    overflow: hidden; border: 1px solid var(--gray-light);
-  }
-  .dm-header {
-    background: var(--dark); padding: 1.1rem 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .dm-title { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 500; }
-  .dm-status { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--ygreen); font-weight: 600; }
+  /* Hero card */
+  .hero-visual { animation: fadeUp 0.7s 0.15s ease both; }
+  .data-map { background: var(--white); border-radius: 14px; box-shadow: 0 24px 80px rgba(30,45,38,0.13), 0 4px 16px rgba(30,45,38,0.06); overflow: hidden; border: 1px solid var(--gray-light); }
+  .dm-header { background: var(--dark); padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .dm-title { color: rgba(255,255,255,0.5); font-size: 0.78rem; font-weight: 500; }
+  .dm-status { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--sage-light); font-weight: 600; }
   .dm-status::before { content: '●'; font-size: 0.5rem; }
   .dm-body { padding: 1.5rem; }
   .dm-company-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.3rem; }
-  .dm-avatar {
-    width: 36px; height: 36px; border-radius: 7px;
-    background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-weight: 700; font-size: 0.9rem;
-    font-family: 'DM Serif Display', serif; flex-shrink: 0;
-  }
+  .dm-avatar { width: 36px; height: 36px; border-radius: 7px; background: linear-gradient(135deg, var(--teal), var(--teal-deep)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; font-family: 'DM Serif Display', serif; flex-shrink: 0; }
   .dm-company-name { font-weight: 600; font-size: 0.88rem; color: var(--dark); }
   .dm-company-meta { font-size: 0.7rem; color: var(--gray); }
   .dm-atlas-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.7rem; }
   .indicator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.2rem; }
-  .ind-card { background: var(--sand); border-radius: 6px; padding: 0.65rem 0.8rem; border-left: 3px solid var(--ocean); }
-  .ind-card.cu { border-left-color: var(--copper); }
-  .ind-card.yg { border-left-color: var(--ygreen); }
+  .ind-card { background: var(--sand); border-radius: 6px; padding: 0.65rem 0.8rem; border-left: 3px solid var(--teal); }
+  .ind-card.sag { border-left-color: var(--sage); }
+  .ind-card.yg  { border-left-color: var(--sage-light); }
+  .ind-card.amb { border-left-color: var(--amber); }
   .ind-label { font-size: 0.62rem; color: var(--gray); margin-bottom: 0.2rem; }
   .ind-val { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--dark); line-height: 1; }
-  .ind-change { font-size: 0.6rem; font-weight: 600; margin-top: 0.15rem; color: #5a9e4a; }
-  .ind-change.neg { color: var(--copper); }
+  .ind-change { font-size: 0.6rem; font-weight: 600; margin-top: 0.15rem; color: var(--teal-deep); }
   .dm-progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--gray); margin-bottom: 0.35rem; }
   .dm-progress-track { height: 5px; background: var(--gray-light); border-radius: 3px; overflow: hidden; margin-bottom: 0.9rem; }
-  .dm-progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--ocean), var(--ygreen)); }
+  .dm-progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal), var(--sage-light)); }
   .dm-doc-row { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .doc-chip {
-    display: flex; align-items: center; gap: 0.3rem;
-    background: var(--sand); border: 1px solid var(--gray-light);
-    font-size: 0.62rem; color: var(--gray); font-weight: 500;
-    padding: 0.22rem 0.55rem; border-radius: 4px;
-  }
-  .doc-chip.active { background: rgba(44,180,226,0.07); border-color: rgba(44,180,226,0.3); color: var(--ocean-deep); }
+  .doc-chip { display: flex; align-items: center; gap: 0.3rem; background: var(--sand); border: 1px solid var(--gray-light); font-size: 0.62rem; color: var(--gray); font-weight: 500; padding: 0.22rem 0.55rem; border-radius: 4px; }
+  .doc-chip.active { background: rgba(91,172,164,0.08); border-color: rgba(91,172,164,0.3); color: var(--teal-deep); }
 
-  /* SECTION BASE */
-  .section-eyebrow {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--ocean);
-    display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;
-  }
-  .section-eyebrow::before { content: ''; display: inline-block; width: 16px; height: 2px; background: var(--ocean); border-radius: 2px; }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
-  }
+  /* SECTION SHARED */
+  .section-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .section-eyebrow::before { content: ''; display: inline-block; width: 16px; height: 2px; background: var(--teal); border-radius: 2px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
 
-  /* ── FLOW DIAGRAM (replaces trust bar) ── */
-  .flow-section {
-    background: var(--dark); padding: 5rem 5rem 5rem;
-    position: relative; overflow: hidden;
-  }
-  .flow-section::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(44,180,226,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.055) 1px, transparent 1px);
-    background-size: 60px 60px; pointer-events: none;
-  }
+  /* O QUE / POR QUE / COMO */
+  .what-section { background: var(--white); padding: 7rem 5rem; position: relative; overflow: hidden; }
+  .what-section::before { content: ''; position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(203,212,149,0.1) 0%, transparent 70%); pointer-events: none; }
+  .what-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--gray-light); box-shadow: 0 4px 30px rgba(30,45,38,0.06); }
+  .what-col { padding: 2.5rem 2rem; border-right: 1px solid var(--gray-light); }
+  .what-col:last-child { border-right: none; }
+  .what-col-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
+  .what-col-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem; }
+  .what-col-label::before { content:''; display:inline-block; width:14px; height:2px; background: var(--teal); border-radius:2px; }
+  .what-col h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--dark); margin-bottom: 0.85rem; line-height: 1.25; }
+  .what-col p { font-size: 0.88rem; color: var(--gray); line-height: 1.78; }
+  .what-col.why { background: var(--sand); }
+  .what-col.how-col { background: var(--cream); }
+
+  /* FLOW */
+  .flow-section { background: var(--dark); padding: 5rem; position: relative; overflow: hidden; }
+  .flow-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(91,172,164,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,172,164,0.06) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .flow-section::after { content: ''; position: absolute; right: -80px; bottom: -80px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(91,172,164,0.1), transparent 65%); pointer-events: none; }
   .flow-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-  .flow-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(44,180,226,0.55); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
-  .flow-eyebrow::before { content:''; display:inline-block; width:14px; height:2px; background: rgba(44,180,226,0.4); border-radius:2px; }
+  .flow-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(91,172,164,0.55); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+  .flow-eyebrow::before { content:''; display:inline-block; width:14px; height:2px; background: rgba(91,172,164,0.4); border-radius:2px; }
   .flow-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,2.5vw,2.2rem); color: white; margin-bottom: 3rem; letter-spacing: -0.02em; }
-  .flow-title em { color: var(--ocean); font-style: italic; }
-
-  .flow-diagram {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-    gap: 0; align-items: center;
-  }
-  .flow-node {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 1.6rem 1.2rem;
-    text-align: center;
-    transition: background 0.3s, border-color 0.3s, transform 0.3s;
-    animation: fadeUp 0.6s ease both;
-  }
-  .flow-node:hover { background: rgba(255,255,255,0.09); border-color: rgba(44,180,226,0.3); transform: translateY(-3px); }
-  .flow-node.magic {
-    background: linear-gradient(135deg, rgba(44,180,226,0.15), rgba(44,180,226,0.05));
-    border-color: rgba(44,180,226,0.3);
-  }
-  .flow-node.output {
-    background: linear-gradient(135deg, rgba(184,206,103,0.12), rgba(184,206,103,0.04));
-    border-color: rgba(184,206,103,0.25);
-  }
+  .flow-title em { color: var(--teal-light); font-style: italic; }
+  .flow-diagram { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; }
+  .flow-node { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.6rem 1.2rem; text-align: center; transition: background 0.3s, border-color 0.3s, transform 0.3s; }
+  .flow-node:hover { background: rgba(255,255,255,0.09); border-color: rgba(91,172,164,0.35); transform: translateY(-3px); }
+  .flow-node.magic { background: linear-gradient(135deg, rgba(91,172,164,0.18), rgba(91,172,164,0.06)); border-color: rgba(91,172,164,0.3); }
+  .flow-node.output { background: linear-gradient(135deg, rgba(203,212,149,0.14), rgba(203,212,149,0.04)); border-color: rgba(203,212,149,0.25); }
   .flow-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
-  .flow-label { font-size: 0.78rem; font-weight: 700; color: white; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .flow-label { font-size: 0.78rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
   .flow-sub { font-size: 0.68rem; color: rgba(255,255,255,0.38); line-height: 1.5; }
-
   .flow-docs { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.8rem; }
-  .flow-doc-pill {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px; padding: 0.25rem 0.6rem;
-    font-size: 0.62rem; color: rgba(255,255,255,0.5); text-align: left;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-
-  .flow-arrow {
-    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-    padding: 0 0.5rem;
-  }
-  .flow-arrow-line {
-    width: 40px; height: 2px;
-    background: linear-gradient(90deg, rgba(44,180,226,0.3), rgba(44,180,226,0.6));
-    position: relative;
-  }
-  .flow-arrow-line::after {
-    content: ''; position: absolute; right: -1px; top: -4px;
-    width: 0; height: 0;
-    border-left: 7px solid rgba(44,180,226,0.6);
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-  }
-  .flow-arrow-label { font-size: 0.58rem; color: rgba(44,180,226,0.5); white-space: nowrap; font-weight: 600; letter-spacing: 0.05em; }
-
-  .magic-badge {
-    display: inline-block; background: rgba(44,180,226,0.2); border: 1px solid rgba(44,180,226,0.3);
-    color: var(--ocean); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem;
-  }
-
+  .flow-doc-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 0.25rem 0.6rem; font-size: 0.62rem; color: rgba(255,255,255,0.5); text-align: left; display: flex; align-items: center; gap: 0.4rem; }
+  .flow-arrow { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; padding: 0 0.5rem; }
+  .flow-arrow-line { width: 40px; height: 2px; background: linear-gradient(90deg, rgba(91,172,164,0.3), rgba(91,172,164,0.65)); position: relative; }
+  .flow-arrow-line::after { content: ''; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-left: 7px solid rgba(91,172,164,0.65); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+  .flow-arrow-label { font-size: 0.58rem; color: rgba(91,172,164,0.5); white-space: nowrap; font-weight: 600; letter-spacing: 0.05em; }
+  .magic-badge { display: inline-block; background: rgba(91,172,164,0.2); border: 1px solid rgba(91,172,164,0.35); color: var(--teal-light); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; }
   .output-badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; justify-content: center; }
-  .output-badge {
-    background: rgba(184,206,103,0.12); border: 1px solid rgba(184,206,103,0.2);
-    color: var(--ygreen); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
-    padding: 0.22rem 0.5rem; border-radius: 4px;
-  }
+  .output-badge { background: rgba(203,212,149,0.12); border: 1px solid rgba(203,212,149,0.22); color: var(--sage-light); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.22rem 0.5rem; border-radius: 4px; }
 
-  /* ANTES / DEPOIS TABLE */
-  .transform-section { padding: 8rem 5rem; background: var(--white); }
-  .transform-inner { max-width: 900px; margin: 0 auto; }
-
-  .antes-depois-table {
-    width: 100%; border-collapse: collapse; margin-top: 3.5rem;
-    border-radius: 10px; overflow: hidden;
-    box-shadow: 0 4px 30px rgba(28,43,58,0.07);
-  }
-  .antes-depois-table thead tr {
-    background: var(--dark);
-  }
-  .antes-depois-table thead th {
-    padding: 1rem 1.4rem;
-    text-align: left;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-  .antes-depois-table thead th:first-child { color: rgba(255,255,255,0.3); }
-  .antes-depois-table thead th.col-sem { color: rgba(220,100,80,0.75); }
-  .antes-depois-table thead th.col-com { color: rgba(44,180,226,0.8); }
-
+  /* FLUXO INTELIGENTE */
+  .transform-section { padding: 8rem 5rem; background: var(--white); position: relative; overflow: hidden; }
+  .transform-section::after { content: ''; position: absolute; right: -60px; top: 50%; transform: translateY(-50%); width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(91,172,164,0.06) 0%, transparent 70%); pointer-events: none; }
+  .transform-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+  .antes-depois-table { width: 100%; border-collapse: collapse; margin-top: 3.5rem; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 30px rgba(30,45,38,0.07); }
+  .antes-depois-table thead tr { background: var(--dark); }
+  .antes-depois-table thead th { padding: 1rem 1.4rem; text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .antes-depois-table thead th.col-sem { color: rgba(212,149,106,0.8); }
+  .antes-depois-table thead th.col-com { color: rgba(91,172,164,0.85); }
   .antes-depois-table tbody tr:nth-child(odd) { background: var(--sand); }
   .antes-depois-table tbody tr:nth-child(even) { background: var(--white); }
-  .antes-depois-table tbody tr:hover { background: rgba(44,180,226,0.04); }
-
-  .antes-depois-table td {
-    padding: 1.1rem 1.4rem;
-    font-size: 0.86rem;
-    color: var(--dark);
-    border-bottom: 1px solid var(--gray-light);
-    vertical-align: top;
-  }
+  .antes-depois-table tbody tr:hover { background: rgba(91,172,164,0.04); }
+  .antes-depois-table td { padding: 1.1rem 1.4rem; font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid var(--gray-light); vertical-align: top; }
   .antes-depois-table tbody tr:last-child td { border-bottom: none; }
-  .antes-depois-table td.situation {
-    font-weight: 700; font-size: 0.82rem;
-    color: var(--dark); white-space: nowrap;
-    width: 130px;
-  }
-  .antes-depois-table td.sem-col {
-    color: #8c3820; font-size: 0.83rem; line-height: 1.55;
-  }
-  .antes-depois-table td.com-col {
-    color: var(--ocean-deep); font-size: 0.83rem; line-height: 1.55;
-  }
+  .antes-depois-table td.situation { font-weight: 700; font-size: 0.8rem; color: var(--dark); width: 128px; }
+  .antes-depois-table td.sem-col { color: #7a4020; font-size: 0.83rem; line-height: 1.65; }
+  .antes-depois-table td.com-col { color: var(--teal-deep); font-size: 0.83rem; line-height: 1.65; }
 
-  /* HOW IT WORKS */
-  .how-section { background: var(--dark); padding: 8rem 5rem; position: relative; overflow: hidden; }
-  .how-section::before {
+  /* NA PRÁTICA — ESG MAP */
+  .esg-compact-section { padding: 8rem 5rem; background: var(--sand); position: relative; overflow: hidden; }
+  .esg-compact-section::before {
     content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(44,180,226,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.055) 1px, transparent 1px);
-    background-size: 60px 60px; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 18% 28%, rgba(91,172,164,0.09) 0%, transparent 38%),
+      radial-gradient(circle at 82% 72%, rgba(203,212,149,0.08) 0%, transparent 38%),
+      radial-gradient(circle at 50% 8%,  rgba(212,149,106,0.05) 0%, transparent 28%);
+    pointer-events: none;
   }
-  .how-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-  .how-section .section-eyebrow { color: rgba(44,180,226,0.6); }
-  .how-section .section-eyebrow::before { background: rgba(44,180,226,0.4); }
-  .how-section .section-title { color: white; }
-  .steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-  .step-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 10px; padding: 2rem;
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s, background 0.2s, border-color 0.2s;
-  }
-  .step-card.visible { opacity: 1; transform: translateY(0); }
-  .step-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(44,180,226,0.25); }
-  .step-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: rgba(44,180,226,0.2); line-height: 1; margin-bottom: 1rem; }
-  .step-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
-  .step-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: white; margin-bottom: 0.5rem; }
-  .step-card p { font-size: 0.84rem; color: rgba(255,255,255,0.42); line-height: 1.65; }
-  .step-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
-  .step-tag { background: rgba(44,180,226,0.1); border: 1px solid rgba(44,180,226,0.15); color: rgba(44,180,226,0.75); font-size: 0.67rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; }
-  .step-tag.cu-tag { background: rgba(184,115,51,0.1); border-color: rgba(184,115,51,0.18); color: var(--copper-light); }
-  .step-tag.yg-tag { background: rgba(184,206,103,0.1); border-color: rgba(184,206,103,0.18); color: var(--ygreen); }
+  .esg-compact-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-  /* ── ESG COMPACT SECTION ── */
-  .esg-compact-section { padding: 6rem 5rem; background: var(--white); }
-  .esg-compact-inner { max-width: 1100px; margin: 0 auto; }
-  .esg-compact-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0; margin-top: 3rem;
-    border-radius: 12px; overflow: hidden;
-    border: 1px solid var(--gray-light);
-    box-shadow: 0 4px 30px rgba(28,43,58,0.06);
-  }
-  .esg-col {
-    padding: 2rem 1.8rem; position: relative;
-    border-right: 1px solid var(--gray-light);
-  }
-  .esg-col:last-child { border-right: none; }
-  .esg-col-e { background: #f8fdf5; }
-  .esg-col-s { background: #f5fafd; }
-  .esg-col-g { background: #fdf8f3; }
+  .esg-compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .esg-col { padding: 2rem 1.8rem; border-radius: 12px; border: 1px solid var(--gray-light); box-shadow: 0 4px 20px rgba(30,45,38,0.06); transition: transform 0.25s, box-shadow 0.25s; }
+  .esg-col:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(30,45,38,0.1); }
+  .esg-col-e { background: #f6fbf4; }
+  .esg-col-s { background: #f2faf9; }
+  .esg-col-g { background: #f7f9f2; }
 
-  .esg-col-letter {
-    font-family: 'DM Serif Display', serif;
-    font-size: 4rem; line-height: 1; font-weight: 400;
-    margin-bottom: 0.2rem; letter-spacing: -0.03em;
-  }
-  .esg-col-e .esg-col-letter { color: #5a9e4a; opacity: 0.25; }
-  .esg-col-s .esg-col-letter { color: var(--ocean); opacity: 0.25; }
-  .esg-col-g .esg-col-letter { color: var(--copper); opacity: 0.3; }
+  /* Animated map connection strip between cards */
+  .esg-connector-strip { display: flex; align-items: center; margin-bottom: 1.5rem; position: relative; height: 44px; }
+  .esg-connector-strip svg { width: 100%; height: 44px; overflow: visible; }
 
-  .esg-col-label {
-    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1.2rem;
-  }
-  .esg-col-e .esg-col-label { color: #5a9e4a; }
-  .esg-col-s .esg-col-label { color: var(--ocean-deep); }
-  .esg-col-g .esg-col-label { color: var(--copper); }
+  .esg-col-head { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1.5rem; }
+  .esg-col-letter { font-family: 'DM Serif Display', serif; font-size: 3.5rem; line-height: 1; letter-spacing: -0.03em; opacity: 0.22; }
+  .esg-col-e .esg-col-letter { color: var(--sage); }
+  .esg-col-s .esg-col-letter { color: var(--teal); }
+  .esg-col-g .esg-col-letter { color: var(--sage-light); }
+  .esg-col-badge-wrap { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.6rem; }
+  .esg-col-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .esg-col-e .esg-col-label { color: var(--sage); }
+  .esg-col-s .esg-col-label { color: var(--teal-deep); }
+  .esg-col-g .esg-col-label { color: #5a7a40; }
+  .esg-col-frameworks { font-size: 0.62rem; color: var(--gray); }
 
-  .esg-topic { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--gray-light); }
-  .esg-topic:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-  .esg-topic-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-  .esg-topic-icon { font-size: 1rem; }
-  .esg-topic-title { font-weight: 700; font-size: 0.85rem; color: var(--dark); }
-  .esg-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
-  .esg-chip {
-    font-size: 0.63rem; font-weight: 500; padding: 0.18rem 0.55rem;
-    border-radius: 4px; border: 1px solid;
-  }
-  .esg-col-e .esg-chip { background: rgba(90,158,74,0.08); border-color: rgba(90,158,74,0.2); color: #3d7a33; }
-  .esg-col-s .esg-chip { background: rgba(44,180,226,0.08); border-color: rgba(44,180,226,0.2); color: var(--ocean-deep); }
-  .esg-col-g .esg-chip { background: rgba(184,115,51,0.08); border-color: rgba(184,115,51,0.2); color: var(--copper); }
+  /* Document block */
+  .esg-doc-block { margin-bottom: 1rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--gray-light); }
+  .esg-doc-block:last-of-type { margin-bottom: 0; }
+  .esg-doc-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.85rem; font-size: 0.74rem; font-weight: 700; color: var(--dark); background: rgba(255,255,255,0.85); border-bottom: 1px solid var(--gray-light); }
+  .esg-doc-icon { font-size: 0.9rem; flex-shrink: 0; }
+  .esg-doc-body { padding: 0.7rem 0.85rem; background: rgba(255,255,255,0.5); }
+  .esg-ind-row { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.5rem; }
+  .esg-ind-row:last-child { margin-bottom: 0; }
+  .esg-ind-icon { flex-shrink: 0; font-size: 0.9rem; margin-top: 1px; }
+  .esg-ind-name { font-size: 0.76rem; color: var(--dark); font-weight: 500; line-height: 1.4; flex: 1; }
+  .esg-ind-chips { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.3rem; }
+  .esg-chip { font-size: 0.58rem; font-weight: 700; padding: 0.12rem 0.45rem; border-radius: 3px; border: 1px solid; white-space: nowrap; }
+  .esg-col-e .esg-chip { background: rgba(132,156,124,0.1); border-color: rgba(132,156,124,0.28); color: var(--sage); }
+  .esg-col-s .esg-chip { background: rgba(91,172,164,0.1); border-color: rgba(91,172,164,0.28); color: var(--teal-deep); }
+  .esg-col-g .esg-chip { background: rgba(90,122,64,0.09); border-color: rgba(90,122,64,0.22); color: #4a6a30; }
+  .ghg-chip { background: rgba(212,149,106,0.1) !important; border-color: rgba(212,149,106,0.28) !important; color: #a05c2a !important; }
 
-  .esg-sources-mini { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.5rem; }
-  .esg-src { font-size: 0.72rem; color: var(--gray); display: flex; align-items: baseline; gap: 0.3rem; }
-  .esg-src::before { content: '↳'; color: var(--gray-light); flex-shrink: 0; font-size: 0.65rem; }
+  .esg-gri-tag { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1.3rem; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 3px; }
+  .esg-col-e .esg-gri-tag { background: rgba(132,156,124,0.12); color: var(--sage); }
+  .esg-col-s .esg-gri-tag { background: rgba(91,172,164,0.12); color: var(--teal-deep); }
+  .esg-col-g .esg-gri-tag { background: rgba(90,122,64,0.1); color: #4a6a30; }
 
-  .esg-gri-tag {
-    display: inline-block; margin-top: 1.2rem;
-    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.18rem 0.5rem; border-radius: 3px;
-  }
-  .esg-col-e .esg-gri-tag { background: rgba(90,158,74,0.1); color: #3d7a33; }
-  .esg-col-s .esg-gri-tag { background: rgba(44,180,226,0.1); color: var(--ocean-deep); }
-  .esg-col-g .esg-gri-tag { background: rgba(184,115,51,0.1); color: var(--copper); }
-
-  /* POSITIONING STRIP — upgraded */
-  .position-section { background: var(--dark); padding: 6rem 5rem; position: relative; overflow: hidden; }
-  .position-section::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(44,180,226,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.04) 1px, transparent 1px);
-    background-size: 60px 60px; pointer-events: none;
-  }
-  .position-inner-new { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-  .position-top { text-align: center; margin-bottom: 3rem; }
-  .position-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(44,180,226,0.5); margin-bottom: 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-  .position-eyebrow::before, .position-eyebrow::after { content:''; display:inline-block; width:20px; height:1px; background: rgba(44,180,226,0.3); }
-  .position-top h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem,2.5vw,2.4rem); color: white; letter-spacing: -0.02em; margin-bottom: 0.8rem; }
-  .position-top p { font-size: 0.9rem; color: rgba(255,255,255,0.35); max-width: 480px; margin: 0 auto; line-height: 1.7; }
-
-  .position-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-  .pos-card {
-    border-radius: 12px; padding: 2rem;
-    position: relative; overflow: hidden;
-    transition: transform 0.25s;
-  }
-  .pos-card:hover { transform: translateY(-3px); }
-  .pos-card.missao { background: linear-gradient(135deg, rgba(44,180,226,0.12), rgba(44,180,226,0.04)); border: 1px solid rgba(44,180,226,0.2); }
-  .pos-card.visao { background: linear-gradient(135deg, rgba(184,206,103,0.1), rgba(184,206,103,0.03)); border: 1px solid rgba(184,206,103,0.18); }
-  .pos-card.valores { background: linear-gradient(135deg, rgba(184,115,51,0.1), rgba(184,115,51,0.03)); border: 1px solid rgba(184,115,51,0.18); }
-  .pos-card-label {
-    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
-  }
-  .pos-card.missao .pos-card-label { color: rgba(44,180,226,0.7); }
-  .pos-card.visao .pos-card-label { color: rgba(184,206,103,0.7); }
-  .pos-card.valores .pos-card-label { color: rgba(184,115,51,0.75); }
-  .pos-card-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
-  .pos-card-text { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
-  .pos-card-text strong { color: rgba(255,255,255,0.9); }
+  /* NOSSO COMPROMISSO */
+  .commit-section { background: var(--dark); padding: 7rem 5rem; position: relative; overflow: hidden; }
+  .commit-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(91,172,164,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(91,172,164,0.05) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .commit-section::after { content: ''; position: absolute; left: -100px; top: 50%; transform: translateY(-50%); width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(91,172,164,0.09), rgba(203,212,149,0.05), transparent 65%); pointer-events: none; }
+  .commit-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .commit-top { margin-bottom: 3.5rem; }
+  .commit-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(91,172,164,0.55); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.5rem; }
+  .commit-eyebrow::before { content:''; display:inline-block; width:14px; height:2px; background: rgba(91,172,164,0.4); border-radius:2px; }
+  .commit-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem,2.8vw,2.4rem); color: white; letter-spacing: -0.02em; }
+  .commit-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .commit-card { border-radius: 12px; padding: 2rem; transition: transform 0.25s; }
+  .commit-card:hover { transform: translateY(-3px); }
+  .commit-card.missao { background: linear-gradient(135deg, rgba(91,172,164,0.14), rgba(91,172,164,0.04)); border: 1px solid rgba(91,172,164,0.2); }
+  .commit-card.visao  { background: linear-gradient(135deg, rgba(203,212,149,0.1), rgba(203,212,149,0.03)); border: 1px solid rgba(203,212,149,0.18); }
+  .commit-card.valores{ background: linear-gradient(135deg, rgba(212,149,106,0.1), rgba(212,149,106,0.03)); border: 1px solid rgba(212,149,106,0.18); }
+  .commit-card-icon { font-size: 1.5rem; margin-bottom: 0.7rem; }
+  .commit-card-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.9rem; }
+  .commit-card.missao .commit-card-label { color: rgba(91,172,164,0.7); }
+  .commit-card.visao  .commit-card-label { color: rgba(203,212,149,0.7); }
+  .commit-card.valores .commit-card-label { color: rgba(212,149,106,0.75); }
+  .commit-card-text { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.75; }
+  .commit-card-text strong { color: rgba(255,255,255,0.88); }
   .valores-list { list-style: none; padding: 0; margin-top: 0.6rem; display: flex; flex-direction: column; gap: 0.55rem; }
   .valores-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
-  .valores-list li::before { content: '—'; color: rgba(184,115,51,0.5); font-size: 0.7rem; flex-shrink: 0; }
+  .valores-list li::before { content: '—'; color: rgba(212,149,106,0.5); font-size: 0.7rem; flex-shrink: 0; }
 
-  /* PRICING TABLE */
+  /* PRICING */
   .pricing-section { padding: 8rem 5rem; background: var(--white); }
-  .pricing-inner { max-width: 1000px; margin: 0 auto; }
-
-  .pricing-table-wrap { margin-top: 3.5rem; overflow: hidden; border-radius: 12px; border: 1px solid var(--gray-light); box-shadow: 0 4px 30px rgba(28,43,58,0.06); }
+  .pricing-inner { max-width: 1060px; margin: 0 auto; }
+  .pricing-table-wrap { margin-top: 3.5rem; overflow: hidden; border-radius: 12px; border: 1px solid var(--gray-light); box-shadow: 0 4px 30px rgba(30,45,38,0.06); }
   .pricing-table { width: 100%; border-collapse: collapse; }
-
   .pricing-table thead tr { background: var(--dark); }
-  .pricing-table thead th {
-    padding: 1.2rem 1.5rem; text-align: left;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-  }
-  .pricing-table thead th.plan-col { color: rgba(255,255,255,0.7); }
-  .pricing-table thead th.price-col { color: var(--ocean); }
-
+  .pricing-table thead th { padding: 1.2rem 1.5rem; text-align: center; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .pricing-table thead th:first-child { text-align: left; }
   .pricing-table tbody tr:nth-child(odd) { background: var(--sand); }
   .pricing-table tbody tr:nth-child(even) { background: var(--white); }
-  .pricing-table tbody tr.featured-row { background: rgba(44,180,226,0.05); }
-  .pricing-table tbody tr:hover { background: rgba(44,180,226,0.06); }
-  .pricing-table td { padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--gray-light); vertical-align: top; font-size: 0.85rem; }
+  .pricing-table tbody tr:hover { background: rgba(91,172,164,0.04); }
+  .pricing-table td { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--gray-light); vertical-align: top; font-size: 0.84rem; text-align: center; }
+  .pricing-table td:first-child { text-align: left; }
   .pricing-table tbody tr:last-child td { border-bottom: none; }
-
-  .plan-name { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.3rem; }
-  .plan-desc { font-size: 0.77rem; color: var(--gray); line-height: 1.5; max-width: 220px; }
-  .plan-badge { display: inline-block; margin-top: 0.5rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(44,180,226,0.1); color: var(--ocean-deep); }
-
-  .price-amount-cell { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--dark); white-space: nowrap; }
-  .price-per-cell { font-size: 0.72rem; color: var(--gray); margin-top: 0.2rem; }
-
-  .features-list { display: flex; flex-direction: column; gap: 0.4rem; }
-  .feat-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--dark); }
-  .feat-check { color: var(--ocean); flex-shrink: 0; font-size: 0.75rem; margin-top: 2px; }
-  .feat-note { font-size: 0.72rem; color: var(--gray); margin-top: 0.5rem; font-style: italic; }
-  .feat-limit { font-size: 0.72rem; color: var(--copper); margin-top: 0.3rem; display: flex; align-items: center; gap: 0.4rem; }
-
-  .cta-cell { white-space: nowrap; }
-  .plan-cta {
-    display: inline-block; padding: 0.7rem 1.4rem; border-radius: 6px;
-    font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: all 0.2s;
-    border: 1.5px solid var(--gray-light); color: var(--dark); background: var(--white);
-  }
+  .feat-row-label { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
+  .feat-cell.featured-col { background: rgba(91,172,164,0.05); border-left: 2px solid rgba(91,172,164,0.2); border-right: 2px solid rgba(91,172,164,0.2); }
+  .feat-yes { color: var(--teal-deep); font-weight: 700; font-size: 1rem; }
+  .feat-no  { color: var(--gray-light); font-size: 1rem; }
+  .plan-cta { display: inline-block; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: all 0.2s; border: 1.5px solid var(--gray-light); color: var(--dark); background: var(--white); cursor: pointer; font-family: 'Inter',sans-serif; }
   .plan-cta:hover { background: var(--dark); color: white; border-color: var(--dark); }
-  .plan-cta.featured-cta { background: var(--ocean); color: white; border-color: var(--ocean); }
-  .plan-cta.featured-cta:hover { background: var(--ocean-deep); }
+  .plan-cta.featured-cta { background: var(--teal); color: white; border-color: var(--teal); }
+  .plan-cta.featured-cta:hover { background: var(--teal-deep); }
 
-  .feat-row-label {
-    font-size: 0.82rem; font-weight: 600; color: var(--dark);
-    padding: 0.9rem 1.5rem; vertical-align: middle;
-  }
-  .feat-cell {
-    text-align: center; font-size: 0.82rem; color: var(--dark);
-    padding: 0.9rem 1rem; vertical-align: middle; line-height: 1.45;
-  }
-  .feat-cell.featured-col {
-    background: rgba(44,180,226,0.04);
-    border-left: 2px solid rgba(44,180,226,0.2);
-    border-right: 2px solid rgba(44,180,226,0.2);
-  }
-  .feat-yes { color: var(--ocean-deep); font-weight: 700; font-size: 1rem; }
-  .feat-no { color: var(--gray-light); font-size: 1rem; }
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(30,45,38,0.55); backdrop-filter: blur(5px); z-index: 1000; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal-box { background: var(--white); border-radius: 14px; padding: 2.5rem 2rem; max-width: 400px; width: 90%; box-shadow: 0 30px 80px rgba(30,45,38,0.25); position: relative; animation: fadeUp 0.3s ease; }
+  .modal-close { position: absolute; top: 1rem; right: 1.2rem; font-size: 1.2rem; color: var(--gray); cursor: pointer; background: none; border: none; font-family: inherit; transition: color 0.2s; }
+  .modal-close:hover { color: var(--dark); }
+  .modal-plan { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+  .modal-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--dark); margin-bottom: 1rem; }
+  .modal-divider { height: 1px; background: var(--gray-light); margin-bottom: 1.1rem; }
+  .modal-desc { font-size: 0.83rem; color: var(--gray); margin-bottom: 1.4rem; line-height: 1.65; }
+  .modal-input { width: 100%; border: 1.5px solid var(--gray-light); border-radius: 7px; padding: 0.75rem 1rem; font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--dark); outline: none; margin-bottom: 0.8rem; transition: border-color 0.2s; }
+  .modal-input:focus { border-color: var(--teal); }
+  .modal-submit { width: 100%; background: var(--teal); color: white; border: none; border-radius: 7px; padding: 0.85rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+  .modal-submit:hover { background: var(--teal-deep); }
+  .modal-note { font-size: 0.7rem; color: var(--gray); margin-top: 0.8rem; text-align: center; }
 
   /* CTA */
   .cta-section { background: var(--dark); padding: 8rem 5rem; text-align: center; position: relative; overflow: hidden; }
-  .cta-section::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(44,180,226,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(44,180,226,0.055) 1px, transparent 1px);
-    background-size: 56px 56px; pointer-events: none;
-  }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(91,172,164,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(91,172,164,0.055) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none; }
+  .cta-section::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(91,172,164,0.08) 0%, transparent 65%); pointer-events: none; }
   .cta-inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
-  .cta-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(44,180,226,0.55); margin-bottom: 1.2rem; }
+  .cta-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(91,172,164,0.55); margin-bottom: 1.2rem; }
   .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); color: white; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.2rem; }
-  .cta-section h2 em { font-style: italic; color: var(--ocean); }
+  .cta-section h2 em { font-style: italic; color: var(--teal-light); }
   .cta-section p { font-size: 0.98rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; line-height: 1.75; }
-  .btn-cta-big { background: var(--ocean); color: white; font-weight: 700; font-size: 1rem; padding: 1.1rem 2.8rem; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 8px 30px rgba(44,180,226,0.3); }
-  .btn-cta-big:hover { background: var(--ocean-deep); transform: translateY(-2px); }
+  .btn-cta-big { background: var(--teal); color: white; font-weight: 700; font-size: 1rem; padding: 1.1rem 2.8rem; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 8px 30px rgba(91,172,164,0.35); }
+  .btn-cta-big:hover { background: var(--teal-deep); transform: translateY(-2px); }
   .cta-note { margin-top: 1.2rem; color: rgba(255,255,255,0.22); font-size: 0.77rem; }
 
   /* FOOTER */
@@ -520,18 +316,16 @@
     nav { padding: 1rem 1.5rem; }
     .nav-right .nav-link { display: none; }
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
-    .transform-section, .how-section, .esg-section, .pricing-section, .cta-section, .flow-section, .position-section { padding: 5rem 1.5rem; }
-    .steps-row { grid-template-columns: 1fr; }
-    .esg-cards { grid-template-columns: 1fr; }
-    .position-cards { grid-template-columns: 1fr; }
+    .what-grid { grid-template-columns: 1fr; }
+    .what-col { border-right: none; border-bottom: 1px solid var(--gray-light); }
+    .what-col:last-child { border-bottom: none; }
+    .transform-section, .esg-compact-section, .pricing-section, .cta-section, .flow-section, .commit-section, .what-section { padding: 5rem 1.5rem; }
     .esg-compact-grid { grid-template-columns: 1fr; }
-    .esg-col { border-right: none; border-bottom: 1px solid var(--gray-light); }
-    .esg-col:last-child { border-bottom: none; }
+    .esg-connector-strip { display: none; }
     .flow-diagram { grid-template-columns: 1fr; }
     .flow-arrow { display: none; }
+    .commit-cards { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1.5rem; text-align: center; }
-    .pricing-table thead th:nth-child(3) { display: none; }
-    .pricing-table td:nth-child(3) { display: none; }
   }
 </style>
 </head>
@@ -540,12 +334,12 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Atlas ESG" width="34" height="34" style="object-fit:contain;">
+    <img src="logo.png" alt="Atlas ESG" width="34" height="34" style="object-fit:contain;" onerror="this.style.display='none'">
     <span class="nav-wordmark">Atlas<em>ESG</em></span>
   </a>
   <div class="nav-right">
     <a href="#como-funciona" class="nav-link">Como funciona</a>
-    <a href="#precos" class="nav-link">Preços</a>
+    <a href="#precos" class="nav-link">Planos</a>
     <a href="comecar.html" class="nav-cta">Começar grátis</a>
   </div>
 </nav>
@@ -557,7 +351,7 @@
     <div class="hero-eyebrow">Inteligência de dados ESG</div>
     <h1>Dados dispersos.<br><em>Mapa claro.</em></h1>
     <p class="hero-sub">
-      Você já tem os dados. Eles estão espalhados em planilhas, contas, e documentos. O Atlas organiza tudo automaticamente em um relatório estruturado de indicadores ESG.
+      Você já tem os dados. Eles estão espalhados em planilhas, contas, e documentos. O Atlas consolida automaticamente essas informações em indicadores ESG estruturados e relatórios customizados, prontos para uso estratégico.
     </p>
     <div class="upload-hint">
       <div class="upload-tag">📄 Contas de energia</div>
@@ -588,26 +382,10 @@
         </div>
         <div class="dm-atlas-label">Atlas de indicadores · gerado automaticamente</div>
         <div class="indicator-grid">
-          <div class="ind-card">
-            <div class="ind-label">Emissões CO₂ (Esc. 1+2)</div>
-            <div class="ind-val">6.160 t</div>
-            <div class="ind-change">↓ 23% vs 2023</div>
-          </div>
-          <div class="ind-card yg">
-            <div class="ind-label">Energia renovável</div>
-            <div class="ind-val">68%</div>
-            <div class="ind-change">↑ +18pp</div>
-          </div>
-          <div class="ind-card cu">
-            <div class="ind-label">Consumo de água</div>
-            <div class="ind-val">9.200 m³</div>
-            <div class="ind-change">↓ 31%</div>
-          </div>
-          <div class="ind-card">
-            <div class="ind-label">Diversidade — liderança</div>
-            <div class="ind-val">31% ♀</div>
-            <div class="ind-change">↑ +11pp</div>
-          </div>
+          <div class="ind-card"><div class="ind-label">Emissões CO₂ (Esc. 1+2)</div><div class="ind-val">6.160 t</div><div class="ind-change">↓ 23% vs 2023</div></div>
+          <div class="ind-card yg"><div class="ind-label">Energia renovável</div><div class="ind-val">68%</div><div class="ind-change">↑ +18pp</div></div>
+          <div class="ind-card sag"><div class="ind-label">Consumo de água</div><div class="ind-val">9.200 m³</div><div class="ind-change">↓ 31%</div></div>
+          <div class="ind-card amb"><div class="ind-label">Diversidade — liderança</div><div class="ind-val">31% ♀</div><div class="ind-change">↑ +11pp</div></div>
         </div>
         <div class="dm-progress-label"><span>Indicadores mapeados</span><span>87 de 100</span></div>
         <div class="dm-progress-track"><div class="dm-progress-fill" style="width:87%"></div></div>
@@ -622,16 +400,40 @@
 </section>
 
 
-<!-- ══════════ FLOW DIAGRAM (replaces trust bar) -->
-<section class="flow-section" id="como-funciona-flow">
+<!-- O QUE / POR QUÊ / COMO -->
+<section class="what-section">
+  <div class="what-inner">
+    <div class="what-grid">
+      <div class="what-col">
+        <div class="what-col-icon">🗂️</div>
+        <div class="what-col-label">O que</div>
+        <h3>Dados ESG organizados automaticamente</h3>
+        <p>O Atlas ESG transforma arquivos diversos em dados de sustentabilidade organizados. Documentos como contas de energia, planilhas e relatórios se tornam indicadores ESG prontos para análise e reporte.</p>
+      </div>
+      <div class="what-col why">
+        <div class="what-col-icon">🎯</div>
+        <div class="what-col-label">Por que</div>
+        <h3>Menos operação, mais estratégia</h3>
+        <p>Projetos ESG exigem analisar muitos dados, mas grande parte do tempo das equipes ainda é gasta organizando arquivos manualmente. Utilizando o Atlas, mais tempo fica disponível para análise, estratégia e geração de impacto.</p>
+      </div>
+      <div class="what-col how-col">
+        <div class="what-col-icon">⚙️</div>
+        <div class="what-col-label">Como</div>
+        <h3>Tecnologia que entende seus documentos</h3>
+        <p>A tecnologia Atlas Engine recebe documentos em qualquer formato — PDF, planilhas, links — e organiza automaticamente as informações em indicadores ESG estruturados, dentro do fluxo de trabalho já usado pelas equipes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FLOW -->
+<section class="flow-section" id="como-funciona">
   <div class="flow-inner">
     <div class="flow-eyebrow">Como funciona</div>
     <h2 class="flow-title">Dos seus documentos<br>a um relatório <em>pronto para o mundo.</em></h2>
-
     <div class="flow-diagram">
-
-      <!-- Node 1: Upload -->
-      <div class="flow-node" style="animation-delay:0.05s">
+      <div class="flow-node">
         <div class="flow-icon">📂</div>
         <div class="flow-label">Seus Documentos</div>
         <div class="flow-sub">Qualquer formato, qualquer fonte</div>
@@ -643,34 +445,23 @@
           <div class="flow-doc-pill">⚖️ codigo_conduta.docx</div>
         </div>
       </div>
-
-      <!-- Arrow 1 -->
-      <div class="flow-arrow">
-        <div class="flow-arrow-line"></div>
-        <div class="flow-arrow-label">UPLOAD</div>
-      </div>
-
-      <!-- Node 2: Magic -->
-      <div class="flow-node magic" style="animation-delay:0.15s">
+      <div class="flow-arrow"><div class="flow-arrow-line"></div><div class="flow-arrow-label">UPLOAD</div></div>
+      <div class="flow-node magic">
         <div class="magic-badge">✦ Atlas Engine</div>
         <div class="flow-icon">🧠</div>
         <div class="flow-label">Processamento Inteligente</div>
-        <div class="flow-sub">IA extrai, classifica e mapeia cada dado ao framework ESG correto</div>
+        <div class="flow-sub">Tecnologia extrai, classifica e mapeia cada dado ao framework correto</div>
         <div class="flow-docs" style="margin-top:1rem;">
-          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">⚡ Extração automática</div>
-          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">🗺️ Mapeamento GRI</div>
-          <div class="flow-doc-pill" style="background:rgba(44,180,226,0.1); border-color:rgba(44,180,226,0.2); color:rgba(44,180,226,0.8);">🔍 Análise de gaps</div>
+          <div class="flow-doc-pill" style="background:rgba(91,172,164,0.1); border-color:rgba(91,172,164,0.22); color:rgba(91,172,164,0.85);">⚡ Extração automática</div>
+          <div class="flow-doc-pill" style="background:rgba(91,172,164,0.1); border-color:rgba(91,172,164,0.22); color:rgba(91,172,164,0.85);">🗺️ Mapeamento de indicadores e frameworks (GRI, GHG, IFRS)</div>
+          <div class="flow-doc-pill" style="background:rgba(91,172,164,0.1); border-color:rgba(91,172,164,0.22); color:rgba(91,172,164,0.85);">🔍 Avaliação de conformidade vs. Objetivo</div>
         </div>
       </div>
-
-      <!-- Arrow 2 -->
       <div class="flow-arrow">
-        <div class="flow-arrow-line" style="background: linear-gradient(90deg, rgba(44,180,226,0.5), rgba(184,206,103,0.6));"></div>
-        <div class="flow-arrow-label" style="color:rgba(184,206,103,0.6);">GERAÇÃO</div>
+        <div class="flow-arrow-line" style="background:linear-gradient(90deg,rgba(91,172,164,0.5),rgba(203,212,149,0.6));"></div>
+        <div class="flow-arrow-label" style="color:rgba(203,212,149,0.6);">GERAÇÃO</div>
       </div>
-
-      <!-- Node 3: Output -->
-      <div class="flow-node output" style="animation-delay:0.25s">
+      <div class="flow-node output">
         <div class="flow-icon">📋</div>
         <div class="flow-label">Relatório ESG Completo</div>
         <div class="flow-sub">Estruturado, auditável e pronto para stakeholders</div>
@@ -679,47 +470,45 @@
           <span class="output-badge">PDF Branded</span>
           <span class="output-badge">CSV Export</span>
           <span class="output-badge">Word Editável</span>
-          <span class="output-badge">Análise E·S·G</span>
+          <span class="output-badge">GHG Protocol</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════ ANTES / DEPOIS TABLE -->
+<!-- FLUXO INTELIGENTE -->
 <section class="transform-section">
   <div class="transform-inner">
-    <div class="section-eyebrow">O problema que resolvemos</div>
-    <h2 class="section-title">Seus dados existem.<br>Só estão espalhados.</h2>
-    <p style="font-size:0.95rem; color:var(--gray); line-height:1.75; max-width:500px;">
-      Toda empresa já produz dados de sustentabilidade. O problema é que estão em pastas diferentes, formatos distintos, sem estrutura. O Atlas muda isso.
+    <div class="section-eyebrow">Fluxo inteligente</div>
+    <h2 class="section-title">Veja como o Atlas transforma<br>o fluxo etapa por etapa.</h2>
+    <p style="font-size:0.93rem; color:var(--gray); line-height:1.78; max-width:620px; margin-top:0.5rem;">
+      Em vez de começar pelos indicadores, o processo inicia-se pelas evidências reais: documentos, faturas e planilhas. A partir desses materiais, o Atlas organiza automaticamente os dados e preenche os frameworks ESG, tornando o processo mais rápido, confiável e aplicável a múltiplos frameworks.
     </p>
-
     <table class="antes-depois-table">
       <thead>
         <tr>
-          <th>Situação</th>
-          <th class="col-sem">✗ Sem o Atlas</th>
-          <th class="col-com">✓ Com o Atlas</th>
+          <th style="width:128px;">Etapa</th>
+          <th class="col-sem">Fluxo tradicional</th>
+          <th class="col-com">Fluxo Atlas</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="situation">🔍 Busca de dados</td>
-          <td class="sem-col">Planilhas no Drive, faturas, e-mails e relatórios antigos espalhados por toda a empresa</td>
-          <td class="com-col">Upload direto de qualquer documento — PDF, Excel, Word, CSV. O sistema lê e organiza tudo automaticamente</td>
+          <td class="sem-col">Solicitações para áreas via e-mail, documentos no Drive, faturas, relatórios espalhados por toda a empresa</td>
+          <td class="com-col">Upload direto de qualquer documento: PDF, Excel, Word, imagens. O sistema lê e organiza tudo automaticamente</td>
         </tr>
         <tr>
           <td class="situation">🗂️ Organização</td>
-          <td class="sem-col">Consolidação manual, semanas tentando entender quais indicadores são relevantes e como preencher cada campo</td>
-          <td class="com-col">Atlas automático: indicadores estruturados com fonte e contexto, mapeados para os frameworks GRI corretos</td>
+          <td class="sem-col">Consolidação manual dos dados e preenchimento do framework, semanas entendendo como preencher cada campo</td>
+          <td class="com-col">Atlas automático: indicadores estruturados com fonte (documento) e contexto, mapeados para os frameworks aplicáveis (GRI, GHG, IFRS, etc.)</td>
         </tr>
         <tr>
           <td class="situation">📋 Relatórios</td>
-          <td class="sem-col">Feitos às pressas, superficiais, sem contexto estratégico — resultado pobre para stakeholders exigentes</td>
-          <td class="com-col">Relatórios automáticos e estratégicos, baseados em dados reais, com branding da empresa e prontos para uso externo</td>
+          <td class="sem-col">Produzidos manualmente, fragmentados e sem consistência, limitando o aproveitamento estratégico das informações</td>
+          <td class="com-col">Automáticos, consistentes e prontos para uso externo, gerando insights confiáveis e imediatos</td>
         </tr>
         <tr>
           <td class="situation">⏱️ Tempo gasto</td>
@@ -728,8 +517,8 @@
         </tr>
         <tr>
           <td class="situation">📐 Frameworks</td>
-          <td class="sem-col">Sem alinhamento claro com GRI, ESRS, ISSB — difícil saber o que está faltando</td>
-          <td class="com-col">Mapeamento automático para GRI, estimativa de cobertura de indicadores e identificação de lacunas</td>
+          <td class="sem-col">Esforço separado para preencher cada framework, sem aproveitar mesmos dados de origem e evidências, com baixa rastreabilidade</td>
+          <td class="com-col">Dados únicos aplicáveis a múltiplos frameworks, direcionando questões GRI, categorias GHG e percentual de conformidade em cada um, garantindo precisão e eficiência</td>
         </tr>
       </tbody>
     </table>
@@ -737,118 +526,202 @@
 </section>
 
 
-
-<!-- ══════════ ESG COMPACT -->
+<!-- NA PRÁTICA — ESG MAP -->
 <section class="esg-compact-section" id="esg-mapa">
   <div class="esg-compact-inner">
-    <div class="section-eyebrow">O que o Atlas organiza</div>
+    <div class="section-eyebrow">Na prática</div>
     <h2 class="section-title">Seu mapa E · S · G,<br>indicador por indicador.</h2>
+    <p style="font-size:0.9rem; color:var(--gray); margin-top:0.4rem; max-width:560px; line-height:1.75; margin-bottom:0.5rem;">Confira alguns exemplos de como cada documento vira um indicador estruturado, e a exata aplicabilidade nos principais frameworks.</p>
+
+    <!-- Animated atlas map connector strip -->
+    <div class="esg-connector-strip">
+      <svg viewBox="0 0 1060 44" preserveAspectRatio="none" style="display:block; width:100%; height:44px;">
+        <!-- Node dots at col centers -->
+        <circle cx="177" cy="22" r="6" fill="none" stroke="rgba(132,156,124,0.5)" stroke-width="1.5"/>
+        <circle cx="177" cy="22" r="3" fill="rgba(132,156,124,0.5)"/>
+        <circle cx="530" cy="22" r="6" fill="none" stroke="rgba(91,172,164,0.5)" stroke-width="1.5"/>
+        <circle cx="530" cy="22" r="3" fill="rgba(91,172,164,0.5)"/>
+        <circle cx="883" cy="22" r="6" fill="none" stroke="rgba(90,122,64,0.4)" stroke-width="1.5"/>
+        <circle cx="883" cy="22" r="3" fill="rgba(90,122,64,0.4)"/>
+        <!-- Dashed lines -->
+        <line x1="183" y1="22" x2="524" y2="22" stroke="rgba(91,172,164,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <line x1="536" y1="22" x2="877" y2="22" stroke="rgba(91,172,164,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <!-- Animated dots travelling left to right -->
+        <circle r="4" fill="rgba(91,172,164,0.75)">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M183,22 L524,22"/>
+          <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="4" fill="rgba(203,212,149,0.8)">
+          <animateMotion dur="2.8s" begin="1.4s" repeatCount="indefinite" path="M536,22 L877,22"/>
+          <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" begin="1.4s" repeatCount="indefinite"/>
+        </circle>
+        <!-- Direction labels -->
+        <text x="340" y="16" font-family="Inter,sans-serif" font-size="9" fill="rgba(91,172,164,0.5)" font-weight="700" letter-spacing="1" text-anchor="middle">DADOS → INDICADORES → FRAMEWORKS</text>
+      </svg>
+    </div>
 
     <div class="esg-compact-grid">
 
       <!-- E -->
       <div class="esg-col esg-col-e">
-        <div class="esg-col-letter">E</div>
-        <div class="esg-col-label">Ambiental</div>
-
-        <div class="esg-topic">
-          <div class="esg-topic-header">
-            <span class="esg-topic-icon">⚡</span>
-            <span class="esg-topic-title">Energia &amp; Emissões</span>
-          </div>
-          <div class="esg-chips">
-            <span class="esg-chip">Consumo total</span>
-            <span class="esg-chip">Matriz energética</span>
-            <span class="esg-chip">Escopo 1, 2, 3</span>
-          </div>
-          <div class="esg-sources-mini">
-            <span class="esg-src">Faturas de energia elétrica</span>
-            <span class="esg-src">Consumo de diesel / combustíveis</span>
+        <div class="esg-col-head">
+          <div class="esg-col-letter">E</div>
+          <div class="esg-col-badge-wrap">
+            <div class="esg-col-label">Ambiental</div>
+            <div class="esg-col-frameworks">GRI 302 · 303 · 305 · GHG Protocol</div>
           </div>
         </div>
 
-        <div class="esg-topic">
-          <div class="esg-topic-header">
-            <span class="esg-topic-icon">💧</span>
-            <span class="esg-topic-title">Água &amp; Resíduos</span>
-          </div>
-          <div class="esg-chips">
-            <span class="esg-chip">Consumo hídrico</span>
-            <span class="esg-chip">Destinação de resíduos</span>
-            <span class="esg-chip">Reciclagem</span>
-          </div>
-          <div class="esg-sources-mini">
-            <span class="esg-src">Faturas de água por unidade</span>
-            <span class="esg-src">Relatórios de resíduos, MTR</span>
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">📄</span>Faturas de energia elétrica</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">⚡</span>
+              <div>
+                <div class="esg-ind-name">Consumo de energia (KWh), custo (R$), matriz energética</div>
+                <div class="esg-ind-chips">
+                  <span class="esg-chip">GRI 302-1</span><span class="esg-chip">GRI 302-2</span>
+                  <span class="esg-chip">GRI 305-2</span><span class="esg-chip ghg-chip">GHG Escopo 2</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <span class="esg-gri-tag">GRI 302 · 303 · 305 · 306</span>
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">🧾</span>Notas fiscais de diesel e gasolina</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">⛽</span>
+              <div>
+                <div class="esg-ind-name">Consumo de combustíveis (L), custo (R$)</div>
+                <div class="esg-ind-chips">
+                  <span class="esg-chip">GRI 305-1</span>
+                  <span class="esg-chip ghg-chip">GHG Escopo 1 — Combustão móvel</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">💧</span>Faturas de água</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">🌊</span>
+              <div>
+                <div class="esg-ind-name">Consumo hídrico por unidade, pegada hídrica</div>
+                <div class="esg-ind-chips">
+                  <span class="esg-chip">GRI 303-3</span><span class="esg-chip">GRI 303-4</span><span class="esg-chip">GRI 303-5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">📋 GRI 302 · 303 · 305 · GHG Protocol</span>
       </div>
 
       <!-- S -->
       <div class="esg-col esg-col-s">
-        <div class="esg-col-letter">S</div>
-        <div class="esg-col-label">Social</div>
-
-        <div class="esg-topic">
-          <div class="esg-topic-header">
-            <span class="esg-topic-icon">👥</span>
-            <span class="esg-topic-title">Pessoas &amp; Trabalho</span>
-          </div>
-          <div class="esg-chips">
-            <span class="esg-chip">Headcount</span>
-            <span class="esg-chip">Rotatividade</span>
-            <span class="esg-chip">Diversidade</span>
-            <span class="esg-chip">Saúde &amp; segurança</span>
-          </div>
-          <div class="esg-sources-mini">
-            <span class="esg-src">Planilhas de RH / ERP</span>
-            <span class="esg-src">Registros de acidentes e treinamentos</span>
+        <div class="esg-col-head">
+          <div class="esg-col-letter">S</div>
+          <div class="esg-col-badge-wrap">
+            <div class="esg-col-label">Social</div>
+            <div class="esg-col-frameworks">GRI 401 · 403 · 405</div>
           </div>
         </div>
 
-        <span class="esg-gri-tag">GRI 401 · 403</span>
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">📊</span>Planilhas de RH / ERP</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row" style="margin-bottom:0.55rem;">
+              <span class="esg-ind-icon">👥</span>
+              <div>
+                <div class="esg-ind-name">Headcount e composição por gênero / idade</div>
+                <div class="esg-ind-chips"><span class="esg-chip">GRI 401-1</span><span class="esg-chip">GRI 405-1</span></div>
+              </div>
+            </div>
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">🔄</span>
+              <div>
+                <div class="esg-ind-name">Taxa de rotatividade</div>
+                <div class="esg-ind-chips"><span class="esg-chip">GRI 401-1</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">📋</span>Registros de segurança, rel. de acidentes, treinamentos</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">🦺</span>
+              <div>
+                <div class="esg-ind-name">Acidentes de trabalho e taxa de frequência</div>
+                <div class="esg-ind-chips">
+                  <span class="esg-chip">GRI 403-2</span><span class="esg-chip">GRI 401</span><span class="esg-chip">GRI 403</span><span class="esg-chip">GRI 405</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">📋 GRI 401 · 403 · 405</span>
       </div>
 
       <!-- G -->
       <div class="esg-col esg-col-g">
-        <div class="esg-col-letter">G</div>
-        <div class="esg-col-label">Governança</div>
-
-        <div class="esg-topic">
-          <div class="esg-topic-header">
-            <span class="esg-topic-icon">⚖️</span>
-            <span class="esg-topic-title">Governança &amp; Ética</span>
-          </div>
-          <div class="esg-chips">
-            <span class="esg-chip">Estrutura do conselho</span>
-            <span class="esg-chip">Código de conduta</span>
-            <span class="esg-chip">Canal de denúncias</span>
-          </div>
-          <div class="esg-sources-mini">
-            <span class="esg-src">Políticas internas e atas</span>
-            <span class="esg-src">Código de conduta e treinamentos</span>
+        <div class="esg-col-head">
+          <div class="esg-col-letter">G</div>
+          <div class="esg-col-badge-wrap">
+            <div class="esg-col-label">Governança</div>
+            <div class="esg-col-frameworks">GRI 2 · 204 · 205 · 308 · 405</div>
           </div>
         </div>
 
-        <div class="esg-topic">
-          <div class="esg-topic-header">
-            <span class="esg-topic-icon">🌐</span>
-            <span class="esg-topic-title">Cadeia de Valor</span>
-          </div>
-          <div class="esg-chips">
-            <span class="esg-chip">Fornecedores avaliados</span>
-            <span class="esg-chip">Compras responsáveis</span>
-            <span class="esg-chip">Escopo 3</span>
-          </div>
-          <div class="esg-sources-mini">
-            <span class="esg-src">Questionários de fornecedores</span>
-            <span class="esg-src">Dados de compras e logística</span>
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">📁</span>Relatórios internos de treinamento, políticas internas</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">⚖️</span>
+              <div>
+                <div class="esg-ind-name">Código de conduta e treinamento obrigatório</div>
+                <div class="esg-ind-chips"><span class="esg-chip">GRI 205-2</span></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <span class="esg-gri-tag">GRI 2 · 204 · 205 · 308</span>
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">🔍</span>Relatórios de compliance / RH</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">📣</span>
+              <div>
+                <div class="esg-ind-name">Canal de denúncias — casos tratados</div>
+                <div class="esg-ind-chips"><span class="esg-chip">GRI 205-3</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="esg-doc-block">
+          <div class="esg-doc-header"><span class="esg-doc-icon">🏛️</span>Atas e registros corporativos</div>
+          <div class="esg-doc-body">
+            <div class="esg-ind-row">
+              <span class="esg-ind-icon">🏛️</span>
+              <div>
+                <div class="esg-ind-name">Composição do conselho e diversidade</div>
+                <div class="esg-ind-chips">
+                  <span class="esg-chip">GRI 405-1</span><span class="esg-chip">GRI 2</span><span class="esg-chip">GRI 204</span><span class="esg-chip">GRI 205</span><span class="esg-chip">GRI 308</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="esg-gri-tag">📋 GRI 2 · 204 · 205 · 308 · 405</span>
       </div>
 
     </div>
@@ -856,29 +729,110 @@
 </section>
 
 
-<!-- ══════════ MISSÃO / VISÃO / VALORES -->
-<section class="position-section">
-  <div class="position-inner-new">
-    <div class="position-top">
-      <div class="position-eyebrow">Quem somos</div>
+<!-- PRICING -->
+<section class="pricing-section" id="precos">
+  <div class="pricing-inner">
+    <div class="section-eyebrow">Planos</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem;">Planos</h2>
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th style="width:34%; text-align:left;"></th>
+            <th style="width:22%;">Básico</th>
+            <th style="width:22%; background:rgba(91,172,164,0.1);">Padrão</th>
+            <th style="width:22%;">Atlas para Consultorias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:var(--dark);">
+            <td style="padding:1.4rem 1.5rem; text-align:left;">
+              <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.28);">Ideal para</div>
+            </td>
+            <td style="padding:1.4rem 1rem;">
+              <div style="font-family:'DM Serif Display',serif; font-size:1rem; color:rgba(255,255,255,0.85); margin-bottom:0.4rem; line-height:1.3;">Diagnóstico simplificado ESG</div>
+              <div style="font-size:0.73rem; color:rgba(255,255,255,0.38); line-height:1.5;">Para organizações iniciando em sustentabilidade</div>
+            </td>
+            <td style="padding:1.4rem 1rem; background:rgba(91,172,164,0.1); border-left:2px solid rgba(91,172,164,0.3); border-right:2px solid rgba(91,172,164,0.3);">
+              <div style="font-size:0.58rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-light); margin-bottom:0.4rem;">✦ Mais usado</div>
+              <div style="font-family:'DM Serif Display',serif; font-size:1rem; color:rgba(255,255,255,0.85); margin-bottom:0.4rem; line-height:1.3;">Reporte ESG</div>
+              <div style="font-size:0.73rem; color:rgba(255,255,255,0.38); line-height:1.5;">Para organizações que precisam comunicar sustentabilidade</div>
+            </td>
+            <td style="padding:1.4rem 1rem;">
+              <div style="font-family:'DM Serif Display',serif; font-size:1rem; color:rgba(255,255,255,0.85); margin-bottom:0.4rem; line-height:1.3;">Multi-projetos ESG</div>
+              <div style="font-size:0.73rem; color:rgba(255,255,255,0.38); line-height:1.5;">Para consultorias que gerenciam múltiplos projetos de reporte</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Uploads de documentos</td>
+            <td class="feat-cell">Até 10 documentos</td>
+            <td class="feat-cell featured-col">Até 50 documentos</td>
+            <td class="feat-cell">100+ por projeto</td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Indicadores gerados</td>
+            <td class="feat-cell" style="color:var(--gray); font-size:0.8rem;">Básicos automaticamente</td>
+            <td class="feat-cell featured-col" style="font-size:0.8rem;">Estruturados com cobertura GRI</td>
+            <td class="feat-cell" style="font-size:0.8rem; color:var(--gray);">GRI / GHG / IFRS — completo</td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Relatório</td>
+            <td class="feat-cell" style="font-size:0.8rem; color:var(--gray);">Estruturado com base nos documentos</td>
+            <td class="feat-cell featured-col" style="font-size:0.8rem;">Pronto para stakeholders, com % de cobertura GRI</td>
+            <td class="feat-cell" style="font-size:0.8rem; color:var(--gray);">Customizado por projeto e cliente</td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Personalização (logo &amp; cores)</td>
+            <td class="feat-cell feat-no">—</td>
+            <td class="feat-cell featured-col feat-yes">✓</td>
+            <td class="feat-cell feat-yes">✓</td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Diagnóstico de lacunas</td>
+            <td class="feat-cell feat-no">—</td>
+            <td class="feat-cell featured-col feat-no">—</td>
+            <td class="feat-cell feat-yes">✓</td>
+          </tr>
+          <tr>
+            <td class="feat-row-label">Suporte</td>
+            <td class="feat-cell" style="color:var(--gray); font-size:0.81rem;">E-mail</td>
+            <td class="feat-cell featured-col" style="font-size:0.81rem;">Prioritário via WhatsApp</td>
+            <td class="feat-cell" style="font-size:0.81rem;">Consultor ESG dedicado</td>
+          </tr>
+          <tr style="background:var(--sand);">
+            <td style="padding:1.2rem 1.5rem;"></td>
+            <td style="text-align:center; padding:1.2rem 1rem;"><button class="plan-cta" onclick="openModal('Básico','Diagnóstico simplificado ESG')">Ver preço</button></td>
+            <td style="text-align:center; padding:1.2rem 1rem; background:rgba(91,172,164,0.05); border-left:2px solid rgba(91,172,164,0.2); border-right:2px solid rgba(91,172,164,0.2);"><button class="plan-cta featured-cta" onclick="openModal('Padrão','Reporte ESG')">Ver preço</button></td>
+            <td style="text-align:center; padding:1.2rem 1rem;"><button class="plan-cta" onclick="openModal('Atlas para Consultorias','Gestão multi-projetos ESG')">Falar com o time</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</section>
 
-    <div class="position-cards">
-      <div class="pos-card missao">
-        <div class="pos-card-icon">🎯</div>
-        <div class="pos-card-label">Missão</div>
-        <p class="pos-card-text">Transformamos arquivos diversos em <strong>dados ESG mapeados</strong> para decisões estratégicas e posicionamento sustentável.</p>
+
+<!-- NOSSO COMPROMISSO -->
+<section class="commit-section">
+  <div class="commit-inner">
+    <div class="commit-top">
+      <div class="commit-eyebrow">Nosso compromisso</div>
+      <h2 class="commit-title">Missão, visão<br>e valores que nos guiam.</h2>
+    </div>
+    <div class="commit-cards">
+      <div class="commit-card missao">
+        <div class="commit-card-icon">🎯</div>
+        <div class="commit-card-label">Missão</div>
+        <p class="commit-card-text">Transformamos arquivos diversos em <strong>dados ESG mapeados</strong> para decisões estratégicas e posicionamento sustentável.</p>
       </div>
-
-      <div class="pos-card visao">
-        <div class="pos-card-icon">🔭</div>
-        <div class="pos-card-label">Visão</div>
-        <p class="pos-card-text">Tornar a sustentabilidade um <strong>ativo estratégico</strong> para todas as empresas, com decisões mais rápidas, precisas e embasadas.</p>
+      <div class="commit-card visao">
+        <div class="commit-card-icon">🔭</div>
+        <div class="commit-card-label">Visão</div>
+        <p class="commit-card-text">Tornar a sustentabilidade um <strong>ativo estratégico</strong> para todas as empresas, com decisões mais rápidas, precisas e embasadas.</p>
       </div>
-
-      <div class="pos-card valores">
-        <div class="pos-card-icon">⬡</div>
-        <div class="pos-card-label">Valores</div>
+      <div class="commit-card valores">
+        <div class="commit-card-icon">⬡</div>
+        <div class="commit-card-label">Valores</div>
         <ul class="valores-list">
           <li>Transparência e confiabilidade</li>
           <li>Produtividade e eficiência</li>
@@ -890,111 +844,14 @@
 </section>
 
 
-<!-- ══════════ PRICING TABLE -->
-<section class="pricing-section" id="precos">
-  <div class="pricing-inner">
-    <div class="section-eyebrow">Planos</div>
-    <h2 class="section-title" style="margin-bottom:0.4rem;">Simples. Transparente.</h2>
-    <p style="color:var(--gray); font-size:0.93rem;">Sem taxas ocultas. Sem assinatura forçada. Pague por relatório.</p>
-
-    <div class="pricing-table-wrap">
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th style="width:32%"></th>
-            <th class="plan-col" style="width:22%; text-align:center;">Básico</th>
-            <th class="plan-col featured-head" style="width:22%; text-align:center;">Padrão</th>
-            <th class="plan-col" style="width:24%; text-align:center;">Atlas</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <!-- Price row -->
-          <tr style="background: var(--dark);">
-            <td style="padding:1.2rem 1.5rem;">
-              <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3);">Ideal para</div>
-            </td>
-            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top;">
-              <div style="font-family:'DM Serif Display',serif; font-size:1.7rem; color:white; line-height:1;">R$&nbsp;490</div>
-              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">por relatório</div>
-              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Análise rápida e objetiva</div>
-            </td>
-            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top; background:rgba(44,180,226,0.08); border-left:2px solid rgba(44,180,226,0.3); border-right:2px solid rgba(44,180,226,0.3);">
-              <div style="font-size:0.58rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ocean); margin-bottom:0.35rem;">✦ Mais usado</div>
-              <div style="font-family:'DM Serif Display',serif; font-size:1.7rem; color:white; line-height:1;">R$&nbsp;990</div>
-              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">por relatório</div>
-              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Reporte para stakeholders &amp; posicionamento</div>
-            </td>
-            <td style="text-align:center; padding:1.2rem 1rem; vertical-align:top;">
-              <div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:white; line-height:1; padding-top:0.2rem;">Sob consulta</div>
-              <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); margin-top:0.25rem; margin-bottom:0.6rem;">GRI · GHG · ESRS</div>
-              <div style="font-size:0.75rem; color:rgba(255,255,255,0.45); line-height:1.5;">Estruturação completa da estratégia ESG</div>
-            </td>
-          </tr>
-
-          <!-- Uploads -->
-          <tr>
-            <td class="feat-row-label">Uploads de fontes</td>
-            <td class="feat-cell">Até 10 fontes</td>
-            <td class="feat-cell featured-col">Até 50 fontes</td>
-            <td class="feat-cell">100+ fontes</td>
-          </tr>
-
-          <!-- Tipo relatório -->
-          <tr>
-            <td class="feat-row-label">Tipo de relatório</td>
-            <td class="feat-cell">Customizado com base nos documentos enviados</td>
-            <td class="feat-cell featured-col">Customizado com % de automação GRI — saiba quanto falta completar</td>
-            <td class="feat-cell">Customizado % GRI, GHG e outros frameworks</td>
-          </tr>
-
-          <!-- Personalização -->
-          <tr>
-            <td class="feat-row-label">Personalização (logo &amp; cores)</td>
-            <td class="feat-cell feat-no">—</td>
-            <td class="feat-cell featured-col feat-yes">✓</td>
-            <td class="feat-cell feat-yes">✓</td>
-          </tr>
-
-          <!-- Diagnóstico de lacunas -->
-          <tr>
-            <td class="feat-row-label">Diagnóstico de lacunas</td>
-            <td class="feat-cell feat-no">—</td>
-            <td class="feat-cell featured-col feat-no">—</td>
-            <td class="feat-cell feat-yes">✓</td>
-          </tr>
-
-          <!-- Suporte -->
-          <tr>
-            <td class="feat-row-label">Suporte</td>
-            <td class="feat-cell" style="color:var(--gray); font-size:0.81rem;">E-mail</td>
-            <td class="feat-cell featured-col" style="font-size:0.81rem;">Prioritário via WhatsApp</td>
-            <td class="feat-cell" style="font-size:0.81rem;">Consultor ESG dedicado — comunicação rápida e contínua</td>
-          </tr>
-
-          <!-- CTA -->
-          <tr style="background:var(--sand);">
-            <td style="padding:1.2rem 1.5rem;"></td>
-            <td style="text-align:center; padding:1.2rem 1rem;"><a href="comecar.html" class="plan-cta">Começar</a></td>
-            <td style="text-align:center; padding:1.2rem 1rem; background:rgba(44,180,226,0.05); border-left:2px solid rgba(44,180,226,0.2); border-right:2px solid rgba(44,180,226,0.2);"><a href="comecar.html" class="plan-cta featured-cta">Escolher Padrão</a></td>
-            <td style="text-align:center; padding:1.2rem 1rem;"><a href="comecar.html" class="plan-cta">Falar com o time</a></td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════ CTA -->
+<!-- CTA -->
 <section class="cta-section" id="comecar">
   <div class="cta-inner">
     <div class="cta-eyebrow">Comece agora</div>
     <h2>Seus dados já existem.<br>Deixe o <em>Atlas</em> organizá-los.</h2>
-    <p>Upload. Estruture. Entenda.<br>Sem consultoria pesada. Só clareza.</p>
+    <p>Upload. Estruture. Entenda.<br>Tudo simples, rápido e transparente.</p>
     <a href="comecar.html" class="btn-cta-big">Fazer upload e começar →</a>
-    <div class="cta-note">Gratuito para começar · Resultado em até 24h · Funciona com qualquer framework</div>
+    <div class="cta-note">Gratuito para começar · Resultado em até 24h · Funciona com qualquer framework e relatório</div>
   </div>
 </section>
 
@@ -1002,8 +859,8 @@
 <!-- FOOTER -->
 <footer>
   <a href="esg-landing.html" class="nav-logo">
-    <img src="logo.png" alt="Atlas ESG" width="28" height="28" style="object-fit:contain; opacity:0.7;">
-    <span style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:rgba(255,255,255,0.5); letter-spacing:-0.02em;">Atlas<span style="color:rgba(44,180,226,0.6);">ESG</span></span>
+    <img src="logo.png" alt="Atlas ESG" width="28" height="28" style="object-fit:contain; opacity:0.6;" onerror="this.style.display='none'">
+    <span style="font-family:'DM Serif Display',serif; font-size:1.05rem; color:rgba(255,255,255,0.45); letter-spacing:-0.02em;">Atlas<span style="color:rgba(91,172,164,0.6);">ESG</span></span>
   </a>
   <div class="footer-links">
     <a href="#">Privacidade</a><a href="#">Termos de uso</a><a href="#">Contato</a><a href="#">Blog</a>
@@ -1011,21 +868,61 @@
   <div style="font-size:0.73rem; color:rgba(255,255,255,0.18);">© 2025 Atlas ESG</div>
 </footer>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="priceModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-plan" id="modalPlan">Plano</div>
+    <h3 id="modalTitle"></h3>
+    <div class="modal-divider"></div>
+    <p class="modal-desc">Deixe seu e-mail e entraremos em contato com os detalhes do plano e investimento.</p>
+    <input class="modal-input" type="email" placeholder="seu@email.com" id="modalEmail">
+    <button class="modal-submit" onclick="submitModal()">Quero saber o preço →</button>
+    <div class="modal-note">Sem spam. Resposta em até 24h.</div>
+  </div>
+</div>
+
 <script>
-  const cards = document.querySelectorAll('.step-card, .flow-node');
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.flow-node, .commit-card, .what-col, .esg-doc-block, .esg-col');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
-      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 130);
+      if (e.isIntersecting) {
+        setTimeout(() => { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }, i * 75);
+        obs.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.15 });
-  cards.forEach(c => obs.observe(c));
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
 
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
+
+  // Modal
+  function openModal(plan, title) {
+    document.getElementById('modalPlan').textContent = 'Plano ' + plan;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalEmail').value = '';
+    document.getElementById('priceModal').classList.add('open');
+  }
+  function closeModal() { document.getElementById('priceModal').classList.remove('open'); }
+  function submitModal() {
+    const email = document.getElementById('modalEmail').value;
+    if (!email || !email.includes('@')) { alert('Por favor, insira um e-mail válido.'); return; }
+    alert('Obrigado! Entraremos em contato em breve.');
+    closeModal();
+  }
+  document.getElementById('priceModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 </script>
 </body>
 </html>
