@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contratar o Atlas ESG · Pré-contratação</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14304a;--blue:#2d7aa6;--blue-d:#1d5b82;--green:#6aab8b;--green-d:#3a7f5f;--mint:#e6f2ea;--sky:#e4eff6;--bg:#eef7f6;--gray:#5b6f7d;--line:#d5e1e8;--err:#b3412f;--errbg:#fbeeea;--hyp:linear-gradient(90deg,#8cc3dc,#5fa6c6,#8fc29a,#cfe0a0,#ecd88f,#dea96b)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+[hidden]{display:none!important}
+.bgmap{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:.9rem clamp(1.2rem,5vw,5rem);display:flex;justify-content:space-between;align-items:center;background:rgba(238,247,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.wm{font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-.02em}.wm em{font-style:normal;color:var(--blue)}
+.back{font-size:.85rem;font-weight:600;color:var(--blue-d);text-decoration:none}.back:hover{color:var(--green-d)}
+
+.ck{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:6.2rem clamp(1.2rem,5vw,3rem) 4rem}
+.se{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-d);display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem}
+.se::before{content:'';width:26px;height:3px;border-radius:3px;background:var(--hyp)}
+h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:.5rem}
+.sub{font-size:.95rem;color:var(--gray);line-height:1.6;max-width:640px}
+
+.steps{list-style:none;display:flex;gap:.6rem;flex-wrap:wrap;margin:1.6rem 0 1.6rem}
+.steps li button{display:flex;align-items:center;gap:.55rem;padding:.45rem .95rem .45rem .5rem;border-radius:999px;background:#fff;border:1px solid var(--line);font:600 .8rem Inter,sans-serif;color:var(--gray);cursor:default}
+.steps li button:not(:disabled){cursor:pointer}
+.steps li button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.steps li b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--sky);color:var(--blue-d);font-size:.74rem}
+.steps li.on button{border-color:var(--blue);color:var(--ink);box-shadow:0 4px 14px rgba(29,91,130,.12)}
+.steps li.on b{background:var(--blue-d);color:#fff}
+.steps li.done button{color:var(--green-d)}.steps li.done b{background:var(--green-d);color:#fff}
+
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+.grid.single{grid-template-columns:minmax(0,820px);justify-content:center}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem;box-shadow:0 10px 30px rgba(29,91,130,.07)}
+.card h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.35rem;margin-bottom:.3rem}
+.card .hint{font-size:.84rem;color:var(--gray);line-height:1.55;margin-bottom:1.2rem}
+.kick{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-d);margin-bottom:.3rem}
+
+/* form */
+.grp{border:0;min-width:0;margin:0 0 1.25rem}
+.grp>legend,.lab{font-size:.76rem;font-weight:700;color:var(--blue-d);margin-bottom:.45rem;display:block;padding:0}
+.grp>legend.sr{position:absolute;left:-9999px}
+.lab i,.f label i,.grp>legend i{font-style:normal;font-weight:500;color:var(--gray)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.f{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.95rem}
+.f label{font-size:.76rem;font-weight:700;color:var(--blue-d)}
+.f input[type=text],.f input[type=email],.f input[type=tel],.f textarea,.f select{width:100%;padding:.72rem .85rem;border:1.5px solid var(--line);border-radius:12px;font:500 .95rem Inter,sans-serif;color:var(--ink);background:var(--bg)}
+.f textarea{resize:vertical;min-height:90px;line-height:1.5}
+.f input:focus,.f textarea:focus,.f select:focus{outline:2px solid var(--blue);outline-offset:1px;background:#fff}
+.f.bad input,.f.bad textarea,.f.bad select{border-color:var(--err);background:var(--errbg)}
+.f .help{font-size:.72rem;color:var(--gray);line-height:1.4}
+.err{font-size:.74rem;font-weight:600;color:var(--err);display:none}
+.f.bad .err,.grp.bad .err,.ck-terms.bad .err{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* chips (temas / frameworks) — compactos */
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:.28rem .65rem;border:1.5px solid var(--line);border-radius:999px;font-size:.74rem;font-weight:600;line-height:1.3;background:#fff;cursor:pointer;transition:.15s}
+.chip:hover span{border-color:var(--blue)}
+.chip input:checked+span{border-color:var(--blue);background:var(--sky);box-shadow:0 0 0 1px var(--blue) inset;color:var(--blue-d)}
+.chip input:focus-visible+span{outline:2px solid var(--blue);outline-offset:2px}
+
+/* forma de pagamento */
+.pays{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}.pays.p2{grid-template-columns:repeat(2,1fr)}.pgl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--green-d);margin:1rem 0 .5rem}.pgl:first-of-type{margin-top:.2rem}.pay .fl{font-size:.9rem;margin-left:.25rem}
+.pay{position:relative;display:flex;flex-direction:column;gap:.15rem;padding:1rem;border:1.5px solid #cfe3de;border-radius:16px;background:#f1f9f7;cursor:pointer;transition:.15s}
+.pay input{position:absolute;opacity:0;pointer-events:none}
+.pay:hover{border-color:var(--blue)}
+.pay .pi{font-size:1.1rem;line-height:1;margin-bottom:.55rem}
+.pay b{font-size:.95rem}
+.pay small{font-size:.76rem;color:var(--gray);line-height:1.4}
+.pay:has(input:checked){border-color:var(--blue);background:var(--sky);box-shadow:0 0 0 1px var(--blue) inset}
+.pay:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:2px}
+.grp.bad .pay{border-color:var(--err)}
+.ck-terms{display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-start;font-size:.82rem;color:var(--gray);line-height:1.5;margin:.2rem 0 1rem}
+.ck-terms input{margin-top:.2rem;width:17px;height:17px;accent-color:var(--blue-d);flex:none}
+.ck-terms span.t{flex:1;min-width:0}
+.ck-terms .err{flex-basis:100%}
+.ck-terms.bad{color:var(--err)}
+
+.banner{border-radius:12px;padding:.75rem .95rem;font-size:.82rem;line-height:1.5;font-weight:600;margin-bottom:1rem}
+.banner a{color:inherit;text-decoration:underline}
+.banner.err{background:var(--errbg);color:var(--err);border:1px solid #efc7bd}
+a.btn{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue-d);color:#fff;font:600 .98rem Inter,sans-serif;padding:.95rem 1.6rem;border:0;border-radius:999px;cursor:pointer;text-decoration:none;transition:.2s;box-shadow:0 8px 22px rgba(29,91,130,.25);width:100%}
+.btn:hover{background:var(--green-d);transform:translateY(-1px)}.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn.alt{background:#fff;color:var(--blue-d);border:1.5px solid var(--blue-d);box-shadow:none}.btn.alt:hover{background:var(--sky);color:var(--blue-d)}
+.btnrow{display:flex;justify-content:space-between;gap:.7rem;margin-top:.4rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.btnrow .btn{width:auto;padding:.85rem 1.6rem}
+.btnrow .btn:last-child{flex:1;max-width:260px}
+.fine{font-size:.74rem;color:var(--gray);line-height:1.5;margin-top:.9rem;text-align:center}
+.fine a{color:var(--blue-d);font-weight:600}
+
+/* configuração */
+.qty{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.qty button{width:42px;height:42px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:600 1.2rem Inter,sans-serif;color:var(--blue-d);cursor:pointer}
+.qty button:hover:not(:disabled){border-color:var(--blue)}.qty button:disabled{opacity:.45;cursor:not-allowed}
+.qty input{width:80px;text-align:center;padding:.6rem;border:1.5px solid var(--line);border-radius:12px;font:600 1.1rem Inter,sans-serif;color:var(--ink);background:var(--bg)}
+.qty small{font-size:.8rem;color:var(--gray);margin-left:.2rem}
+.help{font-size:.74rem;color:var(--gray);line-height:1.5}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.seg button{padding:.7rem .6rem;border-radius:14px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font:600 .88rem Inter,sans-serif;color:var(--ink);text-align:center;line-height:1.3}
+.seg button small{display:block;font-weight:500;font-size:.7rem;color:var(--gray)}
+.seg button[aria-pressed=true]{border-color:var(--blue);background:var(--sky);box-shadow:0 0 0 1px var(--blue) inset}
+.seg button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.seg button:disabled{cursor:not-allowed;opacity:.7}
+
+/* resumo */
+.sum{position:sticky;top:5.6rem}
+.sum h2{margin-bottom:.9rem}
+.plan{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.9rem 1rem;border-radius:14px;background:linear-gradient(90deg,#e3f0f6,#e5f2e8);border:1px solid #b9d8e6;margin-bottom:1rem}
+.plan b{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.3rem;display:block;line-height:1.1}.plan span{font-size:.74rem;color:var(--gray)}
+.plan em{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-d)}
+.ln{display:flex;justify-content:space-between;gap:1rem;font-size:.86rem;padding:.55rem 0;border-top:1px solid var(--line)}
+.ln span:first-child{color:var(--gray);flex:none}.ln b{font-weight:600;text-align:right;overflow-wrap:anywhere}
+.save{font-size:.76rem;font-weight:700;color:var(--green-d);background:var(--mint);border-radius:10px;padding:.5rem .7rem;margin:.3rem 0 .2rem}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:.6rem;padding-top:.8rem}
+.tot span{font-weight:700;font-size:.9rem}.tot b{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.9rem}
+.tot b .v{font-weight:inherit;font-size:inherit}
+.tot small{display:block;text-align:right;font-family:Inter,sans-serif;font-size:.7rem;color:var(--gray);font-weight:500}
+.note{font-size:.76rem;color:var(--gray);line-height:1.5;margin-top:.8rem}
+
+/* confirmação */
+.done{text-align:center;padding:2.4rem 1.6rem 2rem}
+.done:focus{outline:none}
+.done .ck-ic{display:block;font-size:2.6rem;line-height:1;margin:0 auto .8rem}
+.done h2{font-size:1.8rem;margin-bottom:.4rem}
+.done p.lead{font-size:.92rem;color:var(--gray);line-height:1.65;max-width:520px;margin:0 auto}
+.done p.lead b{color:var(--ink)}
+.code{display:inline-block;margin:1.2rem auto .4rem;padding:.7rem 1.6rem;border:1.5px dashed var(--green);border-radius:14px;background:var(--mint);font-family:Inter,sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:.12em;color:var(--green-d)}
+.recap{margin:1rem auto 0;max-width:460px;text-align:left}
+.proc{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.5rem 0 1.2rem;text-align:left}
+.proc div{border:1px solid #cfe3de;background:#f1f9f7;border-radius:14px;padding:.9rem 1rem}
+.proc b{display:block;font-size:.9rem;margin-bottom:.25rem}
+.proc span{font-size:.8rem;color:var(--gray);line-height:1.5}
+.notice{max-width:560px;margin:0 auto 1rem;text-align:left;background:var(--sky);border:1px solid #b9d8e6;border-radius:12px;padding:.7rem .9rem;font-size:.8rem;line-height:1.55;color:var(--blue-d);font-weight:600}
+.done .doubt{font-size:.82rem;color:var(--gray);margin-top:.3rem}
+.done .btn{width:auto;min-width:200px;margin:1.2rem auto 0}
+
+@media(max-width:900px){.grid{grid-template-columns:1fr}.sum{position:static;order:-1;padding:1.1rem}.sum h2,.sum .note,.sum #sLines,.sum .save{display:none}.sum .plan{margin-bottom:.2rem}.grid.single{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.pays,.pays.p2,.proc{grid-template-columns:1fr}}
+@media(max-width:560px){.row2{grid-template-columns:1fr}.card{padding:1.2rem}.done{padding:1.6rem 1rem}.steps li button span{display:none}.steps li.on button span{display:inline}.btnrow .btn{padding:.85rem 1rem}}
+
+/* etapas alinhadas: 3 colunas iguais, sem quebra de linha */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;flex-wrap:nowrap;margin:1.6rem 0 1.4rem}
+.steps li{min-width:0}
+.steps li button{width:100%;min-height:46px;justify-content:flex-start}
+.steps li button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.steps li b{flex:none}
+html{scroll-padding-top:5.4rem}
+.row2{align-items:start}
+/* painel “melhor data de vencimento” (abre ao escolher boleto) */
+.due{position:relative;margin:-.35rem 0 1.25rem;padding:1rem 1rem .85rem;border:1.5px solid var(--blue);background:var(--sky);border-radius:16px;animation:dueIn .22s ease}
+.due::before{content:'';position:absolute;top:-8px;left:2.6rem;width:14px;height:14px;background:var(--sky);border-left:1.5px solid var(--blue);border-top:1.5px solid var(--blue);transform:rotate(45deg)}
+.due-h{display:flex;align-items:center;gap:.5rem;font-size:.84rem;color:var(--blue-d);margin-bottom:.65rem}
+.due-opts{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:.55rem}
+.due .chip span{display:block;text-align:center;padding:.55rem .3rem;font-size:.82rem}
+.due.bad{border-color:var(--err)}.due.bad .err{display:block}
+@keyframes dueIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:560px){.due-opts{grid-template-columns:repeat(3,1fr)}}
+/* idioma + navegação */
+.nav-r{display:flex;align-items:center;gap:1.1rem}
+.lang{position:relative}
+.lang .cur{display:flex;align-items:center;gap:.35rem;font:600 .72rem Inter,sans-serif;letter-spacing:.04em;color:var(--gray);background:none;border:0;padding:.4rem .5rem;border-radius:8px;cursor:pointer}
+.lang .cur:hover{color:var(--ink);background:var(--sky)}.lang .cur svg{width:15px;height:15px}.lang .cur i{font-style:normal;font-size:.6rem;opacity:.7}
+.lang .lm{position:absolute;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(29,91,130,.16);padding:.3rem;list-style:none;min-width:158px;z-index:200}
+.lang .lm[hidden]{display:none}
+.lang .lm button{width:100%;text-align:left;background:none;border:0;color:var(--ink);font:500 .82rem Inter,sans-serif;padding:.5rem .7rem;border-radius:8px;cursor:pointer}
+.lang .lm button:hover,.lang .lm button.on{background:var(--sky)}.lang .lm button.on{color:var(--blue-d);font-weight:700}
+@media(max-width:560px){.back{font-size:.78rem}.nav-r{gap:.6rem}}
+/* ajustes v3 */
+.banner.err{display:block}
+.banner.info{background:var(--sky);color:var(--blue-d);border:1px solid #b9d8e6}
+.done .banner{max-width:560px;margin:0 auto 1.2rem;text-align:left}
+.nav-l{display:flex;align-items:center;gap:.9rem;min-width:0}
+.homebtn{display:inline-flex;align-items:center;gap:.4rem;padding:.42rem .95rem .42rem .75rem;border:1.5px solid var(--blue-d);border-radius:999px;background:#fff;font:600 .8rem Inter,sans-serif;color:var(--blue-d);text-decoration:none;white-space:nowrap;transition:.15s}
+.homebtn:hover{background:var(--sky)}
+.homebtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.homebtn svg{width:15px;height:15px;flex:none}
+.inst{margin-top:.6rem;padding:.65rem .85rem;border-radius:12px;background:var(--mint);text-align:right}
+.inst b{display:block;font-size:1rem;font-weight:700;color:var(--green-d)}
+.inst small{display:block;font-size:.72rem;color:var(--gray);margin-top:.1rem}
+@media(max-width:480px){.wm{display:none}.homebtn{padding:.38rem .75rem .38rem .6rem}}
+.tg{display:inline-block;margin:.1rem 0 .1rem .3rem;padding:.12rem .55rem;border-radius:999px;background:var(--sky);color:var(--blue-d);font-size:.74rem;font-weight:600}
+.done .ln b.tags{text-align:right}
+.done .lead.main{font-size:1.02rem;color:var(--ink);margin-bottom:.6rem}
+.done .alt-note{font-size:.84rem;color:var(--gray);max-width:520px;margin:.9rem auto 0;line-height:1.55}
+.done a.btn.sched{display:inline-flex;min-width:260px;margin:1.4rem auto .5rem;padding:1.05rem 2rem;font-size:1.05rem}
+.done .sched-hint{font-size:.8rem;color:var(--gray);margin-bottom:.4rem}
+.done .sect{margin:2rem auto .2rem;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-d)}
+.recap .ln b.obs{font-weight:500;white-space:pre-wrap;text-align:right}
+.phone-row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px}.phone-row select,.phone-row input{min-width:0;width:100%}.phone-row select{padding-left:.6rem;padding-right:.2rem;cursor:pointer}
+/* calculadora de projetos (igual à página inicial) */
+.pc-row{display:flex;align-items:flex-end;gap:.7rem;flex-wrap:wrap;margin:.2rem 0 .8rem}
+.pc-row label{display:flex;flex-direction:column;gap:.35rem;flex:0 1 150px;font-size:.72rem;font-weight:700;line-height:1.25;color:var(--blue-d);text-align:left}
+.pc-row input{width:100%;padding:.6rem .7rem;border:1.5px solid var(--line);border-radius:12px;font:600 1rem Inter,sans-serif;color:var(--ink);background:var(--bg)}
+.pc-row input:focus{outline:2px solid var(--blue);outline-offset:1px}.pc-row input:disabled{opacity:.6}
+.pc-x{font-size:1.3rem;color:var(--gray);padding-bottom:.5rem}
+.pc-out{flex:1 1 150px;min-width:150px;padding:.6rem .9rem;border-radius:14px;background:linear-gradient(90deg,#e3f0f6,#e5f2e8);border:1px solid #b9d8e6;font-size:.82rem;line-height:1.45;color:var(--blue-d)}.pc-out b{display:block;font-size:1rem;color:var(--ink)}
+</style><script src="/assets/atlas-track.js"></script>
+</head><body>
+<svg class="bgmap" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#3f8178" stroke-opacity=".09" stroke-width="1.3"><path d="M-20,54 Q800,88 1620,54"/><path d="M-20,135 Q800,169 1620,135"/><path d="M-20,216 Q800,250 1620,216"/><path d="M-20,319 Q800,353 1620,319"/><path d="M-20,423 Q800,457 1620,423"/><path d="M-20,522 Q800,556 1620,522"/><path d="M-20,621 Q800,655 1620,621"/><path d="M-20,720 Q800,754 1620,720"/><path d="M-20,819 Q800,853 1620,819"/><path d="M-20,900 Q800,934 1620,900"/><path d="M-177,-20 Q-216,450 -255,920"/><path d="M0,-20 Q-32,450 -64,920"/><path d="M177,-20 Q152,450 128,920"/><path d="M355,-20 Q337,450 320,920"/><path d="M533,-20 Q522,450 512,920"/><path d="M711,-20 Q707,450 704,920"/><path d="M888,-20 Q891,450 895,920"/><path d="M1066,-20 Q1076,450 1087,920"/><path d="M1244,-20 Q1261,450 1279,920"/><path d="M1422,-20 Q1446,450 1471,920"/><path d="M1600,-20 Q1632,450 1664,920"/><path d="M1777,-20 Q1816,450 1855,920"/></g></svg>
+<nav><div class="nav-l"><a class="homebtn" id="homeBtn" href="/eu/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>Início</span></a><a class="nav-logo" aria-label="Atlas ESG" href="/eu/" id="logoLink"><img alt="" height="30" src="data:image/png;base64,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" style="object-fit:contain" width="30"><span class="wm">Atlas<em>ESG</em></span></a></div><div class="nav-r"><div class="lang"><button type="button" class="cur" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span class="langCur">PT-PT</span><i>▾</i></button><ul class="lm" role="listbox" hidden><li><button type="button" data-l="pt-PT" class="on">Português (PT)</button></li><li><button type="button" data-l="en">English</button></li><li><button type="button" data-l="es">Español</button></li></ul></div></div></nav>
+
+<main class="ck">
+<div class="se">Contratar o Atlas</div>
+<h1>Vamos começar com o Atlas ESG</h1>
+
+
+<ol class="steps" aria-label="Etapas">
+<li id="s1" class="on"><button type="button" data-go="1"><b>1</b><span>Configure seu plano</span></button></li>
+<li id="s2"><button type="button" data-go="2" disabled><b>2</b><span>Informe seus dados</span></button></li>
+<li id="s3"><button type="button" data-go="3" disabled><b>3</b><span>Preferência de pagamento</span></button></li>
+</ol>
+
+<div class="grid" id="grid">
+<div>
+<form id="form" novalidate autocomplete="on">
+
+<!-- ETAPA 1 · CONFIGURE -->
+<section class="card" id="p1">
+<div class="kick">Primeira etapa · Sem dados pessoais</div>
+<h2>Configure seu plano</h2>
+<p class="hint">O plano e o valor se atualizam conforme o número de projetos e a periodicidade. Você vê o preço antes de informar qualquer dado.</p>
+
+<div class="grp" role="group" aria-labelledby="lQtd">
+<span class="lab" id="lQtd">Quantos projetos ESG você quer gerenciar?</span>
+<div class="pc-row">
+<label for="pcU">Unidades de negócio<input id="pcU" type="number" min="1" max="99" inputmode="numeric"></label>
+<span class="pc-x" aria-hidden="true">×</span>
+<label for="pcF">Relatórios ou frameworks por unidade<input id="pcF" type="number" min="1" max="20" inputmode="numeric"></label>
+<span class="pc-x" aria-hidden="true">=</span>
+<div class="pc-out" aria-live="polite"><b id="pcN"></b><span id="pcT"></span></div>
+</div>
+<p class="help">Os planos são contratados por projeto: o valor da faixa vale para cada projeto contratado. Um projeto é uma unidade de negócio com um relatório ESG ou framework.</p>
+<p class="help">Multiplique unidades por frameworks: uma empresa com 2 filiais e 3 frameworks tem 6 projetos.</p>
+</div>
+
+<div class="grp" role="group" aria-labelledby="lPer">
+<span class="lab" id="lPer">Periodicidade desejada</span>
+<div class="seg">
+<button type="button" id="pM" aria-pressed="false">Mensal<small>cancele quando quiser</small></button>
+<button type="button" id="pY" aria-pressed="true">Anual<small>contrato de 12 meses</small><span class="tg">2 meses grátis · 17% de desconto</span></button>
+</div>
+</div>
+
+<fieldset class="grp"><legend>Temas ESG de interesse <i>(opcional)</i></legend>
+<div class="chips" id="temas"></div><div class="f" id="f-temaOutro" hidden style="margin-top:12px"><label for="temaOutro">Complemento <i>(opcional)</i></label><input id="temaOutro" type="text" maxlength="180" placeholder="Descreva outro tema ESG, se desejar"></div></fieldset>
+
+<fieldset class="grp"><legend>Frameworks de interesse <i>(opcional)</i></legend>
+<div class="chips" id="fws"></div></fieldset>
+
+<button class="btn" type="submit">Continuar</button>
+</section>
+
+<!-- ETAPA 2 · DADOS -->
+<section class="card" id="p2" hidden>
+<div class="kick">Segunda etapa · Contato e qualificação</div>
+<h2>Informe seus dados</h2>
+<p class="hint">Só nome e e-mail são obrigatórios. Os demais campos nos ajudam a entender o seu contexto e não bloqueiam o envio.</p>
+<div class="f" id="f-nome"><label for="nome">Nome e sobrenome</label><input id="nome" name="name" type="text" autocomplete="name"><span class="err">Informe nome e sobrenome.</span></div>
+<div class="row2">
+<div class="f" id="f-email"><label for="email">E-mail profissional ou de contato</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email"><span class="err">Informe um e-mail válido.</span></div>
+<div class="f" id="f-tel"><label for="tel">WhatsApp <i>(opcional)</i></label><div class="phone-row"><select id="telCountry" aria-label="País do telefone"><option value="+351" selected title="Portugal">🇵🇹 +351</option><option value="+34" title="Espanha">🇪🇸 +34</option><option value="+33" title="França">🇫🇷 +33</option><option value="+49" title="Alemanha">🇩🇪 +49</option><option value="+39" title="Itália">🇮🇹 +39</option><option value="+31" title="Países Baixos">🇳🇱 +31</option><option value="+32" title="Bélgica">🇧🇪 +32</option><option value="+353" title="Irlanda">🇮🇪 +353</option><option value="+352" title="Luxemburgo">🇱🇺 +352</option><option value="+44" title="Reino Unido">🇬🇧 +44</option><option value="+41" title="Suíça">🇨🇭 +41</option><option value="+55" title="Brasil">🇧🇷 +55</option><option value="+1" title="EUA/Canadá">🇺🇸 +1</option><option value="+other" title="Outro código">🌐 Outro</option></select><input id="tel" name="tel" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="912 345 678"></div><div class="f" id="f-telOtherCountry" hidden style="margin-top:8px"><label for="telOtherCountry">Código internacional</label><input id="telOtherCountry" type="text" inputmode="tel" placeholder="+ código do país"></div><span class="err">Confira o número informado.</span></div>
+</div>
+<div class="row2">
+<div class="f" id="f-contato"><label for="contato">Melhor forma de contato</label><select id="contato"><option value="E-mail" selected>E-mail</option><option value="WhatsApp">WhatsApp</option></select><span class="err">Para contato por WhatsApp, informe o número acima ou escolha e-mail.</span></div>
+<div class="f"><label for="quando">Quando quer começar?</label><select id="quando"><option value="Imediatamente">Imediatamente</option><option value="Nas próximas semanas">Nas próximas semanas</option><option value="Entre 1 e 2 meses">Entre 1 e 2 meses</option><option value="Mais que 3 meses">Mais que 3 meses</option></select></div>
+</div>
+<div class="row2">
+<div class="f"><label for="perfil">Perfil <i>(opcional)</i></label><select id="perfil" name="perfil"><option value="">Selecione</option><option value="Empresa">Empresa</option><option value="Consultoria ESG">Consultoria ESG</option><option value="Consultor independente">Consultor independente</option><option value="ONG">ONG</option><option value="Outro">Outro</option></select></div>
+<div class="f" id="f-empresa"><label for="empresa">Empresa ou organização <i>(opcional)</i></label><input id="empresa" name="organization" type="text" autocomplete="organization"></div>
+</div>
+<div class="f" id="f-perfilOutro" hidden><label for="perfilOutro">Qual? <i>(opcional)</i></label><input id="perfilOutro" type="text" maxlength="80"></div>
+<div class="f"><label for="origem">Onde conheceu o Atlas ESG? <i>(opcional)</i></label><select id="origem"><option value="">Selecione…</option><option value="LinkedIn">LinkedIn</option><option value="WhatsApp">WhatsApp</option><option value="Ferramenta de busca">Ferramenta de busca</option><option value="E-mail">E-mail</option><option value="Indicação">Indicação</option><option value="Parceiro">Parceiro</option><option value="Evento">Evento</option><option value="Outro">Outro</option></select></div>
+<div class="hp" aria-hidden="true"><label>Não preencha<input id="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+<div class="btnrow"><button class="btn alt" type="button" data-go="1">← Voltar</button><button class="btn" type="submit">Continuar</button></div>
+</section>
+
+<!-- ETAPA 3 · PREFERÊNCIA DE PAGAMENTO -->
+<section class="card" id="p3" hidden>
+<div class="kick">Terceira etapa · Preferência de pagamento</div>
+<h2>Como prefere pagar?</h2>
+<p class="hint">Nesta etapa não é cobrado nada. Combinamos o valor e o pagamento com você por e-mail ou WhatsApp.</p>
+
+<fieldset class="grp" id="f-pag"><legend class="sr">Forma de pagamento preferida</legend>
+<span class="pgl">Em toda a Europa</span>
+<div class="pays p2">
+<label class="pay"><input type="radio" name="pag" value="Cartão de crédito ou débito"><span class="pi" aria-hidden="true">💳</span><b>Cartão de crédito ou débito</b><small>Enviamos um link de pagamento seguro.</small></label>
+<label class="pay"><input type="radio" name="pag" value="PayPal"><span class="pi" aria-hidden="true">🅿️</span><b>PayPal</b><small>Pague com a sua conta PayPal.</small></label>
+<label class="pay"><input type="radio" name="pag" value="Débito direto SEPA"><span class="pi" aria-hidden="true">🔁</span><b>Débito direto SEPA</b><small>Cobrança automática na sua conta (IBAN).</small></label>
+<label class="pay"><input type="radio" name="pag" value="Transferência bancária SEPA"><span class="pi" aria-hidden="true">🏦</span><b>Transferência bancária (SEPA)</b><small>Enviamos o IBAN e a referência.</small></label>
+</div>
+<span class="pgl">Métodos locais</span>
+<div class="pays">
+<label class="pay"><input type="radio" name="pag" value="MB WAY"><span class="pi" aria-hidden="true">📱</span><b>MB WAY <span class="fl" aria-hidden="true">🇵🇹</span></b><small>Pagamento no telemóvel.</small></label>
+<label class="pay"><input type="radio" name="pag" value="Multibanco"><span class="pi" aria-hidden="true">🏧</span><b>Multibanco <span class="fl" aria-hidden="true">🇵🇹</span></b><small>Entidade e referência para pagar no banco ou no ATM.</small></label>
+<label class="pay"><input type="radio" name="pag" value="Bizum"><span class="pi" aria-hidden="true">📱</span><b>Bizum <span class="fl" aria-hidden="true">🇪🇸</span></b><small>Pagamento no telemóvel.</small></label>
+<label class="pay"><input type="radio" name="pag" value="iDEAL"><span class="pi" aria-hidden="true">🏦</span><b>iDEAL <span class="fl" aria-hidden="true">🇳🇱</span></b><small>Pagamento online através do seu banco.</small></label>
+<label class="pay"><input type="radio" name="pag" value="Bancontact"><span class="pi" aria-hidden="true">💳</span><b>Bancontact <span class="fl" aria-hidden="true">🇧🇪</span></b><small>Cartão ou app do banco.</small></label>
+</div>
+<small class="help" style="display:block;margin-top:.9rem;margin-bottom:.4rem">Não encontra o seu método? Indique-o nas observações.</small>
+<span class="err" style="margin-top:.5rem">Escolha como prefere pagar.</span></fieldset>
+
+
+
+<label class="ck-terms" style="margin-top:-.2rem"><input type="checkbox" id="nf"><span class="t">Preciso de fatura em nome de outra empresa (NIF / n.º de IVA)</span></label>
+
+<div class="f"><label for="voucher">Cupom ou indicação</label><input id="voucher" type="text" maxlength="40" autocomplete="off" placeholder="Opcional"></div>
+<div class="f" id="f-obs"><label for="obs">Quer contar mais? <i>(prazos, relatório que precisa entregar, dúvidas...)</i></label><textarea id="obs" maxlength="1000"></textarea></div>
+
+<label class="ck-terms" id="f-aceite"><input type="checkbox" id="aceite"><span class="t">Concordo em ser contatado(a) pelo Atlas ESG sobre este pedido e autorizo o uso destes dados para essa finalidade. Consulte os <a id="lnkTermos" href="#" target="_blank" rel="noopener">Termos de uso</a> e a <a id="lnkPriv" href="#" target="_blank" rel="noopener">Política de Privacidade</a>.</span><span class="err">Para enviar, é preciso concordar com o contato.</span></label>
+
+<div class="banner" id="banner" hidden role="alert"></div>
+<div class="btnrow"><button class="btn alt" id="bBack" type="button" data-go="2">← Voltar</button><button class="btn" id="btnSend" type="submit">Solicitar contratação</button></div>
+<p class="fine">Esta etapa não realiza nenhuma cobrança. Depois de recebermos o seu pedido, entraremos em contacto para confirmar os detalhes, emitir a fatura e combinar o pagamento.</p>
+</section>
+</form>
+
+<!-- CONFIRMAÇÃO (só após o servidor confirmar o recebimento) -->
+<section class="card done" id="pd" hidden tabindex="-1">
+
+<div class="ck-ic" aria-hidden="true">🌱</div>
+<h2>Solicitação registrada!</h2>
+<p class="lead main"><b>Obrigado pelo seu interesse no Atlas ESG.</b></p>
+<p class="lead">Recebemos os dados da sua solicitação. Agende já uma conversa com nossa equipe para confirmar os detalhes do plano, esclarecer dúvidas e alinhar os próximos passos do serviço.</p>
+<p class="sched-hint">Escolha o melhor horário para conversarmos sobre sua contratação.</p>
+<a class="btn sched" id="dSched" href="https://calendar.app.google/XkchScH43x5ic3gM9" target="_blank" rel="noopener">Agendar minha conversa</a>
+<p class="lead"><b>Esta solicitação não representa pagamento confirmado nem ativação automática do serviço.</b></p>
+
+<div class="sect">Resumo completo da solicitação</div>
+<div class="recap" id="dRecap"></div>
+
+<p class="doubt">Se preferir, você também pode entrar em contato diretamente: <a id="dContact" href="#" style="color:var(--blue-d);font-weight:600"></a></p>
+<a class="btn alt" id="dBack" href="/eu/">Voltar ao início</a>
+</section>
+</div>
+
+<!-- RESUMO (acompanha todas as etapas) -->
+<aside class="card sum" id="sum" aria-label="Resumo da contratação">
+<h2>Resumo da contratação</h2>
+<div class="plan"><div><em>Plano calculado</em><b id="sPlan"></b><span id="sTier"></span></div></div>
+<div id="sLines">
+<div class="ln"><span>Projetos</span><b id="sN"></b></div>
+<div class="ln"><span>Periodicidade desejada</span><b id="sPer"></b></div>
+<div class="ln"><span id="lDesc"></span><b id="lVal"></b></div>
+<div class="ln" id="sTemasL" hidden><span>Temas</span><b id="sTemas"></b></div>
+<div class="ln" id="sFwL" hidden><span>Frameworks</span><b id="sFw"></b></div>
+</div>
+<div class="save" id="lSave" hidden></div>
+<div class="tot"><span>Valor estimado</span><b><span class="v" id="tVal"></span><small id="tPer"></small></b></div>
+<div class="inst" id="tInst" hidden><b id="tInst1"></b><small id="tInst2"></small></div>
+<p class="note">Valores e periodicidade são condições comerciais a confirmar com nossa equipe. Nenhuma cobrança é feita nesta página.</p>
+</aside>
+</div>
+</main>
+
+<script>
+/* ============ CONFIGURAÇÃO ============ */
+const CONFIG={
+  /* URL do Apps Script (Web App) que grava as solicitações na planilha.
+     Veja apps-script-pre-contratacoes.gs. O script precisa responder JSON {"ok":true} quando gravar.
+     Enquanto estiver vazio, o envio NÃO é feito e o visitante vê um aviso com a opção de enviar por e-mail. */
+  ORDER_URL:(window.ATLAS_ENDPOINT||''),
+  CONTACT_EMAIL:'mjnicoletti@atlas-esg.com',
+  LANDING_URL:'/eu/',
+  TERMS_URL:'',
+  PRIVACY_URL:'',
+  SCHEDULE_URL:'https://calendar.app.google/XkchScH43x5ic3gM9',
+  TIMEOUT_MS:20000,
+  PRICES:{bussola:{y:500,m:50},rota:{y:400,m:40},expedicao:{y:300,m:30}},
+  TEMAS:['Clima e emissões','Energia','Água e efluentes','Resíduos e economia circular','Biodiversidade','Pessoas, diversidade e direitos humanos','Cadeia de fornecedores','Governança e ética','Impacto social','Outros'],
+  FRAMEWORKS:['GRI','GHG Protocol','IFRS S1 e S2','CSRD','VSME','CDP','Outros','Ainda não definido']
+};
+const MERCADO='EU';const STATUS_INICIAL='Nova solicitação',ORIGEM='Site Atlas ESG',FW_NONE='Ainda não definido';
+/* ================================== */
+const $=id=>document.getElementById(id);
+const track=(n,p)=>{try{window.plausible?.(n,{props:p})}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TIERS=[{k:'bussola',n:'Bússola',max:1,lbl:'1 projeto'},{k:'rota',n:'Rota',max:5,lbl:'2 a 5 projetos'},{k:'expedicao',n:'Expedição',max:Infinity,lbl:'Mais de 5 projetos'}];
+const START={bussola:1,rota:2,expedicao:6};
+const LOCS={'pt-PT':'pt-PT',en:'en-IE',es:'es-ES'};
+const fmt=n=>{const d=Number.isInteger(n)?0:2;return '€ '+new Intl.NumberFormat(LOCS[document.documentElement.lang]||'pt-PT',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n)};
+const discOf=p=>({pct:Math.round((1-p.y/(p.m*12))*100),free:Math.round(12-p.y/p.m)});
+
+const qs=new URLSearchParams(location.search);
+const clamp=v=>Math.max(1,Math.min(99,parseInt(v)||1));
+const st={n:clamp(qs.get('n')||START[qs.get('plano')]||1),per:qs.get('per')==='m'?'m':'y',locked:false,sending:false,sent:false,id:null,step:1,reached:1,contatoTouched:false};
+st.u=st.n;st.f=1; /* unidades × frameworks = projetos */
+
+const tier=()=>TIERS.find(t=>st.n<=t.max);
+const priceOf=k=>{const p=CONFIG.PRICES[k];return st.per==='m'?p.m:p.y};
+const unit=()=>priceOf(tier().k);
+const total=()=>unit()*st.n;
+const perLabel=()=>st.per==='y'?'anual':'mensal';
+const perCap=()=>st.per==='y'?'Anual':'Mensal';
+const projLabel=n=>n+' '+(n===1?'projeto':'projetos');
+
+function banner(msg,kind){const b=$('banner');b.textContent='';if(!msg){b.hidden=true;return}b.className='banner '+(kind||'err');b.append(msg);b.hidden=false;return b}
+
+/* chips (temas e frameworks) */
+const chips=(id,name,list)=>{$(id).innerHTML=list.map(x=>'<label class="chip"><input type="checkbox" name="'+name+'" value="'+esc(x)+'"><span>'+esc(x)+'</span></label>').join('')};
+chips('temas','tema',CONFIG.TEMAS);
+chips('fws','fw',CONFIG.FRAMEWORKS);
+const checked=name=>[...document.querySelectorAll('input[name='+name+']:checked')].map(i=>i.value);
+$('fws').addEventListener('change',e=>{ /* "Ainda não definido" é exclusivo */
+  const i=e.target;if(!i.checked)return;
+  document.querySelectorAll('#fws input').forEach(o=>{if(o!==i&&((i.value===FW_NONE)||o.value===FW_NONE))o.checked=false})});
+['temas','fws'].forEach(id=>$(id).addEventListener('change',renderSummary));
+
+function renderSummary(){
+  const t=tier(),p=CONFIG.PRICES[t.k],n=st.n,u=unit(),T=total(),y=st.per==='y',lk=st.locked;
+  $('sPlan').textContent=t.n;$('sTier').textContent='Faixa · '+t.lbl;
+  $('sN').textContent=projLabel(n);$('sPer').textContent=perCap();
+  const ae=document.activeElement;if(ae!==$('pcU'))$('pcU').value=st.u;if(ae!==$('pcF'))$('pcF').value=st.f;$('pcU').disabled=$('pcF').disabled=lk;$('pcN').textContent=projLabel(n);$('pcT').textContent='Faixa · '+t.n;
+  $('pM').setAttribute('aria-pressed',String(!y));$('pY').setAttribute('aria-pressed',String(y));$('pM').disabled=$('pY').disabled=lk;
+  $('lDesc').textContent='Preço por projeto';$('lVal').textContent=fmt(u);
+  const tm=checked('tema'),fw=checked('fw');
+  $('sTemasL').hidden=!tm.length;$('sTemas').textContent=tm.join(', ');
+  $('sFwL').hidden=!fw.length;$('sFw').textContent=fw.join(', ');
+  const sv=p.m*12*n-p.y*n,pct=Math.round((1-p.y/(p.m*12))*100);
+  $('lSave').hidden=!y;if(y)$('lSave').textContent='Economia de '+fmt(sv)+' ('+pct+'%) em relação ao plano mensal';
+  $('tInst').hidden=!y;if(y){const dc=discOf(p);$('tInst1').textContent=dc.pct+'% de desconto · '+dc.free+' meses grátis';$('tInst2').textContent='Plano mensal: '+fmt(p.m*n)+' por mês'}
+  $('tVal').textContent=fmt(T);$('tPer').textContent=(y?'por ano':'por mês')+' · '+projLabel(n)+' × '+fmt(u);
+}
+const clampTo=(v,mx)=>Math.max(1,Math.min(mx,parseInt(v)||1));
+function setUF(){if(st.locked)return;st.u=clampTo($('pcU').value,99);st.f=clampTo($('pcF').value,20);st.n=st.u*st.f;renderSummary()}
+['pcU','pcF'].forEach(id=>{$(id).addEventListener('input',setUF);$(id).addEventListener('change',()=>{setUF();$('pcU').value=st.u;$('pcF').value=st.f})});
+$('pM').onclick=()=>{if(!st.locked){st.per='m';renderSummary()}};
+$('pY').onclick=()=>{if(!st.locked){st.per='y';renderSummary()}};
+
+/* máscara e validações */
+const digits=s=>(s||'').replace(/\D/g,'');
+const GRP3=['+351','+34'];
+function maskTel(v,cc){let d=digits(v);if(GRP3.includes(cc)){d=d.slice(0,9);return d.replace(/(\d{3})(?=\d)/g,'$1 ').trim()}return d.slice(0,15)}
+const phPh=cc=>GRP3.includes(cc)?'912 345 678':'Número de telefone';
+$('tel').addEventListener('input',e=>{e.target.value=maskTel(e.target.value,$('telCountry').value)});
+$('telCountry').addEventListener('change',()=>{const other=$('telCountry').value==='+other';$('f-telOtherCountry').hidden=!other;if(!other)$('telOtherCountry').value='';$('tel').placeholder=phPh($('telCountry').value);$('tel').value=maskTel($('tel').value,$('telCountry').value)});
+$('temas').addEventListener('change',()=>{const other=checked('tema').includes('Outros');$('f-temaOutro').hidden=!other;if(!other)$('temaOutro').value=''});
+const emailOk=v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+const safeUrl=u=>/^https:\/\/[^\s]+$/i.test(u||'')?u:null;
+const val=id=>$(id).value.trim();
+function bad(id,flag){const el=$(id);el.classList.toggle('bad',!!flag);const i=el.querySelector('input,textarea,select');if(i)i.setAttribute('aria-invalid',String(!!flag));return !flag}
+
+$('perfil').addEventListener('change',()=>{const o=$('perfil').value==='Outro';$('f-perfilOutro').hidden=!o;if(!o)$('perfilOutro').value=''});
+$('contato').addEventListener('change',()=>{st.contatoTouched=true;bad('f-contato',false)});
+/* sugere o canal conforme o WhatsApp informado, enquanto a pessoa não escolher manualmente */
+function syncContato(){if(digits($('tel').value).length>=8)bad('f-contato',false)} /* e-mail é o padrão; WhatsApp só se a pessoa escolher */
+$('tel').addEventListener('input',syncContato);syncContato();
+
+function newRequestId(){const d=new Date(),p=n=>String(n).padStart(2,'0');
+  const r=Array.from(crypto.getRandomValues(new Uint8Array(4)),b=>(b%36).toString(36)).join('').toUpperCase();
+  return 'ATL'+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+r}
+const prettyId=id=>id.replace(/^(ATL)(\d{6})(.+)$/,'$1-$2-$3');
+
+/* dados do formulário (lidos no envio) */
+const readForm=()=>({nome:val('nome'),email:val('email'),tel:val('tel')?(($('telCountry').value==='+other'?val('telOtherCountry'):$('telCountry').value)+' '+val('tel')):'',empresa:val('empresa'),perfil:$('perfil').value,perfilOutro:$('perfil').value==='Outro'?val('perfilOutro'):'',
+  temas:[...checked('tema').filter(x=>x!=='Outros'), ...(checked('tema').includes('Outros')?['Outros'+(val('temaOutro')?': '+val('temaOutro'):'')]:[])],fws:checked('fw'),pag:checked('pag')[0]||'',nf:$('nf').checked,quando:$('quando').value,contato:$('contato').value,
+  voucher:val('voucher'),origem:$('origem').value,obs:val('obs'),aceite:$('aceite').checked});
+
+/* navegação entre etapas */
+function setSteps(done){
+  ['s1','s2','s3'].forEach((sid,i)=>{const el=$(sid),k=i+1,isDone=done||k<st.step;
+    el.classList.toggle('on',!done&&k===st.step);el.classList.toggle('done',isDone);
+    el.querySelector('b').textContent=isDone?'✓':String(k);
+    el.querySelector('button').disabled=!!done||st.sending||k>st.reached||k===st.step})}
+function go(n,noScroll){
+  st.step=n;st.reached=Math.max(st.reached,n);
+  ['p1','p2','p3'].forEach((id,i)=>$(id).hidden=i+1!==n);
+  banner('');
+  setSteps();
+  if(!noScroll){const y=document.querySelector('.steps').getBoundingClientRect().top+window.scrollY-88;window.scrollTo({top:Math.max(0,y),behavior:'smooth'})}}
+function validateStep2(){
+  const v=readForm();
+  const ok=[bad('f-nome',v.nome.split(/\s+/).filter(Boolean).length<2),bad('f-email',!emailOk(v.email)),bad('f-tel',v.tel&&digits(v.tel).length<10),bad('f-contato',v.contato==='WhatsApp'&&digits(v.tel).length<10)];
+  if(ok.includes(false)){let first=document.querySelector('#p2 .f.bad input,#p2 .f.bad select');if(first&&first.id==='contato')first=$('tel');if(first)first.focus();return false}
+  return true}
+function validateStep3(){
+  const v=readForm();
+  const ok=[bad('f-pag',!v.pag)];
+  const terms=v.aceite;$('f-aceite').classList.toggle('bad',!terms);ok.push(terms);
+  if(ok.includes(false)){banner('Revise os campos destacados e tente novamente.','err');const first=document.querySelector('#p3 .bad input,#p3 .bad select');if(first)first.focus();return false}
+  return true}
+function goTo(n){if(st.locked||st.sending)return;if(n>=3&&!validateStep2())return go(2);go(n)}
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.go)));
+['nome','email','tel'].forEach(id=>$(id).addEventListener('input',()=>bad('f-'+id,false)));
+document.querySelectorAll('input[name=pag]').forEach(i=>i.addEventListener('change',()=>{bad('f-pag',false);banner('')}));
+$('aceite').addEventListener('change',()=>$('f-aceite').classList.remove('bad'));
+
+function buildPayload(v){
+  const t=tier(),now=new Date();
+  return{
+    tipo:'pre_contratacao',pedido:st.id,
+    ts:now.toISOString(),data_hora:now.toLocaleString(LOCS[document.documentElement.lang]||'pt-PT',{timeZone:'Europe/Lisbon'}),
+    nome:v.nome,email:v.email,telefone:v.tel,empresa:v.empresa,perfil:v.perfil,perfil_outro:v.perfilOutro,
+    plano:t.n,faixa:t.lbl,unidades:st.u,frameworks_por_unidade:st.f,projetos:st.n,periodo:perLabel(),
+    valor_unitario:unit(),valor:total(),valor_estimado:total(),moeda:'EUR',mercado:'UE',idioma:document.documentElement.lang,
+    temas:v.temas.join('; '),frameworks:v.fws.join('; '),
+    forma_pagamento_preferida:v.pag,fatura_outra_empresa:v.nf?'Sim':'Não',
+    quando_comecar:v.quando,melhor_contato:v.contato,
+    voucher:v.voucher,como_conheceu:v.origem,observacoes:v.obs,aceite_contato:true,
+    status:STATUS_INICIAL,origem:ORIGEM,mercado:MERCADO,sessao:(window.atlasSid?atlasSid():''),canal:(window.atlasSrc?atlasSrc():''),idioma:document.documentElement.lang||'',pagina:location.href,referrer:document.referrer||'direto'};
+}
+
+/* envia e SÓ resolve se o servidor confirmar o recebimento ({"ok":true}) */
+async function submitRequest(payload){
+  const url=safeUrl(CONFIG.ORDER_URL);
+  if(!url){const e=new Error('ORDER_URL não configurada (ou não é https)');e.code='config';throw e}
+  const ctrl=new AbortController(),tm=setTimeout(()=>ctrl.abort(),CONFIG.TIMEOUT_MS);
+  try{
+    const r=await fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),signal:ctrl.signal,redirect:'follow'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    let j;try{j=await r.json()}catch(_){throw new Error('resposta inválida do servidor')}
+    if(!j||j.ok!==true)throw new Error((j&&j.error)||'o servidor não confirmou o recebimento');
+  }finally{clearTimeout(tm)}
+}
+
+function mailtoFallback(v){
+  const t=tier(),L=['Solicitação de contratação · Atlas ESG','',
+    'Nome: '+v.nome,'E-mail: '+v.email,'WhatsApp: '+(v.tel||'—'),'Empresa/organização: '+(v.empresa||'—'),'Perfil: '+(v.perfil||'—')+(v.perfilOutro?' ('+v.perfilOutro+')':''),'',
+    'Plano: '+t.n+' ('+t.lbl+')','Unidades de negócio: '+st.u,'Relatórios ou frameworks por unidade: '+st.f,'Projetos: '+st.n,'Periodicidade desejada: '+perLabel(),'Valor estimado: '+fmt(total()),
+    'Forma de pagamento preferida: '+v.pag,'Fatura em nome de outra empresa (NIF/IVA): '+(v.nf?'Sim':'Não'),
+    'Quando começar: '+v.quando,'Melhor contato: '+v.contato,'Cupom/indicação: '+(v.voucher||'—'),'Como conheceu: '+(v.origem||'—'),
+    'Temas: '+(v.temas.join(', ')||'—'),'Frameworks: '+(v.fws.join(', ')||'—'),'Observações: '+(v.obs||'—')];
+  return 'mailto:'+CONFIG.CONTACT_EMAIL+'?subject='+encodeURIComponent('Solicitação de contratação · Atlas ESG')+'&body='+encodeURIComponent(L.join('\n'))}
+
+function errorBanner(err,v){
+  const cfg=err&&err.code==='config';
+  const b=banner(cfg?'O envio online ainda não está disponível nesta página. Seus dados foram mantidos: você pode enviar a solicitação por e-mail. ':'Não foi possível enviar sua solicitação agora. Seus dados foram mantidos. Tente novamente em instantes ou envie por e-mail. ','err');
+  const a=document.createElement('a');a.href=mailtoFallback(v);a.textContent='Enviar por e-mail para '+CONFIG.CONTACT_EMAIL;b.append(a);
+  b.scrollIntoView({block:'center',behavior:'smooth'})}
+
+$('form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(st.sending||st.sent)return;                /* impede envio duplicado */
+  if(st.step===1)return go(2);
+  if(st.step===2){if(validateStep2())go(3);return}
+  if($('website').value)return;                  /* honeypot */
+  if(!validateStep2())return go(2);
+  banner('');
+  if(!validateStep3())return;
+  const v=readForm(),btn=$('btnSend');
+  st.sending=true;st.locked=true;btn.disabled=true;btn.textContent='Enviando…';$('bBack').disabled=true;renderSummary();setSteps();
+  if(!st.id)st.id=newRequestId();                /* mesmo protocolo em novas tentativas (permite deduplicar no servidor) */
+  const payload=buildPayload(v);
+  try{
+    await submitRequest(payload);
+    st.sent=true;showDone(payload,v);
+  }catch(err){
+    if(err&&err.code==='config'){st.sent=true;showDone(payload,v,true);return}  /* sem ORDER_URL: mostra o resumo como prévia, avisando que não foi enviado */
+    console.error('[Atlas] solicitação não enviada:',err&&err.message||err);
+    st.locked=false;errorBanner(err,v);
+  }finally{
+    st.sending=false;btn.disabled=false;btn.textContent='Solicitar contratação';$('bBack').disabled=false;renderSummary();if(!st.sent)setSteps()}
+});
+
+function showDone(p,v,preview){
+  const annual=p.periodo==='anual',per=annual?' por ano':' por mês';
+  const rows=[],add=(a,html)=>{if(html!==''&&html!=null)rows.push('<div class="ln"><span>'+a+'</span>'+html+'</div>')};
+  const txt=x=>x?'<b>'+esc(x)+'</b>':'';
+  const tags=l=>l&&l.length?'<b class="tags">'+l.map(x=>'<span class="tg">'+esc(x)+'</span>').join('')+'</b>':'';
+  let when='';try{when=new Date(p.ts).toLocaleString(LOCS[document.documentElement.lang]||'pt-PT',{timeZone:'Europe/Lisbon',dateStyle:'short',timeStyle:'short'})}catch(e){when=p.data_hora||''}
+  add('Número da solicitação',txt(prettyId(p.pedido)));
+  add('Data e hora do envio',txt(when));
+  add('Nome e sobrenome',txt(p.nome));
+  add('E-mail',txt(p.email));
+  add('WhatsApp',txt(p.telefone));
+  add('Empresa ou organização',txt(p.empresa));
+  add('Plano',txt(p.plano+' · '+p.faixa));
+  if(p.unidades)add('Unidades de negócio',txt(String(p.unidades)));
+  if(p.frameworks_por_unidade)add('Relatórios ou frameworks por unidade',txt(String(p.frameworks_por_unidade)));
+  add('Quantidade de projetos',txt(String(p.projetos)));
+  add('Periodicidade desejada',txt(annual?'Anual':'Mensal'));
+  add('Valor estimado por projeto',txt(fmt(p.valor_unitario)+per));
+  add('Valor total estimado',txt(fmt(p.valor_estimado)+per));
+  if(annual){const dc=discOf(CONFIG.PRICES[tier().k]);add('Desconto do plano anual',txt(dc.pct+'% de desconto · '+dc.free+' meses grátis'))}
+  add('Forma de pagamento preferida',txt(p.forma_pagamento_preferida));
+  if(v.nf)add('Fatura em nome de outra empresa (NIF / n.º de IVA)',txt('Sim'));
+  add('Cupom ou indicação',txt(p.voucher));
+  add('Temas ESG selecionados',tags(v.temas));
+  add('Frameworks selecionados',tags(v.fws));
+  add('Previsão de início',txt(p.quando_comecar));
+  add('Canal de contato',txt(p.melhor_contato));
+  add('Observações',p.observacoes?'<b class="obs">'+esc(p.observacoes)+'</b>':'');
+  $('dRecap').innerHTML=rows.join('');
+  ['p1','p2','p3','sum'].forEach(id=>$(id).hidden=true);$('pd').hidden=false;$('grid').classList.add('single');
+  setSteps(true);
+  if(!preview)track('precontratacao_enviada',{plano:p.plano,periodo:p.periodo});
+  window.scrollTo({top:0,behavior:'smooth'});$('pd').focus({preventScroll:true})}
+
+/* links */
+if($('backLink'))$('backLink').href=CONFIG.LANDING_URL+'#precos';$('homeBtn').href=CONFIG.LANDING_URL;$('dSched').href='https://calendar.app.google/XkchScH43x5ic3gM9';$('logoLink').href=CONFIG.LANDING_URL;$('dBack').href=CONFIG.LANDING_URL;
+const mail=$('dContact');mail.href='mailto:'+CONFIG.CONTACT_EMAIL;mail.textContent=CONFIG.CONTACT_EMAIL;
+[['lnkTermos',CONFIG.TERMS_URL],['lnkPriv',CONFIG.PRIVACY_URL]].forEach(([id,u])=>{const a=$(id);if(u)a.href=u;else{a.removeAttribute('href');a.removeAttribute('target');a.style.textDecoration='none'}});
+
+renderSummary();setSteps();
+track('precontratacao_vista',{plano:tier().n,periodo:perLabel()});
+</script>
+
+<script>
+(function(){const D={"← Voltar aos planos": [null, "← Back to plans", "← Volver a los planes"], "Contratar o Atlas": [null, "Get started with Atlas", "Contratar Atlas"], "Vamos começar com o Atlas ESG": [null, "Let's get started with Atlas ESG", "Empecemos con Atlas ESG"], "Escolha seu plano e informe os dados do projeto. Nossa equipe entrará em contato para confirmar os detalhes da contratação e orientar as próximas etapas.": ["Escolha o seu plano e indique os dados do projeto. A nossa equipa entrará em contacto para confirmar os detalhes da contratação e orientar os passos seguintes.", "Choose your plan and enter your project details. Our team will contact you to confirm the details and guide the next steps.", "Elige tu plan e informa los datos del proyecto. Nuestro equipo se pondrá en contacto para confirmar los detalles de la contratación y orientar los próximos pasos."], "Etapas": [null, "Steps", "Etapas"], "Configure seu plano": ["Configure o seu plano", "Configure your plan", "Configura tu plan"], "Informe seus dados": ["Indique os seus dados", "Enter your details", "Informa tus datos"], "Preferência de pagamento": [null, "Payment preference", "Preferencia de pago"], "Primeira etapa · Sem dados pessoais": [null, "Step 1 · No personal data", "Primera etapa · Sin datos personales"], "O plano e o valor se atualizam conforme o número de projetos e a periodicidade. Você vê o preço antes de informar qualquer dado.": ["O plano e o valor atualizam-se conforme o número de projetos e a periodicidade. Vê o preço antes de indicar qualquer dado.", "The plan and price update with the number of projects and billing period. You see the price before entering any personal data.", "El plan y el valor se actualizan según el número de proyectos y la periodicidad. Ves el precio antes de informar cualquier dato."], "Quantos projetos ESG você quer gerenciar?": ["Quantos projetos ESG quer gerir?", "How many ESG projects do you want to manage?", "¿Cuántos proyectos ESG quieres gestionar?"], "Diminuir": [null, "Decrease", "Disminuir"], "Aumentar": [null, "Increase", "Aumentar"], "projetos": [null, "projects", "proyectos"], "Os planos são contratados por projeto: o valor da faixa vale para cada projeto contratado. Um projeto é uma unidade de negócio com um relatório ESG ou framework.": ["Os planos são contratados por projeto: o valor do escalão vale para cada projeto contratado. Um projeto é uma unidade de negócio com um relatório ESG ou framework.", "Plans are purchased per project: the tier price applies to each project. A project is a business unit with one ESG report or framework.", "Los planes se contratan por proyecto: el valor del tramo vale para cada proyecto contratado. Un proyecto es una unidad de negocio con un informe ESG o framework."], "Periodicidade desejada": ["Periodicidade pretendida", "Preferred billing period", "Periodicidad deseada"], "Mensal": [null, "Monthly", "Mensual"], "cancele quando quiser": [null, "cancel anytime", "cancela cuando quieras"], "Anual": [null, "Annual", "Anual"], "contrato de 12 meses": [null, "12-month contract", "contrato de 12 meses"], "Temas ESG de interesse": [null, "ESG topics of interest", "Temas ESG de interés"], "(opcional)": [null, "(optional)", "(opcional)"], "Frameworks de interesse": [null, "Frameworks of interest", "Frameworks de interés"], "Continuar": [null, "Continue", "Continuar"], "Segunda etapa · Contato e qualificação": ["Segunda etapa · Contacto e qualificação", "Step 2 · Contact and qualification", "Segunda etapa · Contacto y calificación"], "Só nome e e-mail são obrigatórios. Os demais campos nos ajudam a entender o seu contexto e não bloqueiam o envio.": ["Só o nome e o e-mail são obrigatórios. Os restantes campos ajudam-nos a perceber o seu contexto e não bloqueiam o envio.", "Only name and email are required. The other fields help us understand your context and do not block submission.", "Solo el nombre y el correo son obligatorios. Los demás campos nos ayudan a entender tu contexto y no bloquean el envío."], "Nome e sobrenome": ["Nome e apelido", "First and last name", "Nombre y apellido"], "Informe nome e sobrenome.": ["Indique nome e apelido.", "Enter your first and last name.", "Indica nombre y apellido."], "Unidades de negócio": [null, "Business units", "Unidades de negocio"], "Relatórios ou frameworks por unidade": [null, "Reports or frameworks per unit", "Informes o frameworks por unidad"], "Multiplique unidades por frameworks: uma empresa com 2 filiais e 3 frameworks tem 6 projetos.": [null, "Multiply units by frameworks: a company with 2 branches and 3 frameworks has 6 projects.", "Multiplica unidades por frameworks: una empresa con 2 sucursales y 3 frameworks tiene 6 proyectos."], "🌐 Outro": [null, "🌐 Other", "🌐 Otro"], "E-mail profissional ou de contato": ["E-mail profissional ou de contacto", "Work or contact email", "Correo profesional o de contacto"], "Informe um e-mail válido.": ["Indique um e-mail válido.", "Enter a valid email.", "Informa un correo válido."], "Confira o número com DDD.": ["Confirme o número com indicativo.", "Check the number, including area code.", "Revisa el número con el código de área."], "Empresa ou organização": [null, "Company or organization", "Empresa u organización"], "Perfil": [null, "Profile", "Perfil"], "Selecione": [null, "Select", "Selecciona"], "Empresa": [null, "Company", "Empresa"], "Consultoria ESG": [null, "ESG consultancy", "Consultoría ESG"], "Consultor independente": [null, "Independent consultant", "Consultor independiente"], "Outro": [null, "Other", "Otro"], "Qual?": [null, "Which?", "¿Cuál?"], "← Voltar": [null, "← Back", "← Volver"], "Terceira etapa · Preferência de pagamento": [null, "Step 3 · Payment preference", "Tercera etapa · Preferencia de pago"], "Como prefere pagar?": [null, "How would you prefer to pay?", "¿Cómo prefieres pagar?"], "Nesta etapa não é cobrado nada. Combinamos o valor e o pagamento com você por e-mail ou WhatsApp.": ["Nesta etapa não é cobrado nada. Combinamos o valor e o pagamento consigo por e-mail ou WhatsApp.", "Nothing is charged at this step. We agree on the amount and payment with you by email or WhatsApp.", "En esta etapa no se cobra nada. Acordamos el valor y el pago contigo por correo o WhatsApp."], "Forma de pagamento preferida": [null, "Preferred payment method", "Forma de pago preferida"], "Boleto": [null, "Bank slip (boleto)", "Boleto"], "Enviado por e-mail com vencimento.": ["Enviado por e-mail com data de vencimento.", "Sent by email with a due date.", "Enviado por correo con fecha de vencimiento."], "Pagamento na hora.": ["Pagamento imediato.", "Instant payment.", "Pago al instante."], "Cartão de crédito": [null, "Credit card", "Tarjeta de crédito"], "Enviamos um link de pagamento.": ["Enviamos uma ligação de pagamento.", "We send a payment link.", "Enviamos un enlace de pago."], "Escolha como prefere pagar.": [null, "Choose how you prefer to pay.", "Elige cómo prefieres pagar."], "Preciso de fatura em nome de outra empresa (NIF / n.º de IVA)": ["Preciso de fatura em nome de outra razão social / outro CNPJ", "I need an invoice issued to another legal entity / CNPJ", "Necesito factura a nombre de otra razón social / otro CNPJ"], "Quando quer começar?": [null, "When do you want to start?", "¿Cuándo quieres empezar?"], "Assim que possível": [null, "As soon as possible", "Lo antes posible"], "Nas próximas 2 semanas": [null, "Within the next 2 weeks", "En las próximas 2 semanas"], "Neste mês": [null, "This month", "Este mes"], "Mais para frente": ["Mais para a frente", "Later on", "Más adelante"], "Melhor forma de contato": ["Melhor forma de contacto", "Preferred way to be contacted", "Mejor forma de contacto"], "E-mail": [null, "Email", "Correo electrónico"], "Cupom ou indicação": ["Cupão ou indicação", "Coupon or referral", "Cupón o recomendación"], "Opcional": [null, "Optional", "Opcional"], "Onde conheceu o Atlas ESG?": [null, "Where did you hear about Atlas ESG?", "¿Dónde conociste Atlas ESG?"], "Selecione…": [null, "Select…", "Selecciona…"], "Indicação": ["Recomendação", "Referral", "Recomendación"], "Busca na internet": ["Pesquisa na internet", "Web search", "Búsqueda en internet"], "Evento": [null, "Event", "Evento"], "Comunidade/parceiro": [null, "Community/partner", "Comunidad/socio"], "Quer contar mais?": [null, "Want to tell us more?", "¿Quieres contarnos más?"], "(prazos, relatório que precisa entregar, dúvidas...)": ["(prazos, relatório que precisa de entregar, dúvidas...)", "(deadlines, report you need to deliver, questions...)", "(plazos, informe que debes entregar, dudas...)"], "Concordo em ser contatado(a) pelo Atlas ESG sobre este pedido e autorizo o uso destes dados para essa finalidade. Consulte os": ["Concordo em ser contactado(a) pelo Atlas ESG sobre este pedido e autorizo o uso destes dados para essa finalidade. Consulte os", "I agree to be contacted by Atlas ESG about this request and authorize the use of this data for that purpose. See the", "Acepto que Atlas ESG me contacte sobre este pedido y autorizo el uso de estos datos para esa finalidad. Consulta los"], "Termos de uso": ["Termos de utilização", "Terms of use", "Términos de uso"], "Política de Privacidade": [null, "Privacy Policy", "Política de Privacidad"], "Para enviar, é preciso concordar com o contato.": ["Para enviar, é preciso concordar com o contacto.", "To submit, you need to agree to be contacted.", "Para enviar, debes aceptar el contacto."], "Solicitar contratação": ["Pedir contratação", "Request purchase", "Solicitar contratación"], "Esta etapa não realiza nenhuma cobrança. Depois de recebermos o seu pedido, entraremos em contacto para confirmar os detalhes, emitir a fatura e combinar o pagamento.": ["Esta etapa não realiza qualquer cobrança. Depois de recebermos o seu pedido, entraremos em contacto para confirmar os detalhes, emitir a fatura e combinar o pagamento.", "This step does not charge you. After we receive your request, we will contact you to confirm the details, issue the invoice and arrange payment.", "Esta etapa no realiza ningún cobro. Tras recibir tu solicitud, nos pondremos en contacto para confirmar los detalles, emitir la factura y acordar el pago."], "Solicitação recebida!": ["Pedido recebido!", "Request received!", "¡Solicitud recibida!"], "Esta solicitação não representa pagamento confirmado nem ativação automática do serviço. O valor informado é uma estimativa, sujeita à confirmação pela nossa equipe.": ["Este pedido não representa um pagamento confirmado nem a ativação automática do serviço. O valor indicado é uma estimativa, sujeita a confirmação pela nossa equipa.", "This request is not a confirmed payment or automatic activation of the service. The amount shown is an estimate, subject to confirmation by our team.", "Esta solicitud no representa un pago confirmado ni la activación automática del servicio. El valor informado es una estimación, sujeta a confirmación por nuestro equipo."], "Alguma dúvida adicional? Escreva para": [null, "Any other questions? Write to", "¿Alguna duda adicional? Escribe a"], "Voltar ao início": [null, "Back to home", "Volver al inicio"], "Resumo da contratação": [null, "Purchase summary", "Resumen de la contratación"], "Plano calculado": [null, "Calculated plan", "Plan calculado"], "Projetos": [null, "Projects", "Proyectos"], "Temas": [null, "Topics", "Temas"], "Valor estimado": [null, "Estimated amount", "Valor estimado"], "Valores e periodicidade são condições comerciais a confirmar com nossa equipe. Nenhuma cobrança é feita nesta página.": ["Valores e periodicidade são condições comerciais a confirmar com a nossa equipa. Nenhuma cobrança é feita nesta página.", "Prices and billing period are commercial terms to be confirmed with our team. No charge is made on this page.", "Los valores y la periodicidad son condiciones comerciales a confirmar con nuestro equipo. No se realiza ningún cobro en esta página."], "Preço por projeto": [null, "Price per project", "Precio por proyecto"], "Plano": [null, "Plan", "Plan"], "Quantidade de projetos": [null, "Number of projects", "Cantidad de proyectos"], "Pagamento preferido": [null, "Preferred payment", "Pago preferido"], "Vencimento preferido": [null, "Preferred due date", "Vencimiento preferido"], "Melhor data de vencimento do boleto": [null, "Best due date for the boleto", "Mejor fecha de vencimiento del boleto"], "Usamos esta data como referência. A data final e eventuais parcelas são confirmadas com você pela nossa equipe.": ["Usamos esta data como referência. A data final e eventuais prestações são confirmadas consigo pela nossa equipa.", "We use this date as a reference. The final date and any installments are confirmed with you by our team.", "Usamos esta fecha como referencia. La fecha final y las eventuales cuotas las confirma contigo nuestro equipo."], "Escolha uma data de vencimento.": [null, "Choose a due date.", "Elige una fecha de vencimiento."], "Obrigado,": [null, "Thank you,", "Gracias,"], "Clima e emissões": [null, "Climate and emissions", "Clima y emisiones"], "Energia": [null, "Energy", "Energía"], "Água e efluentes": [null, "Water and effluents", "Agua y efluentes"], "Resíduos e economia circular": [null, "Waste and circular economy", "Residuos y economía circular"], "Biodiversidade": [null, "Biodiversity", "Biodiversidad"], "Pessoas, diversidade e direitos humanos": [null, "People, diversity and human rights", "Personas, diversidad y derechos humanos"], "Cadeia de fornecedores": [null, "Supply chain", "Cadena de proveedores"], "Governança e ética": [null, "Governance and ethics", "Gobernanza y ética"], "Impacto social": [null, "Social impact", "Impacto social"], "Outros": [null, "Other", "Otros"], "Ainda não definido": [null, "Not defined yet", "Aún no definido"], "1 projeto": [null, "1 project", "1 proyecto"], "2 a 5 projetos": [null, "2 to 5 projects", "2 a 5 proyectos"], "Mais de 5 projetos": [null, "More than 5 projects", "Más de 5 proyectos"], "1. Conversa rápida": [null, "1. Quick conversation", "1. Conversación rápida"], "Confirmamos projetos, periodicidade e valor.": [null, "We confirm projects, billing period and amount.", "Confirmamos proyectos, periodicidad y valor."], "2. Pagamento": [null, "2. Payment", "2. Pago"], "3. Acesso liberado": ["3. Acesso libertado", "3. Access granted", "3. Acceso habilitado"], "Ativamos o seu ambiente e ajudamos no primeiro projeto.": [null, "We activate your environment and help with your first project.", "Activamos tu entorno y te ayudamos con el primer proyecto."], "Revise os campos destacados e tente novamente.": ["Reveja os campos destacados e tente novamente.", "Please review the highlighted fields and try again.", "Revisa los campos destacados e inténtalo de nuevo."], "O envio online ainda não está disponível nesta página. Seus dados foram mantidos: você pode enviar a solicitação por e-mail.": ["O envio online ainda não está disponível nesta página. Os seus dados foram mantidos: pode enviar o pedido por e-mail.", "Online submission is not yet available on this page. Your data was kept: you can send the request by email.", "El envío en línea aún no está disponible en esta página. Tus datos se conservaron: puedes enviar la solicitud por correo."], "Não foi possível enviar sua solicitação agora. Seus dados foram mantidos. Tente novamente em instantes ou envie por e-mail.": ["Não foi possível enviar o seu pedido agora. Os seus dados foram mantidos. Tente novamente dentro de instantes ou envie por e-mail.", "We could not send your request right now. Your data was kept. Try again shortly or send it by email.", "No fue posible enviar tu solicitud ahora. Tus datos se conservaron. Inténtalo de nuevo en unos instantes o envíalo por correo."], "Enviando…": ["A enviar…", "Sending…", "Enviando…"], "(11) 99999-9999": ["(91) 912 345 678", "(11) 99999-9999", "(11) 99999-9999"], "Para contato por WhatsApp, informe o número acima ou escolha e-mail.": ["Para contacto por WhatsApp, indique o número acima ou escolha e-mail.", "To be contacted by WhatsApp, enter the number above or choose email.", "Para contacto por WhatsApp, informa el número arriba o elige correo electrónico."], "Início": [null, "Home", "Inicio"], "Bússola": [null, "Compass", "Brújula"], "Rota": [null, "Route", "Ruta"], "Expedição": [null, "Expedition", "Expedición"], "Resumo do seu pedido": ["Resumo do seu pedido", "Your request summary", "Resumen de tu solicitud"], "Canal de contato": ["Canal de contacto", "Contact channel", "Canal de contacto"], "Parcelamento": ["Prestações", "Installments", "Cuotas"], "Se preferir, você também pode entrar em contato diretamente:": ["Se preferir, também pode contactar-nos diretamente:", "If you prefer, you can also contact us directly:", "Si prefieres, también puedes contactarnos directamente:"], "Prévia: o envio online ainda não está configurado, então esta solicitação não foi enviada à nossa equipe.": ["Pré-visualização: o envio online ainda não está configurado, por isso este pedido não foi enviado à nossa equipa.", "Preview: online submission is not set up yet, so this request was not sent to our team.", "Vista previa: el envío en línea aún no está configurado, por lo que esta solicitud no se envió a nuestro equipo."], "Solicitação registrada!": ["Pedido registado!", "Request registered!", "¡Solicitud registrada!"], "Obrigado pelo seu interesse no Atlas ESG.": [null, "Thank you for your interest in Atlas ESG.", "Gracias por tu interés en Atlas ESG."], "Recebemos os dados da sua solicitação. Agende já uma conversa com nossa equipe para confirmar os detalhes do plano, esclarecer dúvidas e alinhar os próximos passos do serviço.": ["Recebemos os dados do seu pedido. Agende já uma conversa com a nossa equipa para confirmar os detalhes do plano, esclarecer dúvidas e alinhar o pagamento e os passos seguintes.", "We received your request details. Schedule a conversation with our team now to confirm the plan details, answer questions and align on payment and next steps.", "Recibimos los datos de tu solicitud. Agenda ahora una conversación con nuestro equipo para confirmar los detalles del plan, aclarar dudas y alinear el pago y los próximos pasos."], "Agendar minha conversa": ["Agendar a minha conversa", "Schedule my conversation", "Agendar mi conversación"], "Esta solicitação não representa pagamento confirmado nem ativação automática do serviço.": ["Este pedido não representa um pagamento confirmado nem a ativação automática do serviço.", "This request does not constitute confirmed payment or automatic activation of the service.", "Esta solicitud no representa un pago confirmado ni la activación automática del servicio."], "Escolha o melhor horário para conversarmos sobre sua contratação.": ["Escolha o melhor horário para conversarmos sobre a sua contratação.", "Pick the best time for us to talk about your purchase.", "Elige el mejor horario para conversar sobre tu contratación."], "Se preferir, você também receberá um e-mail com o resumo da solicitação e o link de agendamento.": ["Se preferir, também receberá um e-mail com o resumo do pedido e a ligação de agendamento.", "If you prefer, you will also receive an email with the request summary and the scheduling link.", "Si prefieres, también recibirás un correo con el resumen de la solicitud y el enlace de agendamiento."], "Resumo completo da solicitação": ["Resumo completo do pedido", "Full request summary", "Resumen completo de la solicitud"], "Os valores e as condições informados são estimativas e serão confirmados com nossa equipe antes da contratação. Esta solicitação não representa pagamento confirmado nem ativação automática do serviço.": ["Os valores e as condições indicados são estimativas e serão confirmados com a nossa equipa antes da contratação. Este pedido não representa um pagamento confirmado nem a ativação automática do serviço.", "The amounts and terms shown are estimates and will be confirmed with our team before purchase. This request is not a confirmed payment or automatic activation of the service.", "Los valores y condiciones informados son estimaciones y se confirmarán con nuestro equipo antes de la contratación. Esta solicitud no representa un pago confirmado ni la activación automática del servicio."], "Número da solicitação": ["Número do pedido", "Request number", "Número de solicitud"], "Data e hora do envio": ["Data e hora de envio", "Date and time sent", "Fecha y hora de envío"], "WhatsApp": [null, "WhatsApp", "WhatsApp"], "Valor estimado por projeto": [null, "Estimated price per project", "Valor estimado por proyecto"], "Valor total estimado": [null, "Estimated total", "Valor total estimado"], "Nota fiscal em outra razão social / CNPJ": ["Fatura em nome de outra razão social / CNPJ", "Invoice to another legal entity / CNPJ", "Factura a nombre de otra razón social / CNPJ"], "Sim": [null, "Yes", "Sí"], "Temas ESG selecionados": [null, "Selected ESG topics", "Temas ESG seleccionados"], "Frameworks selecionados": [null, "Selected frameworks", "Frameworks seleccionados"], "Previsão de início": ["Previsão de arranque", "Expected start", "Inicio previsto"], "Observações": ["Observações", "Notes", "Observaciones"]};
+Object.assign(D,{"Em toda a Europa": [null, "Across Europe", "En toda Europa"], "Métodos locais": [null, "Local methods", "Métodos locales"], "Cartão de crédito ou débito": [null, "Credit or debit card", "Tarjeta de crédito o débito"], "Enviamos um link de pagamento seguro.": [null, "We send a secure payment link.", "Te enviamos un enlace de pago seguro."], "Pague com a sua conta PayPal.": [null, "Pay with your PayPal account.", "Paga con tu cuenta de PayPal."], "Débito direto SEPA": [null, "SEPA Direct Debit", "Adeudo directo SEPA"], "Cobrança automática na sua conta (IBAN).": [null, "Automatic charge to your bank account (IBAN).", "Cobro automático en tu cuenta (IBAN)."], "Transferência bancária (SEPA)": [null, "Bank transfer (SEPA)", "Transferencia bancaria (SEPA)"], "Enviamos o IBAN e a referência.": [null, "We send the IBAN and payment reference.", "Te enviamos el IBAN y la referencia."], "Pagamento no telemóvel.": [null, "Pay from your phone.", "Pago desde el móvil."], "Entidade e referência para pagar no banco ou no ATM.": [null, "Entity and reference to pay at your bank or ATM.", "Entidad y referencia para pagar en el banco o cajero."], "Pagamento online através do seu banco.": [null, "Online payment through your bank.", "Pago online a través de tu banco."], "Cartão ou app do banco.": [null, "Bank card or banking app.", "Tarjeta o app del banco."], "Não encontra o seu método? Indique-o nas observações.": [null, "Don't see your method? Tell us in the notes.", "¿No ves tu método? Indícalo en las observaciones."], "Preciso de fatura em nome de outra empresa (NIF / n.º de IVA)": [null, "I need an invoice in the name of another company (tax ID / VAT number)", "Necesito factura a nombre de otra empresa (NIF / n.º de IVA)"], "Fatura em nome de outra empresa (NIF / n.º de IVA)": [null, "Invoice in the name of another company (tax ID / VAT number)", "Factura a nombre de otra empresa (NIF / n.º de IVA)"], "Esta etapa não realiza nenhuma cobrança. Depois de recebermos o seu pedido, entraremos em contacto para confirmar os detalhes, emitir a fatura e combinar o pagamento.": [null, "No payment is taken at this step. Once we receive your request, we will contact you to confirm the details, issue the invoice and arrange payment.", "En este paso no se realiza ningún cobro. Cuando recibamos tu solicitud, nos pondremos en contacto para confirmar los detalles, emitir la factura y acordar el pago."], "2 meses grátis · 17% de desconto": [null, "2 months free · 17% off", "2 meses gratis · 17% de descuento"], "Desconto do plano anual": [null, "Annual plan discount", "Descuento del plan anual"], "Número de telefone": [null, "Phone number", "Número de teléfono"], "Espanha": [null, "Spain", "España"], "França": [null, "France", "Francia"], "Alemanha": [null, "Germany", "Alemania"], "Itália": [null, "Italy", "Italia"], "Países Baixos": [null, "Netherlands", "Países Bajos"], "Bélgica": [null, "Belgium", "Bélgica"], "Irlanda": [null, "Ireland", "Irlanda"], "Luxemburgo": [null, "Luxembourg", "Luxemburgo"], "Reino Unido": [null, "United Kingdom", "Reino Unido"], "Suíça": [null, "Switzerland", "Suiza"], "Brasil": [null, "Brazil", "Brasil"], "EUA/Canadá": [null, "USA/Canada", "EE. UU./Canadá"]});
+const LB={'pt-PT':'PT-PT',en:'EN',es:'ES'},ix={'pt-PT':0,en:1,es:2};let cur='pt-PT',tm;const orig=new WeakMap();
+const pl=(n,a,b)=>+n===1?a:b;
+function look(k,l){const t=D[k];return t?(t[ix[l]]||null):null}
+function dyn(k,l){let m;const en=l==='en',pt=l==='pt-PT';
+if(m=k.match(/^Faixa · (.+)$/)){const w=look(m[1],l)||m[1];return (en?'Tier · ':pt?'Escalão · ':'Tramo · ')+w}
+if(m=k.match(/^(\d+) (projeto|projetos)$/)){if(pt)return null;return m[1]+' '+(en?pl(m[1],'project','projects'):pl(m[1],'proyecto','proyectos'))}
+if(m=k.match(/^Economia de (€\s[\d.,\u00a0\u202f ]+) \((\d+)%\) em relação ao plano mensal$/))return en?'Savings of '+m[1]+' ('+m[2]+'%) compared with the monthly plan':pt?'Poupança de '+m[1]+' ('+m[2]+'%) face ao plano mensal':'Ahorro de '+m[1]+' ('+m[2]+'%) frente al plan mensual';
+if(m=k.match(/^(por ano|por mês) · (\d+) (projeto|projetos) × (€\s[\d.,\u00a0\u202f ]+)$/)){if(pt)return null;const per=m[1]==='por ano'?(en?'per year':'por año'):(en?'per month':'por mes');return per+' · '+m[2]+' '+(en?pl(m[2],'project','projects'):pl(m[2],'proyecto','proyectos'))+' × '+m[4]}
+if(m=k.match(/^(€\s[\d.,\u00a0\u202f ]+) (por ano|por mês)$/)){if(pt)return null;const per=m[2]==='por ano'?(en?'per year':'por año'):(en?'per month':'por mes');return m[1]+' '+per}
+if(m=k.match(/^(por ano|por mês)$/)){if(pt)return null;return m[1]==='por ano'?(en?'per year':'por año'):(en?'per month':'por mes')}
+if(m=k.match(/^(Bússola|Rota|Expedição) · (.+)$/)){const w=look(m[2],l)||m[2],nm=look(m[1],l)||m[1];return nm+' · '+w}
+if(m=k.match(/^(\d+)% de desconto · (\d+) meses grátis$/))return pt?null:en?m[1]+'% off · '+m[2]+' months free':m[1]+'% de descuento · '+m[2]+' meses gratis';
+if(m=k.match(/^Plano mensal: (€\s[\d.,\u00a0\u202f ]+) por mês$/))return pt?null:en?'Monthly plan: '+m[1]+' per month':'Plan mensual: '+m[1]+' por mes';
+if(m=k.match(/^Dia (\d+)$/))return pt?null:(en?'Day ':'Día ')+m[1];
+if(m=k.match(/^\. Recebemos sua solicitação e vamos falar com você em até 1 dia útil, pelo canal de contato que você escolheu \((WhatsApp|e-mail)\), para confirmar os detalhes da contratação\. O acesso e o início do serviço serão alinhados após a formalização\.$/)){const via=m[1]==='WhatsApp'?'WhatsApp':(en?'email':pt?'e-mail':'correo electrónico');return en?'. We received your request and will contact you within 1 business day, through the contact channel you chose ('+via+'), to confirm the details. Access and service start will be arranged after formalization.':pt?'. Recebemos o seu pedido e falaremos consigo em até 1 dia útil, através do canal de contacto que escolheu ('+via+'), para confirmar os detalhes da contratação. O acesso e o início do serviço serão alinhados após a formalização.':'. Recibimos tu solicitud y hablaremos contigo en hasta 1 día hábil, por el canal de contacto que elegiste ('+via+'), para confirmar los detalles de la contratación. El acceso y el inicio del servicio se acordarán tras la formalización.'}
+if(m=k.match(/^Enviamos (o boleto|as instruções do Pix|o link de pagamento do cartão) e orientamos a nota fiscal, como você escolheu\.$/)){const o=m[1];return en?'We send '+(o==='o boleto'?'the boleto':o==='as instruções do Pix'?'the Pix instructions':'the card payment link')+' and guide you on the invoice, as you chose.':pt?null:'Enviamos '+(o==='o boleto'?'el boleto':o==='as instruções do Pix'?'las instrucciones de Pix':'el enlace de pago con tarjeta')+' y te orientamos con la factura, como elegiste.'}
+if(m=k.match(/^Enviar por e-mail para (.+)$/))return en?'Send by email to '+m[1]:pt?null:'Enviar por correo a '+m[1];
+return null}
+function tr(k,l){if(l==='pt-BR'||!k)return null;return look(k,l)||dyn(k,l)}
+const ATTR=['placeholder','title','aria-label'];
+function apply(l){cur=l;document.documentElement.lang=l;
+const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>/^(SCRIPT|STYLE|TEXTAREA)$/.test(n.parentNode.nodeName)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});let n;
+while(n=w.nextNode()){let r=orig.get(n);if(!r||n.nodeValue!==r.t){r={o:n.nodeValue,t:n.nodeValue};orig.set(n,r)}const o=r.o,k=o.trim(),v=l==='pt-BR'?null:tr(k,l),nv=v?o.replace(k,v):o;n.nodeValue=nv;r.t=nv}
+document.querySelectorAll('[placeholder],[title],[aria-label]').forEach(el=>{const st=el.__o||(el.__o={});ATTR.forEach(a=>{if(!el.hasAttribute(a))return;const cv=el.getAttribute(a);let r=st[a];if(!r||cv!==r.t){r={o:cv,t:cv};st[a]=r}const v=l==='pt-BR'?null:tr(r.o.trim(),l),nv=v||r.o;if(nv!==cv)el.setAttribute(a,nv);r.t=nv})});
+document.querySelectorAll('.langCur').forEach(e=>e.textContent=LB[l]);document.querySelectorAll('.lm [data-l]').forEach(b=>b.classList.toggle('on',b.dataset.l===l));try{localStorage.setItem('atlas_lang_eu',l)}catch(e){}}
+const box=document.querySelector('.lang'),menu=box.querySelector('.lm'),btn=box.querySelector('.cur');
+const close=()=>{menu.hidden=true;btn.setAttribute('aria-expanded','false')};
+btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden=!menu.hidden;btn.setAttribute('aria-expanded',String(!menu.hidden))});
+menu.querySelectorAll('[data-l]').forEach(b=>b.addEventListener('click',()=>{const l=b.dataset.l;apply(l);if(typeof renderSummary==='function')renderSummary();apply(l);close()}));
+document.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+new MutationObserver(()=>{if(cur==='pt-BR')return;clearTimeout(tm);tm=setTimeout(()=>apply(cur),60)}).observe(document.body,{childList:true,subtree:true});
+let sv=null;try{sv=localStorage.getItem('atlas_lang_eu')}catch(e){}const L0=(sv&&LB[sv])?sv:'pt-PT';document.documentElement.lang=L0;if(typeof renderSummary==='function')renderSummary();apply(L0);window.__atlasLang=apply;})();
+</script>
+</body></html>
