@@ -3,7 +3,7 @@
    - Para trocar o destino, edite SÓ a linha ATLAS_ENDPOINT abaixo.
    - Não guarda dados pessoais: usa apenas um ID aleatório de sessão (sessionStorage). */
 (function () {
-  var ATLAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx28Wflr2f64pzEUzgGHJ3uyFQMx8wBLUuFfJqb65AflGoRGtXwReiVpwR5TjV0KYu-/exec';
+  var ATLAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzkv6uStyogphqY7UTOazF8lRL9_2sIuw3qVqIC0j6pRDN9M06yNI4i8ovZE3-F-X4USg/exec';
   window.ATLAS_ENDPOINT = ATLAS_ENDPOINT;
 
   function ss(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) {} return null; }
