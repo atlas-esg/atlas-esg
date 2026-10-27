@@ -433,7 +433,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 </div>
 </div></section>
 <script>
-const CONFIG={DEMO_URL:'/demo/',FREE_TEST_URL:'/teste-gratis/',TESTER_FORM_URL:'',PAYMENT_LINKS:{bussola:'/br/pagamento.html',rota:'/br/pagamento.html',expedicao:'/br/pagamento.html'},CONTACT_EMAIL:'contato@atlas-esg.com',FOUNDER_ENABLED:false,
+const CONFIG={DEMO_URL:'/demo/',FREE_TEST_URL:'/teste-gratis/',TESTER_FORM_URL:'',PAYMENT_LINKS:{bussola:'/br/pagamento/',rota:'/br/pagamento/',expedicao:'/br/pagamento/'},CONTACT_EMAIL:'contato@atlas-esg.com',FOUNDER_ENABLED:false,
 PRICES:{bussola:{y:960,m:140},rota:{y:840,m:130},expedicao:{y:720,m:120}}};
 const store=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
 const track=(n,p)=>{try{window.plausible?.(n,{props:p})}catch(e){}};
