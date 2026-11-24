@@ -1,0 +1,20 @@
+# Atlas ESG
+
+> Atlas ESG é uma plataforma de dados ESG para consultorias ESG e empresas. Lê fontes de dados e evidências (faturas de energia, notas fiscais de combustível, contas de água, MTRs, planilhas de RH, relatórios em PDF, Excel, CSV, Word e imagens), extrai os valores, estrutura indicadores ambientais, sociais e de governança e relaciona cada indicador a frameworks de reporte (GRI, GHG Protocol escopos 1 e 2, IFRS S1 e S2, ESRS/CSRD e SASB), mantendo a origem de cada número visível para revisão e auditoria.
+
+- Público prioritário: consultorias ESG que atendem vários clientes; também equipes de sustentabilidade de empresas e auditores/verificadores ESG.
+- O Atlas não substitui o consultor: automatiza a coleta e a organização de dados para que o profissional dedique tempo à análise e à estratégia.
+- Ideia central: "um dado de entrada, múltiplas saídas" — o mesmo dado alimenta vários frameworks, com conversões de unidade e memorial de cálculo.
+- Mercados: Brasil (preços em R$) e Europa/Portugal (preços em €).
+- Planos por projeto (unidade de negócio × framework): Bússola (1 projeto), Rota (2 a 5), Expedição (mais de 5); mensal ou anual.
+- Demonstração gratuita com dados fictícios e teste gratuito com documentos reais, sem compromisso.
+- Integrações com sistemas e links para pastas na nuvem: em desenvolvimento.
+
+## Páginas
+- [Página principal (pt-BR)](https://atlas-esg.com/): o que é, como funciona, para quem é, planos e perguntas frequentes
+- [Versão Portugal/Europa (pt-PT, €)](https://atlas-esg.com/eu/)
+- [Demonstração](https://atlas-esg.com/demo/): exemplo navegável com dados fictícios
+- [Teste com documentos reais](https://atlas-esg.com/teste-gratis/)
+
+## Contato
+- mjnicoletti@atlas-esg.com
