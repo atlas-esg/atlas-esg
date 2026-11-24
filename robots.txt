@@ -1,0 +1,13 @@
+# Atlas ESG · robots.txt
+User-agent: *
+Allow: /
+# Páginas de formulário/contratação e arquivos antigos ou de exemplo (não precisam aparecer em buscas)
+Disallow: /br/pagamento/
+Disallow: /eu/pagamento/
+Disallow: /teste/
+Disallow: /comecar.html
+Disallow: /relatorio-sustentabilidade-exemplo.html
+Disallow: /demo/Frameworks_idiomas_corrigido.html
+Disallow: /demo/index%20(29).html
+
+Sitemap: https://atlas-esg.com/sitemap.xml
